@@ -47,8 +47,13 @@
     </div>
 </nav>
 
-<div>
-    <h1> n</h1>
+<div style="
+        background-color: red;
+        color: white;
+        padding: 1px 5px;
+        text-align: center;">
+    <h1 style="color:white"
+    > PLEASE PAY THE DUE AMOUNT</h1>
 </div>
 
 @yield('content')
