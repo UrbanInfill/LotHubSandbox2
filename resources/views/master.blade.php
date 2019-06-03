@@ -47,7 +47,9 @@
     </div>
 </nav>
 
-
+<div>
+    <h1> n</h1>
+</div>
 
 @yield('content')
 
