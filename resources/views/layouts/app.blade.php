@@ -67,7 +67,14 @@
                 </div>
             </div>
         </nav>
-
+        <div style="
+        background-color: red;
+        color: white;
+        padding: 1px 5px;
+        text-align: center;">
+            <h1 style="color:white"
+            > PLEASE PAY THE DUE AMOUNT</h1>
+        </div>
         <main class="py-4">
             @yield('content')
         </main>
