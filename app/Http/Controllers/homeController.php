@@ -28,7 +28,7 @@ class HomeController extends Controller
         if ($request->user()->authorizeRoles(['user']))
             return view('Lot');
         else
-            return redirect('/logout');
+            return "logout"; //redirect('/logout');
     }
 
     public function home(Request $request)
