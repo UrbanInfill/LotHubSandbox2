@@ -47,6 +47,7 @@
     </div>
 </nav>
 
+<!--
 <div style="
         background-color: red;
         color: white;
@@ -55,7 +56,7 @@
     <h1 style="color:white"
     > PLEASE PAY THE DUE AMOUNT</h1>
 </div>
-
+-->
 @yield('content')
 
 
