@@ -70,7 +70,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="js/main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.6/js/swiper.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr3wLM9PtI4J3mnoxzIONaohUgunBdBGEd &libraries=places&callback=initAutocomplete"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr3wLM9PtI4J3mnoxzIONaohUgunBdBGE&libraries=places&callback=initAutocomplete"></script>
 <script src="js/notify.js"></script>
 @yield('script')
 
