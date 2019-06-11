@@ -16,7 +16,7 @@
                 <div>
                     <div class="row">
                         <div class="col-6">
-                            <img width="100%" height="400" src="https://maps.googleapis.com/maps/api/streetview?size=800x400&location= {{$WholePropertydata["location"]["latitude"]}} ,{{$WholePropertydata["location"]["longitude"]}}&pitch=-0.76&key=" alt="">
+                            <img width="100%" height="400" src="https://maps.googleapis.com/maps/api/streetview?size=800x400&location= {{$WholePropertydata["location"]["latitude"]}} ,{{$WholePropertydata["location"]["longitude"]}}&pitch=-0.76&key=AIzaSyDBbjPoUE2JdpZVRrfUbYb94G969No8e6Y" alt="">
                         </div>
                         <div class="col-6">
                             <div class=" map" id="Mymap" style="width: 100%;height: 100%">
