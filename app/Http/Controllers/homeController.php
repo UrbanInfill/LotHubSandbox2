@@ -28,7 +28,7 @@ class HomeController extends Controller
         if ($request->user()->authorizeRoles(['user']))
             return view('Lot');
         else
-            return "logout"; //redirect('/logout');
+            return view('Lot'); //redirect('/logout');
     }
 
     public function home(Request $request)
@@ -44,7 +44,7 @@ class HomeController extends Controller
         if ($request->user()->authorizeRoles(['user']))
             return view('location');
         else
-            return redirect('/logout');
+            return view('Lot');
     }
 
     public function VacantProperties(Request $request)
