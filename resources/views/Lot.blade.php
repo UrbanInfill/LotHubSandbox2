@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
+                    <small><strong> Remaining Historically Search that can be saved {{$Rcout}} and {{$timeExceed}} </strong></small>
                     <label class="form-text text-muted" for="searchByPropForm">Enter the Zip-Code Below to Find Historically Platted Lots</label>
                     <div class="input-group  mb-3 search search-reduce" id="searchByPropForm">
                         <input class="form-control" id="search" name="address" type="text" placeholder="By Property"  onFocus="geolocate()" required="true" value="" aria-describedby="searchByProperty"/>
@@ -20,7 +21,7 @@
         <div class="col-md-6">
 
 
-            <div class=" map" id="map"></div>
+            <div class="map" id="map"></div>
 
 
 

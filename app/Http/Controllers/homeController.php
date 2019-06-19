@@ -5,6 +5,7 @@ use App\User;
 use App\Properties;
 use Auth;
 use Illuminate\Http\Request;
+use DateTime;
 
 class HomeController extends Controller
 {
@@ -25,55 +26,88 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->user()->authorizeRoles(['user']))
-            return view('Lot');
-        else
+        if ($request->user()->authorizeRoles(['user'])) {
+
+            $Currentuser = User::find($request->user()->id);
+            $date1 = new DateTime("now");
+            $getTime = strtotime($Currentuser->HistoricFirstDate ." + ".$request->user()->Historicresttime." days");
+            $time = date("Y-m-d H:i:s",$getTime);
+            $date2 = new DateTime($time);
+            $interval = date_diff( $date1,$date2);
+            $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+
+            return view('Lot')->with("Rcout",$Currentuser->Historicsavedcount)->with('timeExceed',$TimediffFormated);
+        }else
             return view('Lot'); //redirect('/logout');
     }
 
     public function home(Request $request)
     {
-        if ($request->user()->authorizeRoles(['user']))
-            return view('Lot');
-        else
+        if ($request->user()->authorizeRoles(['user'])) {
+
+            $Currentuser = User::find($request->user()->id);
+            $date1 = new DateTime("now");  $getTime = strtotime($Currentuser->HistoricFirstDate ." + ".$request->user()->Historicresttime." days");
+            $time = date("Y-m-d H:i:s",$getTime);
+            $date2 = new DateTime($time);
+            $interval = date_diff( $date1,$date2);
+            $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+
+            return view('Lot')->with("Rcout",$Currentuser->Historicsavedcount)->with('timeExceed',$TimediffFormated);
+        }else
             return redirect('/logout');
     }
 
     public function location(Request $request)
     {
-        if ($request->user()->authorizeRoles(['user']))
-            return view('location');
-        else
-            return view('Lot');
+        if ($request->user()->authorizeRoles(['user'])) {
+
+            $Currentuser = User::find($request->user()->id);
+            $TimediffFormated = null;
+            if(!$Currentuser->IsAddressRest) {
+                $date1 = new DateTime("now");
+                $getTime = strtotime($Currentuser->AddressFirstDate . " + " . $request->user()->Addressresttime . " days");
+                $time = date("Y-m-d H:i:s", $getTime);
+                $date2 = new DateTime($time);
+                $interval = date_diff($date1, $date2);
+                $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+            }
+            return view('location')->with("Rcout",$Currentuser->Addresssavedcount)->with('timeExceed',$TimediffFormated);
+        }else
+            return  redirect('/logout');
     }
 
     public function VacantProperties(Request $request)
     {
-        if ($request->user()->authorizeRoles(['user']))
-            return view('VacantProperties');
-        else
+        if ($request->user()->authorizeRoles(['user'])) {
+
+            $Currentuser = User::find($request->user()->id);
+            $TimediffFormated = null;
+            if(!$Currentuser->IsVacantRest) {
+                $date1 = new DateTime("now");
+                $getTime = strtotime($Currentuser->VacantFirstDate . " + " . $request->user()->Vacantresttime . " days");
+                $time = date("Y-m-d H:i:s", $getTime);
+                $date2 = new DateTime($time);
+                $interval = date_diff($date1, $date2);
+                $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+                }
+            return view('VacantProperties')->with("Rcout",$Currentuser->Vacantsavedcount)->with('timeExceed',$TimediffFormated);
+        }else
             return redirect('/logout');
     }
     public function ShowSave(Request $request)
     {
         if ($request->user()->authorizeRoles(['user'])) {
-            $getPropertiesCount = User::find($request->user()->id)->properties;
-            if(count($getPropertiesCount) > 0)
-            {
-                $getLastProperty = $getPropertiesCount->last();
-                $getTime = strtotime($getLastProperty->created_at->toDateString()." + ".$request->user()->resttime." days");
-                if($getTime < time())
-                {
-                    $u = User::find($request->user()->id);
-                    $u->savedcount = 0;
-                    $u->save();
-                }
-            }
+
             $Currentuser = User::find($request->user()->id);
+            $date1 = new DateTime("now");
+            $getTime = strtotime($Currentuser->SavedPropertyFirstDate ." + ".$request->user()->resttime." days");
+            $time = date("Y-m-d H:i:s",$getTime);
+            $date2 = new DateTime($time);
+            $interval = date_diff( $date1,$date2);
+            $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
             $propertiesList = $Currentuser->properties;
 
-
-            return view('SaveProperties')->with('propertiesList',$propertiesList)-> with("Rcout",10-$Currentuser->savedcount);
+            return view('SaveProperties')->with('propertiesList',$propertiesList)->with("Rcout",$Currentuser->savedcount)->with('timeExceed',$TimediffFormated);
         }
         else
             return redirect('/logout');
@@ -91,11 +125,6 @@ class HomeController extends Controller
         if ($request->user()->authorizeRoles(['user'])) {
             $property = Properties::find($id);
             $property->delete();
-            $u = User::find($request->user()->id);
-            if($u->savedcount > 0) {
-                $u->savedcount = $u->savedcount - 1;
-                $u->save();
-            }
             return redirect('/savedproperties');
         }
         else

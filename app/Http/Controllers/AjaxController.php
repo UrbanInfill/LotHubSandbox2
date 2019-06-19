@@ -30,31 +30,25 @@ class AjaxController extends Controller
     public function saveProperty(Request $request)
     {
         //return $request->user();
-        $getPropertiesCount = User::find($request->user()->id)->properties;
-
-        if(count($getPropertiesCount) > 0)
+        $getCurrentUser = User::find($request->user()->id);
+        if($getCurrentUser->IsSavedPropertyRest)
         {
-            $getLastProperty = $getPropertiesCount->last();
-            $getTime = strtotime($getLastProperty->created_at->toDateString()." + ".$request->user()->resttime." days");
-            if($getTime < time())
-            {
-                $u = User::find($request->user()->id);
-                $u->savedcount = 0;
-                $u->save();
-            }
+            $getCurrentUser->SavedPropertyFirstDate = date("Y-m-d H:i:s");
+            $getCurrentUser->IsSavedPropertyRest = false;
+            $getCurrentUser->save();
+            $getCurrentUser = User::find($request->user()->id);
         }
-        $Currentuser = User::find($request->user()->id);
-        $line1=$request->input('line1');
-        $line2=$request->input('line2');
-        if($Currentuser->savedcount < 10)
+        if($getCurrentUser->savedcount > 1)
         {
+            $line1=$request->input('line1');
+            $line2=$request->input('line2');
             $property = new Properties;
             $property->user_id= $request->user()->id;
             $property->line1  = $line1;
             $property->line2  = $line2;
             $property->save();
-            $Currentuser->savedcount = $Currentuser->savedcount + 1;
-            $Currentuser->save();
+            $getCurrentUser->savedcount = $getCurrentUser->savedcount - 1;
+            $getCurrentUser->save();
             return "Success";
         }
         return "Error";
@@ -366,6 +360,7 @@ class AjaxController extends Controller
             $geoValName[$area['geo_key']] = $area['name'];
         }
         $boundary = $this->getAreaBoundary($geoARRAY[0]);
+       // return $boundary;
         return response($boundary['response']['result']['package']['item'][0]['boundary']);
     }
     public function ExtendedDetail($line1, $line2)
@@ -433,17 +428,66 @@ class AjaxController extends Controller
 
         return $communityData;
     }
+
+
     public function getTotalPages(Request $request)
     {
         $lat = $request->input('lat');
         $lng = $request->input('lng');
-        $pagesize = 1;
-        $page = 1;
-        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
-        $result = $this->curlPOIAPI($url);
-        $total = $result['status']['total'];
-        $totalPages = $total / 1000;
-        return response($totalPages);
+        $isVacant = $request->input('isVacant');
+
+        $getCurrentUser = User::find($request->user()->id);
+        if($getCurrentUser->IsHistoricRest && $isVacant == 'false')
+        {
+            $getCurrentUser->HistoricFirstDate = date("Y-m-d H:i:s");
+            $getCurrentUser->IsHistoricRest = false;
+
+            $getCurrentUser->save();
+            $getCurrentUser = User::find($request->user()->id);
+        }
+        else if($getCurrentUser->IsVacantRest && $isVacant == 'true' )
+        {
+            $getCurrentUser->VacantFirstDate = date("Y-m-d H:i:s");
+            $getCurrentUser->IsVacantRest = false;
+            $getCurrentUser->save();
+            $getCurrentUser = User::find($request->user()->id);
+        }
+
+        if($getCurrentUser->Historicsavedcount > 0 && $isVacant == 'false')
+        {
+            $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
+            $getCurrentUser->save();
+
+            $pagesize = 1;
+            $page = 1;
+            $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
+            $result = $this->curlPOIAPI($url);
+            $total = $result['status']['total'];
+            $totalPages = $total / 1000;
+            return response($totalPages);
+        }
+        else if($getCurrentUser->Vacantsavedcount > 0 && $isVacant == 'true')
+        {
+            $getCurrentUser->Vacantsavedcount =  $getCurrentUser->Vacantsavedcount - 1;
+            $getCurrentUser->save();
+
+            $pagesize = 1;
+            $page = 1;
+            $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
+            $result = $this->curlPOIAPI($url);
+            $total = $result['status']['total'];
+            $totalPages = $total / 1000;
+            return response($totalPages);
+        }
+        else
+        {
+            return response('Error');
+        }
+
+
+
+
+
     }
     public function getPropertyResponse(Request $request)
     {
@@ -471,8 +515,28 @@ class AjaxController extends Controller
         $psArray["lat"] = $propertyInfo["property"][0]["location"]["latitude"];
         $psArray["lng"] = $propertyInfo["property"][0]["location"]["longitude"];
         $psArray["detailViews"] = $detailView;
-        return $psArray;
 
+
+
+        $getCurrentUser = User::find($request->user()->id);
+        if($getCurrentUser->IsAddressRest)
+        {
+            $getCurrentUser->AddressFirstDate = date("Y-m-d H:i:s");
+            $getCurrentUser->IsAddressRest = false;
+
+            $getCurrentUser->save();
+            $getCurrentUser = User::find($request->user()->id);
+        }
+        if($getCurrentUser->Historicsavedcount > 0) {
+            $getCurrentUser->Addresssavedcount = $getCurrentUser->Addresssavedcount - 1;
+            $getCurrentUser->save();
+
+            return $psArray;
+        }
+        else
+        {
+            return 'error';
+        }
     }
     public function school()
     {

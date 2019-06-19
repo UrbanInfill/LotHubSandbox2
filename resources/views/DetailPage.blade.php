@@ -116,7 +116,7 @@
                                         <tr>
                                             <td>
                                                 <hr/>
-
+                                                <!--
                                                 @if(array_key_exists("result",$OwnerInfo))
                                                     @if ( count( $OwnerInfo["result"]) > 0)
                                                         @foreach ($OwnerInfo["result"][0]["phone"] as $key => $info)
@@ -133,6 +133,7 @@
                                                         @endforeach
                                                     @endif
                                                 @endif
+                                                -->
 
 
                                             </td>

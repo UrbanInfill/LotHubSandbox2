@@ -4,7 +4,7 @@
 
     <div class="container">
         <h4>Saved Propeties list </h4>
-        <small><strong> Remaining Properties that can be saved {{$Rcout}} </strong></small>
+        <small><strong> Remaining Properties that can be saved {{$Rcout}} and {{$timeExceed}} </strong></small>
         <ul class="list-group" style="padding-top:10px ">
     @foreach($propertiesList as $item)
                 <li class="list-group-item list-group-item-action savedPropertiesList ">

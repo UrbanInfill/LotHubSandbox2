@@ -279,7 +279,10 @@ $('#searchByAddress').click(function (e) {
             $('#detailviewBTN').attr('href',link);
             f1();
             initMap(data["final_array"],data["lat"],data["lng"])
-        });
+        }).catch(error=>{
+        $.notify('You exceed the Address search limit', 'error');
+
+    });
         /*
     $.ajax({
         type:'post',
@@ -293,12 +296,13 @@ $('#searchByAddress').click(function (e) {
         timeout: 5000
     });*/
 });
-
+let g_BoolFor_HistoricSearch = true;
+let g_BoolFor_VacantSearch = true;
 function getlist(lat,lng,isVacant)
 {
     var totalPages = 10;
 
-    fetch(buildUrl('/getTotalPages',{lat:lat,lng:lng,zip:postalcode}), {
+    fetch(buildUrl('/getTotalPages',{lat:lat,lng:lng,zip:postalcode,isVacant:isVacant}), {
     method: "get", // *GET, POST, PUT, DELETE, etc.
     mode: "cors", // no-cors, cors, *same-origin
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -318,12 +322,23 @@ function getlist(lat,lng,isVacant)
         throw new Error(response.statusText)
     })
     .then(function(data) {
-        totalPages = data;
-        console.log(data);
-        searchCount = 0;
-        $("#poiContent").hide();
-        for (let i = 1; i <= totalPages; i++) {
-            console.log(postData('/allpropertiesList', {lat: lat, lng: lng, page: i, zip: postalcode},isVacant));
+        if(data === "Error")
+        {
+            if(!isVacant)
+                $.notify('You exceed the search limit in Historic lot', 'error');
+            else
+                $.notify('You exceed the search limit in Vacant lot', 'error')
+
+            return
+        }
+        else {
+            totalPages = data;
+            console.log(data);
+            searchCount = 0;
+            $("#poiContent").hide();
+            for (let i = 1; i <= totalPages; i++) {
+                console.log(postData('/allpropertiesList', {lat: lat, lng: lng, page: i, zip: postalcode}, isVacant));
+            }
         }
     });
 
@@ -892,7 +907,6 @@ function codeAddress(address,isVacant = false) {
                 cache:false,
                 complete:function(){
                     getlist(lat,lng,isVacant)
-
 
                     fetch(buildUrl('/getHouseInventry',{lat : lat,lng:lng}), {
                         method: "get", // *GET, POST, PUT, DELETE, etc.
