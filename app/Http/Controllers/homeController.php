@@ -145,7 +145,7 @@ class HomeController extends Controller
                 $date2 = new DateTime($time);
                 $interval = date_diff($date1, $date2);
                 $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
-                $propertiesList = $Currentuser->properties;
+
                 if ($date1 > $date2) {
                     $Currentuser->SavedPropertyFirstDate = null;
                     $Currentuser->IsSavedPropertyRest = true;
@@ -154,6 +154,7 @@ class HomeController extends Controller
                     $Currentuser = User::find($request->user()->id);
                 }
             }
+            $propertiesList = $Currentuser->properties;
             return view('SaveProperties')->with('propertiesList',$propertiesList)->with("Rcout",$Currentuser->savedcount)->with('timeExceed',$TimediffFormated);
         }
         else
