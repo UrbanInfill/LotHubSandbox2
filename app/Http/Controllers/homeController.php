@@ -27,14 +27,25 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if ($request->user()->authorizeRoles(['user'])) {
-
             $Currentuser = User::find($request->user()->id);
-            $date1 = new DateTime("now");
-            $getTime = strtotime($Currentuser->HistoricFirstDate ." + ".$request->user()->Historicresttime." days");
-            $time = date("Y-m-d H:i:s",$getTime);
-            $date2 = new DateTime($time);
-            $interval = date_diff( $date1,$date2);
-            $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+            $TimediffFormated = null;
+            if(!$Currentuser->IsHistoricRest) {
+
+                $date1 = new DateTime("now");
+                $getTime = strtotime($Currentuser->HistoricFirstDate . " + " . $request->user()->Historicresttime . " days");
+                $time = date("Y-m-d H:i:s", $getTime);
+                $date2 = new DateTime($time);
+                $interval = date_diff($date1, $date2);
+                $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+                if($date1 > $date2)
+                {
+                    $Currentuser->HistoricFirstDate = null;
+                    $Currentuser->IsHistoricRest = true;
+                    $Currentuser->Historicsavedcount =$Currentuser->HistoricTotalSaveCount;
+                    $Currentuser->save();
+                    $Currentuser = User::find($request->user()->id);
+                }
+            }
 
             return view('Lot')->with("Rcout",$Currentuser->Historicsavedcount)->with('timeExceed',$TimediffFormated);
         }else
@@ -44,13 +55,25 @@ class HomeController extends Controller
     public function home(Request $request)
     {
         if ($request->user()->authorizeRoles(['user'])) {
-
             $Currentuser = User::find($request->user()->id);
-            $date1 = new DateTime("now");  $getTime = strtotime($Currentuser->HistoricFirstDate ." + ".$request->user()->Historicresttime." days");
-            $time = date("Y-m-d H:i:s",$getTime);
-            $date2 = new DateTime($time);
-            $interval = date_diff( $date1,$date2);
-            $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+            $TimediffFormated = null;
+            if(!$Currentuser->IsHistoricRest) {
+                $date1 = new DateTime("now");
+                $getTime = strtotime($Currentuser->HistoricFirstDate . " + " . $request->user()->Historicresttime . " days");
+                $time = date("Y-m-d H:i:s", $getTime);
+                $date2 = new DateTime($time);
+                $interval = date_diff($date1, $date2);
+                $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+                if($date1 > $date2)
+                {
+                    $Currentuser->HistoricFirstDate = null;
+                    $Currentuser->IsHistoricRest = true;
+                    $Currentuser->Historicsavedcount =$Currentuser->HistoricTotalSaveCount;
+                    $Currentuser->save();
+                    $Currentuser = User::find($request->user()->id);
+                }
+            }
+
 
             return view('Lot')->with("Rcout",$Currentuser->Historicsavedcount)->with('timeExceed',$TimediffFormated);
         }else
@@ -70,6 +93,14 @@ class HomeController extends Controller
                 $date2 = new DateTime($time);
                 $interval = date_diff($date1, $date2);
                 $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+                if($date1 > $date2)
+                {
+                    $Currentuser->AddressFirstDate = null;
+                    $Currentuser->IsAddressRest = true;
+                    $Currentuser->Addresssavedcount =$Currentuser->AddressTotalSaveCount;
+                    $Currentuser->save();
+                    $Currentuser = User::find($request->user()->id);
+                }
             }
             return view('location')->with("Rcout",$Currentuser->Addresssavedcount)->with('timeExceed',$TimediffFormated);
         }else
@@ -89,7 +120,15 @@ class HomeController extends Controller
                 $date2 = new DateTime($time);
                 $interval = date_diff($date1, $date2);
                 $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+                if($date1 > $date2)
+                {
+                    $Currentuser->VacantFirstDate = null;
+                    $Currentuser->IsVacantRest = true;
+                    $Currentuser->Vacantsavedcount =$Currentuser->VacantTotalSaveCount;
+                    $Currentuser->save();
+                    $Currentuser = User::find($request->user()->id);
                 }
+            }
             return view('VacantProperties')->with("Rcout",$Currentuser->Vacantsavedcount)->with('timeExceed',$TimediffFormated);
         }else
             return redirect('/logout');
@@ -99,14 +138,22 @@ class HomeController extends Controller
         if ($request->user()->authorizeRoles(['user'])) {
 
             $Currentuser = User::find($request->user()->id);
-            $date1 = new DateTime("now");
-            $getTime = strtotime($Currentuser->SavedPropertyFirstDate ." + ".$request->user()->resttime." days");
-            $time = date("Y-m-d H:i:s",$getTime);
-            $date2 = new DateTime($time);
-            $interval = date_diff( $date1,$date2);
-            $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
-            $propertiesList = $Currentuser->properties;
-
+            if(!$Currentuser->IsSavedPropertyRest) {
+                $date1 = new DateTime("now");
+                $getTime = strtotime($Currentuser->SavedPropertyFirstDate . " + " . $request->user()->resttime . " days");
+                $time = date("Y-m-d H:i:s", $getTime);
+                $date2 = new DateTime($time);
+                $interval = date_diff($date1, $date2);
+                $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+                $propertiesList = $Currentuser->properties;
+                if ($date1 > $date2) {
+                    $Currentuser->SavedPropertyFirstDate = null;
+                    $Currentuser->IsSavedPropertyRest = true;
+                    $Currentuser->savedcount = $Currentuser->TotalSaveCount;
+                    $Currentuser->save();
+                    $Currentuser = User::find($request->user()->id);
+                }
+            }
             return view('SaveProperties')->with('propertiesList',$propertiesList)->with("Rcout",$Currentuser->savedcount)->with('timeExceed',$TimediffFormated);
         }
         else
