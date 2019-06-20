@@ -113,7 +113,7 @@
                                                 @endforeach
                                             </td>
                                         </tr>
-                                       
+                                            <?php dd($OwnerInfo)?>
                                         </tbody>
                                     </table>
                                 </div>
