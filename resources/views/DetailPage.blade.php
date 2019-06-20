@@ -10,9 +10,9 @@
         @foreach ($AVMResult["property"] as $key => $WholePropertydata)
             <div class="card">
                 <div class="card-header">
+                    <button class="btn btn-dark" style="float: right;"> Mailer</button>
                     <h4>{{$WholePropertydata["address"]["line1"]}}</h4>
                     <h7>{{$WholePropertydata["address"]["line2"]}}</h7>
-                    <button class="btn btn-dark"> Mailer</button>
                 </div>
                 <div>
                     <div class="row">
