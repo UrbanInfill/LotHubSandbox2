@@ -5,8 +5,8 @@
 
 
     <script>
-    
-        console.log({{$WholePropertydata}});
+
+        console.log({{$AVMResult}});
     </script>
 
     @if($AVMResult["property"])
