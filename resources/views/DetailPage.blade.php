@@ -6,7 +6,7 @@
 
     <script>
 
-        console.log( JSON.parse("{{ json_encode($AVMResult) }}"));
+        console.log( {{ json_encode($AVMResult) }} );
     </script>
 
     @if($AVMResult["property"])
