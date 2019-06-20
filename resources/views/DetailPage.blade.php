@@ -113,7 +113,7 @@
                                                 @endforeach
                                             </td>
                                         </tr>
-                                            
+                                            <!-- Add IDe Core code here !!!! -->
                                         </tbody>
                                     </table>
                                 </div>
