@@ -113,44 +113,7 @@
                                                 @endforeach
                                             </td>
                                         </tr>
-                                        <!--
-                                        <tr>
-                                            <td>
-                                                <hr/>
-
-                                                @if(array_key_exists("result",$OwnerInfo))
-                                                    @if ( count( $OwnerInfo["result"]) > 0)
-                                                        @foreach ($OwnerInfo["result"][0]["phone"] as $key => $info)
-                                                            <strong>Phone Number: </strong>
-                                                            <span>{{$info["number"]}}</span>
-                                                            <br>
-                                                            <strong>Type: </strong>
-                                                            <span>{{$info["type"]}}</span>
-                                                            <br>
-                                                            <strong>Provider Name: </strong>
-                                                            <span>{{$info["providerName"]}}</span>
-                                                            <br>
-                                                            <hr/>
-                                                        @endforeach
-                                                    @endif
-                                                @endif
-
-
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <hr/>
-                                                @if ( count( $OwnerInfo["result"]) > 0)
-                                                    <strong>Email: </strong>
-                                                    @foreach ($OwnerInfo["result"][0]["email"] as $key => $info)
-                                                        <span>{{$info["data"]}}</span>,
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                        </tr>
-                                          -->
+                                       
                                         </tbody>
                                     </table>
                                 </div>
