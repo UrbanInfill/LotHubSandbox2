@@ -353,6 +353,7 @@ class AjaxController extends Controller
         $location = $request->input('location');
         $zip= $request->input('zip');
         $AreaHierarchy = $this->getAreaHierarchy($location[0],$location[1]);
+        return $AreaHierarchy;
         $geoARRAY = array();
         $geoValName = array();
         foreach ($AreaHierarchy['response']['result']['package']['item'] as $key => $area) {
@@ -360,7 +361,7 @@ class AjaxController extends Controller
             $geoValName[$area['geo_key']] = $area['name'];
         }
         $boundary = $this->getAreaBoundary($geoARRAY[0]);
-       // return $boundary;
+        return $boundary;
         return response($boundary['response']['result']['package']['item'][0]['boundary']);
     }
     public function ExtendedDetail($line1, $line2)
@@ -399,6 +400,7 @@ class AjaxController extends Controller
         $lat = $request->input('lat');
         $lng = $request->input('lng');
         $AreaHierarchy = $this->getAreaHierarchy($lat,$lng);
+        return $AreaHierarchy;
         $geoARRAY = array();
         $geoValName = array();
         foreach ($AreaHierarchy['response']['result']['package']['item'] as $key => $area) {
