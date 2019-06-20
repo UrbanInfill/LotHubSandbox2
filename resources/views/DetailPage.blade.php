@@ -12,6 +12,7 @@
                 <div class="card-header">
                     <h4>{{$WholePropertydata["address"]["line1"]}}</h4>
                     <h7>{{$WholePropertydata["address"]["line2"]}}</h7>
+                    <button class="btn btn-dark"> Mailer</button>
                 </div>
                 <div>
                     <div class="row">
