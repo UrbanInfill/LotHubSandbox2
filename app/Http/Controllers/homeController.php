@@ -138,6 +138,7 @@ class HomeController extends Controller
         if ($request->user()->authorizeRoles(['user'])) {
 
             $Currentuser = User::find($request->user()->id);
+            $TimediffFormated = null;
             if(!$Currentuser->IsSavedPropertyRest) {
                 $date1 = new DateTime("now");
                 $getTime = strtotime($Currentuser->SavedPropertyFirstDate . " + " . $request->user()->resttime . " days");
