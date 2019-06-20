@@ -6,7 +6,7 @@
 
     <script>
 
-        console.log( {{ $AVMResult }} );
+        console.log( {!! json_encode($jobs) !!} );
     </script>
 
     @if($AVMResult["property"])
