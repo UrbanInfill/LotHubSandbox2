@@ -353,7 +353,7 @@ class AjaxController extends Controller
         $location = $request->input('location');
         $zip= $request->input('zip');
         $AreaHierarchy = $this->getAreaHierarchy($location[0],$location[1]);
-        return $AreaHierarchy;
+        //return $AreaHierarchy;
         $geoARRAY = array();
         $geoValName = array();
         foreach ($AreaHierarchy['response']['result']['package']['item'] as $key => $area) {
