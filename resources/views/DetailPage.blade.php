@@ -4,6 +4,10 @@
 
 
 
+    <script>
+    
+        console.log({{$WholePropertydata}});
+    </script>
 
     @if($AVMResult["property"])
 
