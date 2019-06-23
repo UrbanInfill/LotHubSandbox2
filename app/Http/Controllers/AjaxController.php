@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Mail;
 
 class AjaxController extends Controller
 {
+    public function maillView()
+    {
+
+    }
     public function persondetail($fname,$lname,$zip,$index)
     {
         $getList=$this->DetailPersonInformation($fname,$lname,$zip);
