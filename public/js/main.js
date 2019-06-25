@@ -1,4 +1,3 @@
-\
 
 $(document).on("click", '.saveBtn', function(event) {
 
@@ -128,28 +127,7 @@ $.ajaxSetup({
     }
 });
 // Mialer event handler get request to send the email
-$('#MailerBtn').click((function () {
-    fetch("/getPropertyResponse", {
-        method: "post", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, cors, *same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        body: JSON.stringify({address:address}),
-        headers: {
-            "Content-Type": "application/json",
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            // "Content-Type": "application/x-www-form-urlencoded",
-        },
-        redirect: "follow", // manual, *follow, error
-        referrer: "no-referrer", // no-referrer, *client
-    })
-        .then(function(response) {
-            if (response.status >= 200 && response.status < 300) {
-                return response.json()
-            }
-            throw new Error(response.statusText)
-        })
-})
+
 
 $("#searchbyPerson").click(function (e) {
 e.preventDefault();

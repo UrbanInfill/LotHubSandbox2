@@ -20,6 +20,8 @@ Route::get("savedata","AjaxController@saveProperty");
 Route::get("savedproperties","HomeController@ShowSave");
 Route::get("person","HomeController@person");
 Route::get("deletesaveproperty/{id}",'HomeController@deletesaveproperty');
+Route::get("propertymail/{fullname}/{fulladdress}",'AjaxController@showmail');
+
 
 // Ajax Responses
 Route::get('/test','AjaxController@test');
@@ -29,6 +31,7 @@ Route::post('getzipdata', 'AjaxController@getzipResponse');
 Route::post('getPropertyResponse','AjaxController@getPropertyResponse');
 Route::get('/getHouseInventry','AjaxController@getHouseInventry');
 Route::get("allVacantpropertiesList",'AjaxController@allVacantpropertiesList');
+Route::post("propertymail",'AjaxController@sendPropertymail');
 
 Route::get("personlist",'AjaxController@personlist');
 Route::get("perosndetail/{fname}/{lname}/{zip}/{index}",'AjaxController@persondetail');

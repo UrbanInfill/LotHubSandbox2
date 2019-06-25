@@ -49,7 +49,7 @@ class HomeController extends Controller
 
             return view('Lot')->with("Rcout",$Currentuser->Historicsavedcount)->with('timeExceed',$TimediffFormated);
         }else
-            return view('Lot'); //redirect('/logout');
+            return redirect('/logout');
     }
 
     public function home(Request $request)
@@ -82,6 +82,7 @@ class HomeController extends Controller
 
     public function location(Request $request)
     {
+        return $request;
         if ($request->user()->authorizeRoles(['user'])) {
 
             $Currentuser = User::find($request->user()->id);

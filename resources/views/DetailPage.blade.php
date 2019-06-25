@@ -5,7 +5,7 @@
 
 
     <script>
-        let a = {!! json_encode(serialize($AVMResult["property"][0]["owner"]["owner1"])) !!};
+        let a = {!! json_encode($AVMResult["property"][0]["owner"]["owner1"]) !!};
         console.log( a );
     </script>
 
@@ -14,7 +14,7 @@
         @foreach ($AVMResult["property"] as $key => $WholePropertydata)
             <div class="card">
                 <div class="card-header">
-                    <a  href="/propertymail/" target="_blank"  class="btn btn-dark" style="float: right;" id='MailerBtn'>Mail property</a>
+                    <a  href="/propertymail/{{$fullname}}/{{$fulladdress}}" target="_blank"  class="btn btn-dark" style="float: right;" id='MailerBtn'>Mail property</a>
                     <h4>{{$WholePropertydata["address"]["line1"]}}</h4>
                     <h7>{{$WholePropertydata["address"]["line2"]}}</h7>
                 </div>

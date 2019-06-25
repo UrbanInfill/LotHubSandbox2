@@ -14,9 +14,43 @@ use Illuminate\Support\Facades\Mail;
 
 class AjaxController extends Controller
 {
-    public function maillView()
+    public function __construct()
     {
+        $this->middleware('auth');
+    }
 
+    public function sendPropertymail(Request $request)
+    {
+        $content=$request->input('content');
+        return $this->sendMail(nl2br($content),'noufalsiddiqui@gmail.com');
+    }
+
+
+
+    public function showmail(Request $request,$fullname,$fulladdress)
+    {
+        $Currentuser = User::find($request->user()->id);
+        $a =  'Dear %1$s,
+
+Recently, I noticed your property at %3$s, and I wanted to reach out to you to see if you are interested in selling it.
+
+Please give me a call to discuss the benefits I can provide:
+
+-I buy with cash to close quickly! As quick as 7 days!
+-I convert your unwanted home into much needed cash! Who doesn’t need more cash!
+-I buy your home as-is! No need to repair or clean it out!
+-I purchase your home at no cost to you! No commissions or unexpected fees!
+Regardless of why you need to sell your property, I would like the opportunity to speak with you about potentially being a solution. I look forward to hearing from you soon. Please call me at %2$s.
+
+Thanks for your time.
+
+Sincerely,
+
+%4$s
+
+%2$s
+';
+    return view('propertyEmail')->with('data',sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name));
     }
     public function persondetail($fname,$lname,$zip,$index)
     {
@@ -368,23 +402,34 @@ class AjaxController extends Controller
 
         return response($boundary['response']['result']['package']['item'][0]['boundary']);
     }
-    public function ExtendedDetail($line1, $line2)
+    public function ExtendedDetail(Request $request,$line1, $line2)
     {
-        $result = $this->getallevent(urlencode($line1), urlencode($line2));
-        $AVMResult = $this->getdetailmortgageowner(urlencode($line1), urlencode($line2));
-        $information = $this->getOwnerInformation($line1,$AVMResult["property"][0]["address"]["countrySubd"],$AVMResult["property"][0]["address"]["postal1"]);
-        $psArray=array();
-        foreach ($AVMResult["property"] as $key=>$data)
-        {
-            $AssessmentHistory = $this->getAssessmentHistory($data["identifier"]["obPropId"]);
-            if($AssessmentHistory["property"] == null)
-            {
 
+        if ($request->user()->authorizeRoles(['user'])) {
+            $result = $this->getallevent(urlencode($line1), urlencode($line2));
+            $AVMResult = $this->getdetailmortgageowner(urlencode($line1), urlencode($line2));
+            $information = $this->getOwnerInformation($line1,$AVMResult["property"][0]["address"]["countrySubd"],$AVMResult["property"][0]["address"]["postal1"]);
+            $psArray=array();
+            foreach ($AVMResult["property"] as $key=>$data)
+            {
+                $AssessmentHistory = $this->getAssessmentHistory($data["identifier"]["obPropId"]);
+                if($AssessmentHistory["property"] == null)
+                {
+
+                }
+                else
+                    $psArray[$data["identifier"]["obPropId"]] = $AssessmentHistory["property"][0]["assessmenthistory"];
             }
-            else
-            $psArray[$data["identifier"]["obPropId"]] = $AssessmentHistory["property"][0]["assessmenthistory"];
-        }
-        return view('DetailPage')->with('result',$result)->with("AVMResult",$AVMResult)->with("Assessment",$psArray)->with("OwnerInfo",$information);
+            $fullName = 'Home Owner';
+            if(array_key_exists('owner1', $AVMResult["property"][0]["owner"])) {
+                $fullName = '';
+                foreach ($AVMResult["property"][0]["owner"]["owner1"] as $key => $value) {
+                    $fullName = $fullName . $value . " ";
+                }
+            }
+            return view('DetailPage')->with('result',$result)->with("AVMResult",$AVMResult)->with("Assessment",$psArray)->with("OwnerInfo",$information)->with('fullname',$fullName)->with('fulladdress',$line1.' '.$line2);
+        }else
+            return redirect('/logout');
     }
 
     public function allpropertiesList(Request $request)
@@ -686,7 +731,7 @@ class AjaxController extends Controller
         try {
             Mail::send([], [], function ($message) use ($completeView,$emailAdress) {
                 $message->to($emailAdress, $emailAdress)->subject("Property List");
-                $message->from("noufalsiddiqui@gmail.com", "urbaninfill")->setBody($completeView, 'text/html');
+                $message->from("masterofinfill@gmail.com", "urbaninfill")->setBody($completeView, 'text/html');
             });
         } catch (\Exception $e) {
             return array([$e->getMessage(),"UrbanInfillApp@gmaisl.com"]);
