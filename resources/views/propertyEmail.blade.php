@@ -11,6 +11,7 @@
         </div>
         <div class="card-footer">
             <button class="btn btn-secondary" id="SendMail" style="float: right">Send email</button>
+            <button onclick="printTextArea()" class="btn btn-secondary" id="SendMail" style="float: right" >Print Text</button>
         </div>
     </div>
 
@@ -18,6 +19,17 @@
 
 @section('script')
     <script>
+
+        function printTextArea() {
+            childWindow = window.open('','childWindow','location=yes, menubar=yes, toolbar=yes');
+            childWindow.document.open();
+            childWindow.document.write('<html><head></head><body>');
+            childWindow.document.write(document.getElementById('targetTextArea').value.replace(/\n/gi,'<br>'));
+            childWindow.document.write('</body></html>');
+            childWindow.print();
+            childWindow.document.close();
+            childWindow.close();
+        }
 
         $('#SendMail').click(function () {
 
