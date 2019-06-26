@@ -24,7 +24,7 @@
             childWindow = window.open('','childWindow','location=yes, menubar=yes, toolbar=yes');
             childWindow.document.open();
             childWindow.document.write('<html><head></head><body>');
-            childWindow.document.write(document.getElementById('targetTextArea').value.replace(/\n/gi,'<br>'));
+            childWindow.document.write(document.getElementById('mailContent').value.replace(/\n/gi,'<br>'));
             childWindow.document.write('</body></html>');
             childWindow.print();
             childWindow.document.close();
