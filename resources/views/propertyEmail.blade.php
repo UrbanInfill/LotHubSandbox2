@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" >
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
