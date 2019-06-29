@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Template 1</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href=" {{Request::url() }}" class="card-link">Card link</a>
+                            <a href=" {{Request::url() }}" class="card-link">Use this template</a>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Template 2</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="{{Request::url() }}/1" class="card-link">Card link</a>
+                            <a href="{{Request::url() }}/1" class="card-link">Use this template</a>
                         </div>
                     </div>
 
