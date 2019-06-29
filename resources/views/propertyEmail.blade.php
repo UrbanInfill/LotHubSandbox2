@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Template 1</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href=" /propertymail//{{$fullname}}/{{$fulladdress}}" class="card-link">Use this template</a>
+                            <a href=" /propertymail/{{$fullname}}/{{$fulladdress}}" class="card-link">Use this template</a>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Template 2</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="/propertymail//{{$fullname}}/{{$fulladdress}}/1" class="card-link">Use this template</a>
+                            <a href="/propertymail/{{$fullname}}/{{$fulladdress}}/1" class="card-link">Use this template</a>
                         </div>
                     </div>
 
