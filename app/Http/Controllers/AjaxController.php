@@ -74,7 +74,7 @@ Please try and call as soon as possible. I hope that we can work something out..
         {
             $emailData = sprintf($a2,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
         }
-    return view('propertyEmail')->with('data',$emailData);
+    return view('propertyEmail')->with('data',$emailData)->with('fullname',$fullname)->with('fulladdress',$fulladdress);
     }
     public function persondetail($fname,$lname,$zip,$index)
     {
