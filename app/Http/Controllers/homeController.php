@@ -82,7 +82,7 @@ class HomeController extends Controller
 
     public function location(Request $request)
     {
-        return $request;
+        
         if ($request->user()->authorizeRoles(['user'])) {
 
             $Currentuser = User::find($request->user()->id);
