@@ -1,7 +1,6 @@
 @extends('master')
 @section('title','Mail Sender')
 @section('content')
-    {{Request::url() }}
     <div class="card">
         <div class="card-body">
             <div class="row">
