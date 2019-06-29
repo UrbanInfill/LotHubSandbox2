@@ -66,15 +66,18 @@ Please take a moment and give me a call at %2$s.
 Please try and call as soon as possible. I hope that we can work something out.. I am very anxious to hear from you in the next couple of days as I’m looking for an investment property soon and will pay a "finder\'s fee" for anyone I buy a house from that you refer to me."
 ';
         $emailData = null;
+        $template_a=sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
+        $template_b = sprintf($a2,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
         if($template == null)
         {
             $emailData = sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
+
         }
         else if($template == 1)
         {
             $emailData = sprintf($a2,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
         }
-    return view('propertyEmail')->with('data',$emailData)->with('fullname',$fullname)->with('fulladdress',$fulladdress);
+    return view('propertyEmail')->with('data',$emailData)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('template_a',$template_a)->with('template_b',$template_b);
     }
     public function persondetail($fname,$lname,$zip,$index)
     {
