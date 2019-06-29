@@ -20,7 +20,7 @@ Route::get("savedata","AjaxController@saveProperty");
 Route::get("savedproperties","HomeController@ShowSave");
 Route::get("person","HomeController@person");
 Route::get("deletesaveproperty/{id}",'HomeController@deletesaveproperty');
-Route::get("propertymail/{fullname}/{fulladdress}",'AjaxController@showmail');
+Route::get("propertymail/{fullname}/{fulladdress}/{template?}",'AjaxController@showmail');
 
 
 // Ajax Responses

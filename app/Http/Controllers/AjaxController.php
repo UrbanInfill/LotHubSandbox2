@@ -27,7 +27,7 @@ class AjaxController extends Controller
 
 
 
-    public function showmail(Request $request,$fullname,$fulladdress)
+    public function showmail(Request $request,$fullname,$fulladdress,$template = null)
     {
         $Currentuser = User::find($request->user()->id);
         $a =  'Dear %1$s,
@@ -50,7 +50,31 @@ Sincerely,
 
 %2$s
 ';
-    return view('propertyEmail')->with('data',sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name));
+        $a2 ='"Hello %1$s,
+I have been trying to get a hold of you for the past few weeks and am looking for a property to buy as an investment in the next month.
+
+Unfortunately, I have not been successful in contacting you so as a last resort; I have sent you this letter in the hopes that you will respond back soon. I want to make things as easy as possible for us to do business.
+
+I am not sure of the condition of any house you or someone you know may have for sale but it would be OK if the property needs some work.
+
+I would also buy the property with tenants there so you won’t have to ask them to move out AND I will even be willing to help you by paying for ALL of your closing costs on the transaction. And I’m not a Realtor so there would be no commissions.
+
+I’m not sure if you’re aware but you can choose the closing date – whether you want to close fast or in a couple of months. I don’t care either way.
+
+Please take a moment and give me a call at %2$s.
+
+Please try and call as soon as possible. I hope that we can work something out.. I am very anxious to hear from you in the next couple of days as I’m looking for an investment property soon and will pay a "finder\'s fee" for anyone I buy a house from that you refer to me."
+';
+        $emailData = null;
+        if($template == null)
+        {
+            $emailData = sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
+        }
+        else if($template == 1)
+        {
+            $emailData = sprintf($a2,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
+        }
+    return view('propertyEmail')->with('data',$emailData);
     }
     public function persondetail($fname,$lname,$zip,$index)
     {
