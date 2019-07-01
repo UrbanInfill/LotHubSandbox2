@@ -22,7 +22,7 @@ class AjaxController extends Controller
     public function sendPropertymail(Request $request)
     {
         $content=$request->input('content');
-        $propertymail=$request->input('propertymail');
+        $propertymail=$request->input('propertyEmailTxt');
         return $this->sendMail(nl2br($content),$propertymail);
     }
 
