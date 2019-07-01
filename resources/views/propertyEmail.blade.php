@@ -89,7 +89,7 @@
                     }
                     throw new Error(response.statusText)
                 }).then(function (data) {
-                $.notify("Email sent;", 'success');
+                    console.log(data);
                 })
 
             })
