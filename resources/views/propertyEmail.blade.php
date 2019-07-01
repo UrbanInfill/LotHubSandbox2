@@ -49,6 +49,7 @@
 @endsection
 
 @section('script')
+    <script src="js/notify.js"></script>
     <script>
 
         function printTextArea() {
