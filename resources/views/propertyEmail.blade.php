@@ -89,7 +89,7 @@
                     throw new Error(response.statusText)
                 }).then(function (data) {
                     console.log(data);
-                if(data[0] == "send") {
+                if(data[0] === "send") {
                     $.notify({
                         // options
                         icon: 'fas fa-check-circle',
