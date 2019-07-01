@@ -35,7 +35,13 @@
             <textarea class="form-control" style="min-width: 100%" name="emailContent"  id="mailContent"  rows="20">{{$data}}</textarea>
         </div>
         <div class="card-footer">
-            <button class="btn btn-secondary" id="SendMail" style="float: right">Send email</button>
+
+            <div class="input-group mb-3">
+                <input type="email" class="form-control" placeholder="Enter Email address" aria-label="Email address" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button  class="btn btn-secondary" id="SendMail" style="float: right; margin-right: 10px">Send email</button>
+                </div>
+            </div>
             <button onclick="printTextArea()" class="btn btn-secondary" id="SendMail" style="float: right" >Print Text</button>
         </div>
     </div>
