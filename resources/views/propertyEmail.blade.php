@@ -66,7 +66,7 @@
 
             const content = $('#mailContent').text();
             console.log(content);
-            const propertyEmailTxt  = ('#propertyEmailTxt').value;
+            const propertyEmailTxt  = $('#propertyEmailTxt').value;
             console.log(propertyEmailTxt);
             fetch("/propertymail", {
                 method: "post", // *GET, POST, PUT, DELETE, etc.
