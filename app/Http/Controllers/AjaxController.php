@@ -22,7 +22,8 @@ class AjaxController extends Controller
     public function sendPropertymail(Request $request)
     {
         $content=$request->input('content');
-        return $this->sendMail(nl2br($content),'noufalsiddiqui@gmail.com');
+        $propertymail=$request->input('propertymail');
+        return $this->sendMail(nl2br($content),$propertymail);
     }
 
 

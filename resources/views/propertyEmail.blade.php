@@ -37,7 +37,7 @@
         <div class="card-footer">
 
             <div class="input-group mb-3" style="width: 500px; float: right;">
-                <input type="email" class="form-control" placeholder="Enter Email address" aria-label="Email address" aria-describedby="button-addon2">
+                <input type="email" id="propertyEmailTxt" class="form-control" placeholder="Enter Email address" aria-label="Email address" aria-describedby="button-addon2">
                 <div class="input-group-append">
                     <button  class="btn btn-secondary" id="SendMail" style="float: right; ">Send email</button>
                 </div>
@@ -66,12 +66,13 @@
 
             const content = $('#mailContent').text();
             console.log(content);
+            const propertyEmailTxt  = ('#propertyEmailTxt').value;
             fetch("/propertymail", {
                 method: "post", // *GET, POST, PUT, DELETE, etc.
                 mode: "cors", // no-cors, cors, *same-origin
                 cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
                 credentials: "same-origin", // include, *same-origin, omit
-                body: JSON.stringify({content:content}),
+                body: JSON.stringify({content:content,propertyEmailTxt:propertyEmailTxt}),
                 headers: {
                     "Content-Type": "application/json",
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
