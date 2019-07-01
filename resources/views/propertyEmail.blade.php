@@ -90,25 +90,13 @@
                 }).then(function (data) {
                     console.log(data);
                 if(data[0] == "send") {
-                    $.notify({
-                        // options
-                        icon: 'fas fa-check-circle',
-                        message: 'Email Send Successfully'
-                    }, {
-                        // settings
-                        type: 'success'
-                    });
+                    $.notify('Email Send Successfully', 'success');
+
                 }
                 else
                 {
-                    $.notify({
-                        // options
-                        icon: 'fa fa-exclamation-circle',
-                        message: 'Not able to send Email'
-                    }, {
-                        // settings
-                        type: 'danger'
-                    });
+                    $.notify('Not able to send Email', 'error');
+
                 }
                 })
 
