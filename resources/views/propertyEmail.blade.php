@@ -67,6 +67,7 @@
             const content = $('#mailContent').text();
             console.log(content);
             const propertyEmailTxt  = ('#propertyEmailTxt').value;
+            console.log(propertyEmailTxt);
             fetch("/propertymail", {
                 method: "post", // *GET, POST, PUT, DELETE, etc.
                 mode: "cors", // no-cors, cors, *same-origin
@@ -86,7 +87,11 @@
                         return response.json()
                     }
                     throw new Error(response.statusText)
+                }).then(function (data) {
+                $.notify("Email sent;", 'success');
                 })
+
+            })
         })
     </script>
 @endsection
