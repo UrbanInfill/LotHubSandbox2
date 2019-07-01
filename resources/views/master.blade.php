@@ -68,10 +68,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
 <script src="js/bootstrap-notify.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<script src="js/main.js"></script>
+<script src=" {{ url('/js/main.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.6/js/swiper.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ&libraries=places&callback=initAutocomplete"></script>
-<script src="js/notify.js"></script>
+<script src=" {{ url('/js/notify.js') }}"></script>
 @yield('script')
 
 </body>
