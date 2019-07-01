@@ -90,6 +90,7 @@
                     throw new Error(response.statusText)
                 }).then(function (data) {
                     console.log(data);
+                    $.notify("Email sent", 'success');
                 })
 
             })
