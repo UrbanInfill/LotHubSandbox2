@@ -36,13 +36,13 @@
         </div>
         <div class="card-footer">
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" style="width: 500px; float: right;">
                 <input type="email" class="form-control" placeholder="Enter Email address" aria-label="Email address" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                    <button  class="btn btn-secondary" id="SendMail" style="float: right; margin-right: 10px">Send email</button>
+                    <button  class="btn btn-secondary" id="SendMail" style="float: right; ">Send email</button>
                 </div>
             </div>
-            <button onclick="printTextArea()" class="btn btn-secondary" id="SendMail" style="float: right" >Print Text</button>
+            <button onclick="printTextArea()" class="btn btn-secondary"  style="float: right;margin-right: 10px" >Print Text</button>
         </div>
     </div>
 
