@@ -1,5 +1,5 @@
 @extends('master')
-@section('title','Saved Properties')
+@section('title','Person Search)
 @section('content')
 
     <div class="pt-3">
