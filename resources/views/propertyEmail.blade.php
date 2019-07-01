@@ -89,7 +89,27 @@
                     throw new Error(response.statusText)
                 }).then(function (data) {
                     console.log(data);
-                    $.notify("Email sent", 'success');
+                if(data[0] == "send") {
+                    $.notify({
+                        // options
+                        icon: 'fas fa-check-circle',
+                        message: 'Email Send Successfully'
+                    }, {
+                        // settings
+                        type: 'success'
+                    });
+                }
+                else
+                {
+                    $.notify({
+                        // options
+                        icon: 'fa fa-exclamation-circle',
+                        message: 'Not able to send Email'
+                    }, {
+                        // settings
+                        type: 'danger'
+                    });
+                }
                 })
 
             })
