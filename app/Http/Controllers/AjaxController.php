@@ -28,7 +28,7 @@ class AjaxController extends Controller
 
 
 
-    public function showmail(Request $request,$fullname,$fulladdress,$template = null)
+    public function showmail(Request $request,$fullname,$fulladdress,$emailaddress,$template = null)
     {
         $Currentuser = User::find($request->user()->id);
         $a =  'Dear %1$s,
@@ -93,7 +93,7 @@ Available 8 a.m. – 8 p.m., 7 days a week.
             $emailData = sprintf($a3,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
 
         }
-    return view('propertyEmail')->with('data',$emailData)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('template_a',$template_a)->with('template_b',$template_b)->with('template_c',$template_c);
+    return view('propertyEmail')->with('data',$emailData)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('template_a',$template_a)->with('template_b',$template_b)->with('template_c',$template_c)->with('emailaddress',$emailaddress);
     }
     public function persondetail($fname,$lname,$zip,$index)
     {
