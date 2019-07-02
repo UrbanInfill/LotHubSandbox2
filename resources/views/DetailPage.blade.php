@@ -6,7 +6,9 @@
 
     <script>
         let a = {!! json_encode($AVMResult["property"][0]["owner"]["owner1"]) !!};
+        let b = {!! json_encode($OwnerInfo["result"][0]["email"][0]["data"]) !!};
         console.log( a );
+        console.log( b);
     </script>
 
     @if($AVMResult["property"])
