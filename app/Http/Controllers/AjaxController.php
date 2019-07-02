@@ -66,9 +66,19 @@ Please take a moment and give me a call at %2$s.
 
 Please try and call as soon as possible. I hope that we can work something out.. I am very anxious to hear from you in the next couple of days as I’m looking for an investment property soon and will pay a "finder\'s fee" for anyone I buy a house from that you refer to me."
 ';
+        $a3 = 'Dear %1$s:
+    We are currently PURCHASING HOMES, PLEXES AND LAND in your area.  We are purchasing homes with all CASH, AS IS, and in ANY CONDITION.
+    We can also close quickly if necessary.  There are NO COMMISIONS paid by the seller.
+    If you are interested in selling your home, please give us a call at %2$s
+
+Available 8 a.m. – 8 p.m., 7 days a week.
+%4$s
+%2$s
+';
         $emailData = null;
         $template_a=sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
         $template_b = sprintf($a2,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
+        $template_c = sprintf($a3,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
         if($template == null)
         {
             $emailData = sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
@@ -78,7 +88,12 @@ Please try and call as soon as possible. I hope that we can work something out..
         {
             $emailData = sprintf($a2,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
         }
-    return view('propertyEmail')->with('data',$emailData)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('template_a',$template_a)->with('template_b',$template_b);
+        else if($template == 2)
+        {
+            $emailData = sprintf($a3,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
+
+        }
+    return view('propertyEmail')->with('data',$emailData)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('template_a',$template_a)->with('template_b',$template_b)->with('template_c',$template_c);
     }
     public function persondetail($fname,$lname,$zip,$index)
     {

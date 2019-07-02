@@ -23,6 +23,16 @@
                     </div>
 
                 </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Template 3</h5>
+                            <p class="card-text">{{substr($template_c, 0, 150) }}</p>
+                            <a href="/propertymail/{{$fullname}}/{{$fulladdress}}/2" class="card-link">Use this template</a>
+                        </div>
+                    </div>
+
+                </div>
                 </div>
             </div>
         </div>
