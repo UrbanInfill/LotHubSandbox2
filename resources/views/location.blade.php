@@ -8,7 +8,7 @@
     <div class="container pt-3 ">
         <div class="row">
             <div class="col-md-7 col-xs-12 col-md-offset-3">
-                <small><strong> You have {{$Rcout}} Detailed Address Searches Left. Search Limit will refresh in {{$timeExceed}}</strong></small>
+                <h4><small> <strong>You have {{$Rcout}} Detailed Address Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
                 <br>
                 <div class="form-group">
                     <label class="form-text text-muted" for="searchByPropForm">Enter Address for Property Details</label>

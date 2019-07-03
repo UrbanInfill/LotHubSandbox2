@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <small><strong> You have {{$Rcout}} Vacant Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small>
+                    <h4><small> <strong>You have {{$Rcout}} Vacant Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
                     <br>
                     <label class="form-text text-muted" for="searchByPropForm">Enter Zip-Code Below to Find Vacant Lots</label>
                     <div class="input-group mb-3 search search-reduce" id="searchByPropForm">
