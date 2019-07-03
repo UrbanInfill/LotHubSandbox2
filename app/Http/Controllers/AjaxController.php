@@ -51,21 +51,43 @@ Sincerely,
 
 %2$s
 ';
-        $a2 ='"Hello %1$s,
-I have been trying to get a hold of you for the past few weeks and am looking for a property to buy as an investment in the next month.
-
-Unfortunately, I have not been successful in contacting you so as a last resort; I have sent you this letter in the hopes that you will respond back soon. I want to make things as easy as possible for us to do business.
-
-I am not sure of the condition of any house you or someone you know may have for sale but it would be OK if the property needs some work.
-
-I would also buy the property with tenants there so you won’t have to ask them to move out AND I will even be willing to help you by paying for ALL of your closing costs on the transaction. And I’m not a Realtor so there would be no commissions.
-
-I’m not sure if you’re aware but you can choose the closing date – whether you want to close fast or in a couple of months. I don’t care either way.
-
-Please take a moment and give me a call at %2$s.
-
-Please try and call as soon as possible. I hope that we can work something out.. I am very anxious to hear from you in the next couple of days as I’m looking for an investment property soon and will pay a "finder\'s fee" for anyone I buy a house from that you refer to me."
-';
+        $a2 ='<p id=\"docs-internal-guid-9fdf7d69-7fff-53bf-3a3e-6fd883049954\" dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Dear Home Owner,</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Recently, I noticed your property at 526 Chapman Ave NW, Roanoke, and I wanted to reach out to you to see if you are interested in selling it.</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Please give me a call to discuss the benefits I can provide:</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I buy with cash to close quickly! As quick as 7 days!</span></p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I convert your unwanted home into much needed cash! Who doesn&rsquo;t need more cash!</span></p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I buy your home as-is! No need to repair or clean it out!</span></p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I purchase your home at no cost to you! No commissions or unexpected fees!</span></p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Regardless of why you need to sell your property, I would like the opportunity to speak with you about potentially being a solution. I look forward to hearing from you soon. Please call me at ###-###-####.</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Thanks for your time.</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Sincerely,</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Your Name</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Your Phone Number ###-###-####</span></p><p id=\"docs-internal-guid-9fdf7d69-7fff-53bf-3a3e-6fd883049954\" dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Dear Home Owner,</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Recently, I noticed your property at 526 Chapman Ave NW, Roanoke, and I wanted to reach out to you to see if you are interested in selling it.</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Please give me a call to discuss the benefits I can provide:</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I buy with cash to close quickly! As quick as 7 days!</span></p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I convert your unwanted home into much needed cash! Who doesn&rsquo;t need more cash!</span></p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I buy your home as-is! No need to repair or clean it out!</span></p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I purchase your home at no cost to you! No commissions or unexpected fees!</span></p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Regardless of why you need to sell your property, I would like the opportunity to speak with you about potentially being a solution. I look forward to hearing from you soon. Please call me at ###-###-####.</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Thanks for your time.</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Sincerely,</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Your Name</span></p>
+<p>&nbsp;</p>
+<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Your Phone Number ###-###-####</span></p>';
         $a3 = 'Dear %1$s:
     We are currently PURCHASING HOMES, PLEXES AND LAND in your area.  We are purchasing homes with all CASH, AS IS, and in ANY CONDITION.
     We can also close quickly if necessary.  There are NO COMMISIONS paid by the seller.
