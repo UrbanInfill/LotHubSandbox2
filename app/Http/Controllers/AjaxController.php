@@ -442,7 +442,7 @@ Available 8 a.m. – 8 p.m., 7 days a week.
             $geoValName[$area['geo_key']] = $area['name'];
         }
         $boundary = $this->getAreaBoundary($geoARRAY[0]);
-
+       
         return response($boundary['response']['result']['package']['item'][0]['boundary']);
     }
     public function ExtendedDetail(Request $request,$line1, $line2)
@@ -549,27 +549,29 @@ Available 8 a.m. – 8 p.m., 7 days a week.
 
         if($getCurrentUser->Historicsavedcount > 0 && $isVacant == 'false')
         {
-            $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
-            $getCurrentUser->save();
+
 
             $pagesize = 1;
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
             $total = $result['status']['total'];
+            $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
+            $getCurrentUser->save();
             $totalPages = $total / 1000;
             return response($totalPages);
         }
         else if($getCurrentUser->Vacantsavedcount > 0 && $isVacant == 'true')
         {
-            $getCurrentUser->Vacantsavedcount =  $getCurrentUser->Vacantsavedcount - 1;
-            $getCurrentUser->save();
+
 
             $pagesize = 1;
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
             $total = $result['status']['total'];
+            $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
+            $getCurrentUser->save();
             $totalPages = $total / 1000;
             return response($totalPages);
         }

@@ -41,9 +41,10 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     line-height: 100%;
+    background-color: white !important;
 }
 
 a,
@@ -56,6 +57,7 @@ i {
     transition: all 600ms ease;
     text-decoration: none;
     outline: none;
+    font-family: sans-serif;
 }
 
 a:hover,
@@ -73,7 +75,7 @@ h6 {
     font-weight: 400;
     margin: 0;
     line-height: 100%;
-    font-family: 'Poppins', sans-serif;
+    font-family:  sans-serif;
     color: #221f1f;
     font-weight: 700;
     color: #43575f;
@@ -84,11 +86,13 @@ h1 {
     margin-bottom: 20px;
     text-transform: capitalize;
     line-height: 120%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h2 {
     font-size: 40px;
     margin-bottom: 60px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h3,.h3 {
@@ -112,6 +116,7 @@ p {
     font-size: 13px;
     letter-spacing: normal;
     line-height: 130%;
+    font-family: sans-serif;
 }
 
 img {
@@ -256,7 +261,7 @@ ul {
     background-color: #f8f9fb;
     display: inline-block;
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family:  sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: #8d8d8d;
@@ -320,10 +325,10 @@ body .box {
 }
 
 body .box.active {
-    background-color: #43575f;
+    background-color: blue;
 }
 body .swiper-slide-active .box{
-    background-color: #43575f;
+    background-color: blue;
 }
 body .swiper-slide-active .box .h3{
     color: #fff;
@@ -437,7 +442,7 @@ body .box .info.four h3 {
 body .box.active .info .rating,
 body .box .info .rating {
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family:  sans-serif;
     font-weight: 700;
 }
 
