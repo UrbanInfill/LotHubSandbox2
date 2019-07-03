@@ -77,7 +77,7 @@ h6 {
     font-family: 'Poppins', sans-serif;
     color: #221f1f;
     font-weight: 700;
-    color: #43575f;
+    color: blue;
 }
 .h1,
 h1 {
@@ -321,10 +321,10 @@ body .box {
 }
 
 body .box.active {
-    background-color: #43575f;
+    background-color: blue;
 }
 body .swiper-slide-active .box{
-    background-color: #43575f;
+    background-color: blue;
 }
 body .swiper-slide-active .box .h3{
     color: #fff;
