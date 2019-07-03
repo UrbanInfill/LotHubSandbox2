@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                     <h2><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h2>
+                     <h4><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
                     <br>
                     <label class="form-text text-muted" for="searchByPropForm">Enter the Zip-Code Below to Find Historically Platted Lots</label>
                     <div class="input-group  mb-3 search search-reduce" id="searchByPropForm">
