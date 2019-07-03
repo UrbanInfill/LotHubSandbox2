@@ -16,7 +16,7 @@
         @foreach ($AVMResult["property"] as $key => $WholePropertydata)
             <div class="card">
                 <div class="card-header">
-                    <a  href="/propertymail/{{$fullname}}/{{$fulladdress}}/{{$OwnerInfo["result"][0]["email"][0]["data"] }}" target="_blank"  class="btn btn-dark" style="float: right;" id='MailerBtn'>E-Mail Property Owner</a>
+                    <a  href="/propertymail/{{$fullname}}/{{$fulladdress}}/{{$OwnerInfo["result"][0]["email"][0]["data"] or 'abc@email.com'}}" target="_blank"  class="btn btn-dark" style="float: right;" id='MailerBtn'>E-Mail Property Owner</a>
                     <h4>{{$WholePropertydata["address"]["line1"]}}</h4>
                     <h7>{{$WholePropertydata["address"]["line2"]}}</h7>
                 </div>
