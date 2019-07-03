@@ -556,6 +556,7 @@ Available 8 a.m. – 8 p.m., 7 days a week.
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
+            return $result;
             $total = $result['status']['total'];
             $totalPages = $total / 1000;
             return response($totalPages);
