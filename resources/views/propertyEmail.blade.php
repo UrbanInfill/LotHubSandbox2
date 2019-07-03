@@ -42,7 +42,10 @@
             <h4>Email template</h4>
         </div>
         <div class="card-body">
-            <textarea class="form-control" style="min-width: 100%" name="emailContent"  id="mailContent"  rows="20">{{$data}}</textarea>
+            <!-- <textarea class="form-control" style="min-width: 100%" name="emailContent"  id="mailContent"  rows="20"></textarea> -->
+            <div contenteditable="true" style="min-width: 100%" class="form-control">
+                {{$data}}
+            </div>
         </div>
         <div class="card-footer">
 
@@ -50,7 +53,7 @@
                 <div contenteditable="true">
                     {{$emailaddress}}
                 </div>
-
+                <input type="email" id="propertyEmailTxt" value="{{$emailaddress}}" class="form-control" placeholder="Enter Email address" aria-label="Email address" aria-describedby="button-addon2">
                 <div class="input-group-append">
                     <button  class="btn btn-secondary" id="SendMail" style="float: right; ">Send email</button>
                 </div>
