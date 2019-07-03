@@ -434,7 +434,7 @@ Available 8 a.m. – 8 p.m., 7 days a week.
         $location = $request->input('location');
         $zip= $request->input('zip');
         $AreaHierarchy = $this->getAreaHierarchy($location[0],$location[1]);
-        return $AreaHierarchy;
+
         $geoARRAY = array();
         $geoValName = array();
         foreach ($AreaHierarchy['response']['result']['package']['item'] as $key => $area) {
@@ -442,7 +442,7 @@ Available 8 a.m. – 8 p.m., 7 days a week.
             $geoValName[$area['geo_key']] = $area['name'];
         }
         $boundary = $this->getAreaBoundary($geoARRAY[0]);
-
+        return $boundary;
         return response($boundary['response']['result']['package']['item'][0]['boundary']);
     }
     public function ExtendedDetail(Request $request,$line1, $line2)
