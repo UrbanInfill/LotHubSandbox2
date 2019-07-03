@@ -43,9 +43,9 @@
         </div>
         <div class="card-body">
             <!-- <textarea class="form-control" style="min-width: 100%" name="emailContent"  id="mailContent"  rows="20"></textarea> -->
-            <div contenteditable="true" style="min-width: 100%" class="form-control">
-                {{$data}}
-            </div>
+            
+
+            <textarea>  {{$data}}</textarea>
         </div>
         <div class="card-footer">
 
