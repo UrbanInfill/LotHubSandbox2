@@ -434,7 +434,7 @@ Available 8 a.m. – 8 p.m., 7 days a week.
         $location = $request->input('location');
         $zip= $request->input('zip');
         $AreaHierarchy = $this->getAreaHierarchy($location[0],$location[1]);
-
+        return $AreaHierarchy;
         $geoARRAY = array();
         $geoValName = array();
         foreach ($AreaHierarchy['response']['result']['package']['item'] as $key => $area) {
@@ -563,7 +563,7 @@ Available 8 a.m. – 8 p.m., 7 days a week.
         }
         else if($getCurrentUser->Vacantsavedcount > 0 && $isVacant == 'true')
         {
-        
+
 
             $pagesize = 1;
             $page = 1;
