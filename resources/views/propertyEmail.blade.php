@@ -47,7 +47,10 @@
         <div class="card-footer">
 
             <div class="input-group mb-3" style="width: 500px; float: right;">
-                <input type="email" id="propertyEmailTxt" value="{{$emailaddress}}" class="form-control" placeholder="Enter Email address" aria-label="Email address" aria-describedby="button-addon2">
+                <div contenteditable="true">
+                    {{$emailaddress}}
+                </div>
+
                 <div class="input-group-append">
                     <button  class="btn btn-secondary" id="SendMail" style="float: right; ">Send email</button>
                 </div>
