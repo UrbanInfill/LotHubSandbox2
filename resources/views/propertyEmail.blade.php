@@ -78,7 +78,7 @@
 
         $('#SendMail').click(function () {
 
-            const content = $('#mailContent').text();
+            const content =tinyMCE.activeEditor.getContent();
             console.log(content);
             const propertyEmailTxt  = $('#propertyEmailTxt').val();
             console.log(propertyEmailTxt);
