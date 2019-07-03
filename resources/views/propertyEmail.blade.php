@@ -43,7 +43,7 @@
         </div>
         <div class="card-body">
             <!-- <textarea class="form-control" style="min-width: 100%" name="emailContent"  id="mailContent"  rows="20"></textarea> -->
-            
+
 
             <textarea>  {{$data}}</textarea>
         </div>
