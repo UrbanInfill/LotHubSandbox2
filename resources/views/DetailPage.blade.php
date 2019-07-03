@@ -8,7 +8,7 @@
         let a = {!! json_encode($AVMResult["property"][0]["owner"]["owner1"]) !!};
 
         console.log( a );
-       
+
     </script>
 
     @if($AVMResult["property"])
