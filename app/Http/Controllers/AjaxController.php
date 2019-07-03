@@ -549,8 +549,7 @@ Available 8 a.m. – 8 p.m., 7 days a week.
 
         if($getCurrentUser->Historicsavedcount > 0 && $isVacant == 'false')
         {
-            $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
-            $getCurrentUser->save();
+
 
             $pagesize = 1;
             $page = 1;
@@ -558,6 +557,8 @@ Available 8 a.m. – 8 p.m., 7 days a week.
             $result = $this->curlPOIAPI($url);
             return $result;
             $total = $result['status']['total'];
+            $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
+            $getCurrentUser->save();
             $totalPages = $total / 1000;
             return response($totalPages);
         }
@@ -572,6 +573,8 @@ Available 8 a.m. – 8 p.m., 7 days a week.
             $result = $this->curlPOIAPI($url);
             return $result;
             $total = $result['status']['total'];
+            $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
+            $getCurrentUser->save();
             $totalPages = $total / 1000;
             return response($totalPages);
         }

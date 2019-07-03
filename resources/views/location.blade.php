@@ -8,7 +8,8 @@
     <div class="container pt-3 ">
         <div class="row">
             <div class="col-md-7 col-xs-12 col-md-offset-3">
-                <small><strong> Remaining Addresss Search that can be saved {{$Rcout}} and {{$timeExceed}} </strong></small>
+                <small><strong> You have {{$Rcout}} Detailed Address Searches Left. Search Limit will refresh in {{$timeExceed}}</strong></small>
+                <br>
                 <div class="form-group">
                     <label class="form-text text-muted" for="searchByPropForm">Enter Address for Property Details</label>
                     <div class="input-group mb-3 search search-reduce" id="searchByPropForm">

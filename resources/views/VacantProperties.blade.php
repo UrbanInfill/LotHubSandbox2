@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <small><strong> Remaining Historically Search that can be saved {{$Rcout}} and {{$timeExceed}} </strong></small>
+                    <small><strong> You have {{$Rcout}} Vacant Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small>
+                    <br>
                     <label class="form-text text-muted" for="searchByPropForm">Enter Zip-Code Below to Find Vacant Lots</label>
                     <div class="input-group mb-3 search search-reduce" id="searchByPropForm">
                         <input class="form-control" id="Vacantsearch" name="address" type="text" placeholder="By Property"  onFocus="geolocate()" required="true" value="" aria-describedby="searchByProperty"/>
