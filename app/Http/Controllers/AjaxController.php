@@ -555,7 +555,6 @@ Available 8 a.m. – 8 p.m., 7 days a week.
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
-            return $result;
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
@@ -564,14 +563,12 @@ Available 8 a.m. – 8 p.m., 7 days a week.
         }
         else if($getCurrentUser->Vacantsavedcount > 0 && $isVacant == 'true')
         {
-            $getCurrentUser->Vacantsavedcount =  $getCurrentUser->Vacantsavedcount - 1;
-            $getCurrentUser->save();
+        
 
             $pagesize = 1;
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
-            return $result;
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
