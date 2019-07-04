@@ -34,8 +34,11 @@ class AjaxController extends Controller
         $Currentuser = User::find($request->user()->id);
         $allTemplates = Mailertemplate::all();
         $currentTemplate = Mailertemplate::find($template);
-
-    return view('propertyEmail')->with('data',$currentTemplate->content)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('allTemplates',$allTemplates)->with('emailaddress',$emailaddress);
+        $data = str_replace('((username))',$Currentuser->name,$currentTemplate->content);
+        $data = str_replace('((phonenumber))',$Currentuser->PhoneNumber,$data);
+        $data = str_replace('((address))',$fulladdress,$data);
+        $data = str_replace('((ownername))',$fullname,$data);
+    return view('propertyEmail')->with('data',$data)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('allTemplates',$allTemplates)->with('emailaddress',$emailaddress);
     }
     public function persondetail($fname,$lname,$zip,$index)
     {
