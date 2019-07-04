@@ -35,7 +35,7 @@ class AjaxController extends Controller
         $allTemplates = Mailertemplate::all();
         $currentTemplate = Mailertemplate::find($template);
 
-    return view('propertyEmail')->with('data',$currentTemplate)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('allTemplates',$allTemplates)->with('emailaddress',$emailaddress);
+    return view('propertyEmail')->with('data',$currentTemplate->content)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('allTemplates',$allTemplates)->with('emailaddress',$emailaddress);
     }
     public function persondetail($fname,$lname,$zip,$index)
     {
