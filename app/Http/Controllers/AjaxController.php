@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mailertemplate;
 use App\User;
 use App\Properties;
 use http\Exception;
@@ -31,73 +32,10 @@ class AjaxController extends Controller
     public function showmail(Request $request,$fullname,$fulladdress,$emailaddress,$template = null)
     {
         $Currentuser = User::find($request->user()->id);
-        $a =  'Dear %1$s,
+        $allTemplates = Mailertemplate::all();
+        $currentTemplate = Mailertemplate::find($template);
 
-Recently, I noticed your property at %3$s, and I wanted to reach out to you to see if you are interested in selling it.
-
-Please give me a call to discuss the benefits I can provide:
-
--I buy with cash to close quickly! As quick as 7 days!
--I convert your unwanted home into much needed cash! Who doesn’t need more cash!
--I buy your home as-is! No need to repair or clean it out!
--I purchase your home at no cost to you! No commissions or unexpected fees!
-Regardless of why you need to sell your property, I would like the opportunity to speak with you about potentially being a solution. I look forward to hearing from you soon. Please call me at %2$s.
-
-Thanks for your time.
-
-Sincerely,
-
-%4$s
-
-%2$s
-';
-        $a2 ='<p id=\"docs-internal-guid-376a27e3-7fff-c987-3f38-931f4e3193cf\" dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Dear %1$s,</span></p>
-<p>&nbsp;</p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Recently, I noticed your property at 526 Chapman Ave NW, Roanoke, and I wanted to reach out to you to see if you are interested in selling it.</span></p>
-<p>&nbsp;</p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Please give me a call to discuss the benefits I can provide:</span></p>
-<p>&nbsp;</p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I buy with cash to close quickly! As quick as 7 days!</span></p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I convert your unwanted home into much needed cash! Who doesn&rsquo;t need more cash!</span></p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I buy your home as-is! No need to repair or clean it out!</span></p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">-I purchase your home at no cost to you! No commissions or unexpected fees!</span></p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Regardless of why you need to sell your property, I would like the opportunity to speak with you about potentially being a solution. I look forward to hearing from you soon. Please call me at %2$s.</span></p>
-<p>&nbsp;</p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Thanks for your time.</span></p>
-<p>&nbsp;</p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Sincerely,</span></p>
-<p>&nbsp;</p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">%4$s</span></p>
-<p>&nbsp;</p>
-<p dir=\"ltr\" style=\"line-height: 1.3800000000000001; margin-top: 0pt; margin-bottom: 10pt;\"><span style=\"font-size: 12pt; font-family: inherit; color: #4c4c4c; background-color: transparent; font-weight: 400; font-style: italic; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">%2$s</span></p>';
-        $a3 = 'Dear %1$s:
-    We are currently PURCHASING HOMES, PLEXES AND LAND in your area.  We are purchasing homes with all CASH, AS IS, and in ANY CONDITION.
-    We can also close quickly if necessary.  There are NO COMMISIONS paid by the seller.
-    If you are interested in selling your home, please give us a call at %2$s
-
-Available 8 a.m. – 8 p.m., 7 days a week.
-%4$s
-%2$s
-';
-        $emailData = null;
-        $template_a=sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
-        $template_b = sprintf($a2,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
-        $template_c = sprintf($a3,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
-        if($template == null)
-        {
-            $emailData = sprintf($a,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
-
-        }
-        else if($template == 1)
-        {
-            $emailData = sprintf($a2,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
-        }
-        else if($template == 2)
-        {
-            $emailData = sprintf($a3,$fullname,$Currentuser->PhoneNumber,$fulladdress,$Currentuser->name);
-
-        }
-    return view('propertyEmail')->with('data',$emailData)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('template_a',$template_a)->with('template_b',$template_b)->with('template_c',$template_c)->with('emailaddress',$emailaddress);
+    return view('propertyEmail')->with('data',$currentTemplate)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('allTemplates',$allTemplates)->with('emailaddress',$emailaddress);
     }
     public function persondetail($fname,$lname,$zip,$index)
     {

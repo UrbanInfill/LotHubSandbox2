@@ -4,35 +4,17 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
+                @foreach($allTemplates as $template)
                 <div class="col">
                     <div class="card" >
                         <div class="card-body">
-                            <h5 class="card-title">Template 1</h5>
-                            <p class="card-text">{{substr($template_a, 0, 150) }}</p>
-                            <a href="/propertymail/{{$fullname}}/{{$fulladdress}}/{{$emailaddress}}" class="card-link">Use this template</a>
+                            <h5 class="card-title">{{$template->name}}</h5>
+                            <p class="card-text">{{$template->description }}</p>
+                            <a href="/propertymail/{{$fullname}}/{{$fulladdress}}/{{$emailaddress}}/{{$template->id}}" class="card-link">Use this template</a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Template 2</h5>
-                            <p class="card-text">{{substr($template_b, 0, 150) }}</p>
-                            <a href="/propertymail/{{$fullname}}/{{$fulladdress}}/{{$emailaddress}}/1" class="card-link">Use this template</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Template 3</h5>
-                            <p class="card-text">{{substr($template_c, 0, 150) }}</p>
-                            <a href="/propertymail/{{$fullname}}/{{$fulladdress}}/{{$emailaddress}}/2" class="card-link">Use this template</a>
-                        </div>
-                    </div>
-
-                </div>
+                @endforeach
                 </div>
             </div>
         </div>
