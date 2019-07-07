@@ -38,6 +38,8 @@ class AjaxController extends Controller
         $data = str_replace('((phonenumber))',$Currentuser->PhoneNumber,$data);
         $data = str_replace('((address))',$fulladdress,$data);
         $data = str_replace('((ownername))',$fullname,$data);
+        $data = str_replace('((logo))','<img src="'.$Currentuser->logo.'" width="100px" height="100px"/>',$data);
+
     return view('propertyEmail')->with('data',$data)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('allTemplates',$allTemplates)->with('emailaddress',$emailaddress);
     }
     public function persondetail($fname,$lname,$zip,$index)
