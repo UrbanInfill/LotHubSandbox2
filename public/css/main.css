@@ -59,7 +59,9 @@ i {
     outline: none;
     font-family: sans-serif;
 }
-
+.navbar-dark{
+    background-color: #563d7c;
+}
 a:hover,
 a:focus {
     text-decoration: none;
