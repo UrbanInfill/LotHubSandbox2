@@ -327,10 +327,10 @@ body .box {
 }
 
 body .box.active {
-    background-color: 7b98b5;
+    background-color: #7b98b5;
 }
 body .swiper-slide-active .box{
-    background-color: 7b98b5;
+    background-color: #7b98b5;
 }
 body .swiper-slide-active .box .h3{
     color: #fff;
