@@ -173,9 +173,9 @@ const zip = $("#zip").val();
                 if(rest.dob.length > 0) {
                     text = text + '</div>' +
                         ' <hr>' +
-                        '<p class="mb-1">DoB ' + rest.dob[0].date.data + '</p>' +
+                        '<p class="mb-1">DoB ' + rest.dob[0].date.data + '</p>';
                 }
-                '<div class="d-flex w-100 justify-content-between">';
+                text = text +'<div class="d-flex w-100 justify-content-between">';
 
                 for (const email of rest.email)
                 {
