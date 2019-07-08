@@ -163,7 +163,7 @@ const zip = $("#zip").val();
                 var text = '<li class="list-group-item list-group-item-action ">' +
                     '<div class="d-flex w-100 justify-content-between">' +
                     '<h5 class="mb-1">' + rest.name[0].data + '</h5>' +
-                    '<a href="/perosndetail/' + encodeURI(rest.name[0].first) + '/' + encodeURI(rest.name[0].last) + '/' + encodeURI(zip) +'/'+ index +'" class="btn btn-primary">Detail</a>' +
+                    '<a href="/perosndetail/' + encodeURI(rest.name[0].first) + '/' + encodeURI(rest.name[0].last) + '/' + encodeURI(zip) +'/'+ encodeURI(rest.pid) +'" class="btn btn-primary">Detail</a>' +
                     '</div>' +
                     '<hr>' +
                     '<div class="d-flex w-100 justify-content-between">';
