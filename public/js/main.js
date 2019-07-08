@@ -170,10 +170,12 @@ const zip = $("#zip").val();
                 for (const phone of rest.phone) {
                     text = text + '  <p>Phone #'+ phone.number + '</p>';
                 }
-                text = text + '</div>' +
-                    ' <hr>' +
-                    '<p class="mb-1">DoB ' + rest.dob[0].date.data + '</p>' +
-                    '<div class="d-flex w-100 justify-content-between">';
+                if(rest.dob.length > 0) {
+                    text = text + '</div>' +
+                        ' <hr>' +
+                        '<p class="mb-1">DoB ' + rest.dob[0].date.data + '</p>' +
+                }
+                '<div class="d-flex w-100 justify-content-between">';
 
                 for (const email of rest.email)
                 {
