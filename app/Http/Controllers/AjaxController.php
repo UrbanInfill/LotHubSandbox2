@@ -48,7 +48,7 @@ class AjaxController extends Controller
     }
     public function persondetail($fname,$lname,$zip,$index)
     {
-        $getList=$this->DetailPersonInformation($fname,$lname,$zip);
+        $getList=$this->DetailPersonInformation($fname,$lname,$zip,$index);
         return $getList;
     }
     public function personlist(Request $request)
@@ -87,7 +87,7 @@ class AjaxController extends Controller
     }
 
     private $obapiurl = 'http://search.onboard-apis.com', $obapikey = '577fd1cd7b08d87d237a427dac110573';
-    private function DetailPersonInformation($fName, $lName,$zip)
+    private function DetailPersonInformation($fName, $lName,$zip,$index)
     {
         // Get Token
         $curl = curl_init();
@@ -131,7 +131,7 @@ class AjaxController extends Controller
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_SSL_VERIFYHOST => false,
             CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_POSTFIELDS => "{ \n\"zip\":\"$zip\",\n\"firstName\":\"$fName\",\n\"lastName\":\"$lName\",\n\"fields\":[\"ssn\",\"name\",\"phone\",\"email\",\"address\",\"dob\",\"relationship\",\"property\",\"motorVehicle\",\"bankruptcy\",\"employment\",\"criminal\",\"lien\",\"judgment\",\"death\",\"ip\",\"military\",\"death\"]\n\n}",
+            CURLOPT_POSTFIELDS => "{ \n\"ssn\":\"$index\",\n\"zip\":\"$zip\",\n\"firstName\":\"$fName\",\n\"lastName\":\"$lName\",\n\"fields\":[\"ssn\",\"name\",\"phone\",\"email\",\"address\",\"dob\",\"relationship\",\"property\",\"motorVehicle\",\"bankruptcy\",\"employment\",\"criminal\",\"lien\",\"judgment\",\"death\",\"ip\",\"military\",\"death\"]\n\n}",
             CURLOPT_HTTPHEADER => array(
                 "Authorization: $req_token",
                 "Content-Type: application/json",
