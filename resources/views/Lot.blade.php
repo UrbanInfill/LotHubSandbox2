@@ -12,6 +12,7 @@
                         <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     </div>
+                    <br>
                     <label class="form-text text-muted" for="searchByPropForm">Enter the Zip-Code Below to Find Historically Platted Lots</label>
                     <div class="input-group  mb-3 search search-reduce" id="searchByPropForm">
                         <input class="form-control" id="search" name="address" type="text" placeholder="By Property"  onFocus="geolocate()" required="true" value="" aria-describedby="searchByProperty"/>
