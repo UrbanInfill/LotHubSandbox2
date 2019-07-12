@@ -7,7 +7,7 @@
                 <div class="form-group">
                      <h4><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
                     <br>
-                    <div style="display: block; width: 300px">
+                    <div style="display: block; width: 560px">
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
