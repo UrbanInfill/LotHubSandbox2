@@ -65,24 +65,18 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <td>
+                                            <th>
                                                 First Name
-                                            </td>
-                                            <td>
+                                            </th>
+                                            <th>
                                                 Last Name
-                                            </td>
-                                            <td>
-                                                Age
-                                            </td>
-                                            <td>
-                                                Date of Birth
-                                            </td>
-                                            <td>
+                                            </th>
+                                            <th>
                                                 Type
-                                            </td>
-                                            <td>
+                                            </th>
+                                            <th>
                                                 Phone Number Lists
-                                            </td>
+                                            </th>
                                         </tr>
                                         </thead>
                                         <tbody id="RelationTableBody">
