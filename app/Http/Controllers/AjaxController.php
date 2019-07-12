@@ -49,7 +49,8 @@ class AjaxController extends Controller
     public function persondetail($fname,$lname,$zip,$index)
     {
         $getList=$this->DetailPersonInformation($fname,$lname,$zip,$index);
-        return $getList;
+
+        return view('personDetail')->with("persondetail", $getList["result"][0]);
     }
     public function personlist(Request $request)
     {
