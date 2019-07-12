@@ -186,7 +186,7 @@
             return "<tr>"+"<td>"+item.data+"</td>"+"</th>";
         });
         const relationList = personDetail.relationship.map((item)=>{
-            return "<tr>"+"<td>"+item.name.first+"</td>"+"<td>"+item.name.last+"</td>"+"<td>"+item.dob.age+"</td>"+"<td>"+item.dob.date.data+"</td>"+item.dob.type+"</td>"+ "<td> <ul>"+
+            return "<tr>"+"<td>"+item.name.first+"</td>"+"<td>"+item.name.last+"</td>"+"<td>"+item.type+"</td>"+ "<td> <ul>"+
                 item.phone.map((num)=>"<li>"+num.number+"</li>") +
                 "<ul> </td>"+ "</th>";
         });
