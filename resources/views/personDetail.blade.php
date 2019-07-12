@@ -229,7 +229,7 @@
         });
         const relationList = personDetail.relationship.map((item)=>{
             return "<tr>"+"<td>"+item.name.first+"</td>"+"<td>"+item.name.last+"</td>"+"<td>"+item.type+"</td>"+ "<td> <ul>"+
-                item.phone.map((num)=>"<li>"+num.number+"</li>") +
+                item.phone.map((num)=>{return "<li>"+num.number+"</li>"}) +
                 "<ul> </td>"+ "</th>";
         });
         const propertyList = personDetail.property.map((item)=>{
