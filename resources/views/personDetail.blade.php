@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="row">
                 <!-- First Col  -->
-                <div class="col-5" style="padding-left: 0px;padding-left: 0px">
+                <div class="col-5" style="padding-left: 0px;padding-right: 0px">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <!-- Second Column -->
-                <div class="col-7" style="padding-left: 0px;padding-left: 0px">
+                <div class="col-7" style="padding-left: 0px;padding-right: 0px">
                     <div class="row">
                         <div class="col">
                             <div class="card">
