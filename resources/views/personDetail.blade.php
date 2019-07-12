@@ -44,7 +44,7 @@
         const nameList = personDetail.name.map((names)=>{
             return "<tr>"+"<td>"+names.data+"</td>"+"</th>";
         });
-        $('#NameTableBody').append();
+        $('#NameTableBody').append(nameList);
         console.log( personDetail );
 
     </script>
