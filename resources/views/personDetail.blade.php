@@ -73,7 +73,7 @@
             return "<tr>"+"<td>"+names.data+"</td>"+"</th>";
         });
         const dobList = personDetail.dob.map((item)=>{
-            return "<tr>"+"<td>"+item.date+"</td>"+"<td>"+item.age+"</td">+"</th>";
+            return "<tr>"+"<td>"+item.date.data+"</td>"+"<td>"+item.age+"</td">+"</th>";
         });
 
         $('#NameTableBody').append(nameList);
