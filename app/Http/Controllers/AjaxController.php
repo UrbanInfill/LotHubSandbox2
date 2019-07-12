@@ -38,6 +38,7 @@ class AjaxController extends Controller
         $data = str_replace('((phonenumber))',$Currentuser->PhoneNumber,$data);
         $data = str_replace('((address))',$fulladdress,$data);
         $data = str_replace('((ownername))',$fullname,$data);
+        $data = str_replace('((companyaddress))',$Currentuser->Address,$data);
         if(isset($Currentuser->logo))
             $data = str_replace('((logo))','<img src="https://lothub-storage.s3-us-west-2.amazonaws.com/'.$Currentuser->logo.'" width="100px" height="100px"/>',$data);
 
