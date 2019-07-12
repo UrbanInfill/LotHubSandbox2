@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="row">
                 <!-- First Col  -->
-                <div class="col">
+                <div class="col-4">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <!-- Second Column -->
-                <div class="col">
+                <div class="col-8">
                     <div class="row">
                         <div class="col">
                             <div class="card">
@@ -158,8 +158,8 @@
                                 <div class="card-body">
                                     <table class="table">
                                         <thead>
-                                        <tr class="d-flex">
-                                            <th class="col-3">
+                                        <tr>
+                                            <th>
                                                 Property Address
                                             </th>
                                             <th>
@@ -233,7 +233,7 @@
                 "<ul> </td>"+ "</th>";
         });
         const propertyList = personDetail.property.map((item)=>{
-            return "<tr class='d-flex'>"+"<td class=\"col-3\">"+item.address.data+"</td>"+"<td>"+item.assessment.assessedValue+"</td>"+"<td>"+item.assessment.assessorYear+"</td>"+"<td>"+item.assessment.date.data+"</td>"+
+            return "<tr>"+"<td>"+item.address.data+"</td>"+"<td>"+item.assessment.assessedValue+"</td>"+"<td>"+item.assessment.assessorYear+"</td>"+"<td>"+item.assessment.date.data+"</td>"+
                 "<td>$"+item.assessment.improvementValue+"</td>"+"<td>$"+item.assessment.landValue+"</td>"+"<td>$"+item.assessment.marketValue+"</td>"+"<td>"+item.assessment.taxYear+"</td>"+
                 "<td>$"+item.assessment.totalTax+"</td>"+
                 "</th>";
