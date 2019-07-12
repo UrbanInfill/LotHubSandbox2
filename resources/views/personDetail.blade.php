@@ -8,23 +8,50 @@
         <div class="card-body">
             <div class="row">
                 <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            Names list
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>
-                                        Full Name
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody id="NameTableBody">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    Names list
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                Full Name
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="NameTableBody">
 
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    Email list
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                Email address
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="EmailTableBody">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,10 +142,14 @@
         const phoneList = personDetail.phone.map((item)=>{
             return "<tr>"+"<td>"+item.type+"</td>"+"<td>"+item.number+"</td>"+"<td>"+item.providerName+"</td>"+"<td>"+item.business+"</td>"+"</th>";
         });
+        const EmailList = personDetail.email.map((item)=>{
+            return "<tr>"+"<td>"+item.data+"</td>"+"</th>";
+        });
 
         $('#NameTableBody').append(nameList);
         $('#dobTableBody').append(dobList);
         $('#PhoneTableBody').append(phoneList);
+        $('#EmailTableBody').append(EmailList);
         console.log( personDetail );
 
     </script>
