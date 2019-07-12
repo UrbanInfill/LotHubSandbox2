@@ -7,9 +7,9 @@
                 <div class="form-group">
                      <h4><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
                     <br>
-                    <div style="width: 560px;height: 315px">
-                    <div class="embed-responsive embed-responsive-1by1">
-                        <iframe class="embed-responsive-item"  width="200" height="200" src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div style="display: block;">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     </div>
                     <label class="form-text text-muted" for="searchByPropForm">Enter the Zip-Code Below to Find Historically Platted Lots</label>
