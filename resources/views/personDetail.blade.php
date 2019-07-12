@@ -16,6 +16,7 @@
                                     Names list
                                 </div>
                                 <div class="card-body">
+                                    <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -28,6 +29,7 @@
 
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -39,6 +41,7 @@
                                     Email list
                                 </div>
                                 <div class="card-body">
+                                    <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -51,6 +54,7 @@
 
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -62,6 +66,7 @@
                                     RelationShip list
                                 </div>
                                 <div class="card-body">
+                                    <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -83,6 +88,7 @@
 
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -97,6 +103,7 @@
                                     DOB list
                                 </div>
                                 <div class="card-body">
+                                    <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -112,6 +119,7 @@
 
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -123,6 +131,7 @@
                                     Phone Number list
                                 </div>
                                 <div class="card-body">
+                                    <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -145,6 +154,7 @@
 
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -156,6 +166,7 @@
                                     Property list
                                 </div>
                                 <div class="card-body">
+                                    <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -193,6 +204,7 @@
 
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
