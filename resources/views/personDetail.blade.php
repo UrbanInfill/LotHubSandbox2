@@ -17,9 +17,6 @@
                             <th>
                                 Full Name
                             </th>
-                            <th>
-                                Gender
-                            </th>
                         </tr>
                     </thead>
                     <tbody id="NameTableBody">
@@ -39,10 +36,10 @@
 
     <script>
         const personDetail = {!! json_encode($persondetail) !!};
-
-        $('#NameTableBody').append(personDetail.name.map((name)=>{
-            return "<tr>"+"<td>"+name.data+"</td>"+"<td>"+ name.gen +"</td></th>";
-        }));
+        const nameList = personDetail.name.map((names)=>{
+            return "<tr>"+"<td>"+names.data+"</td>"+"</th>";
+        })
+        $('#NameTableBody').append();
         console.log( personDetail );
 
     </script>
