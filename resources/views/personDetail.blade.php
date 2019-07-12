@@ -233,7 +233,7 @@
                 "<ul> </td>"+ "</th>";
         });
         const propertyList = personDetail.property.map((item)=>{
-            return "<tr>"+"<td>"+item.address.data+"</td>"+"<td>"+item.assessment.assessedValue+"</td>"+"<td>"+item.assessment.assessorYear+"</td>"+"<td>"+item.assessment.date.date+"</td>"+
+            return "<tr>"+"<td>"+item.address.data+"</td>"+"<td>"+item.assessment.assessedValue+"</td>"+"<td>"+item.assessment.assessorYear+"</td>"+"<td>"+item.assessment.date.data+"</td>"+
                 "<td>$"+item.assessment.improvementValue+"</td>"+"<td>$"+item.assessment.landValue+"</td>"+"<td>$"+item.assessment.marketValue+"</td>"+"<td>"+item.assessment.taxYear+"</td>"+
                 "<td>$"+item.assessment.totalTax+"</td>"+
                 "</th>";
