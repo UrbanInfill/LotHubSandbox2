@@ -34,14 +34,18 @@
 
 
 
+
+
+@endsection
+
+@section('script')
     <script>
         const personDetail = {!! json_encode($persondetail) !!};
         const nameList = personDetail.name.map((names)=>{
             return "<tr>"+"<td>"+names.data+"</td>"+"</th>";
-        })
+        });
         $('#NameTableBody').append();
         console.log( personDetail );
 
     </script>
-
 @endsection
