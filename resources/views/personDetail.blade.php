@@ -149,6 +149,54 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    Property list
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                Property Address
+                                            </th>
+                                            <th>
+                                                Assessed Value
+                                            </th>
+                                            <th>
+                                                Assessor Year
+                                            </th>
+                                            <th>
+                                                Date
+                                            </th>
+                                            <th>
+                                                Improvement Value
+                                            </th>
+                                            <th>
+                                                Land Value
+                                            </th>
+                                            <th>
+                                                Market Value
+                                            </th>
+                                            <th>
+                                                Tax Year
+                                            </th>
+                                            <th>
+                                                Total Tax
+                                            </th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody id="PropertyTableBody">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -184,12 +232,19 @@
                 item.phone.map((num)=>"<li>"+num.number+"</li>") +
                 "<ul> </td>"+ "</th>";
         });
+        const propertyList = personDetail.property.map((item)=>{
+            return "<tr>"+"<td>"+item.address.data+"</td>"+"<td>"+item.assessment.assessedValue+"</td>"+"<td>"+item.assessment.assessorYear+"</td>"+"<td>"+item.assessment.date.date+"</td>"+
+                "<td>$"+item.assessment.improvementValue+"</td>"+"<td>$"+item.assessment.landValue+"</td>"+"<td>$"+item.assessment.marketValue+"</td>"+"<td>"+item.assessment.taxYear+"</td>"+
+                "<td>$"+item.assessment.totalTax+"</td>"+
+                "</th>";
+        });
 
         $('#NameTableBody').append(nameList);
         $('#dobTableBody').append(dobList);
         $('#PhoneTableBody').append(phoneList);
         $('#EmailTableBody').append(EmailList);
         $('#RelationTableBody').append(relationList);
+        $('#PropertyTableBody').append(propertyList);
         console.log( personDetail );
 
     </script>
