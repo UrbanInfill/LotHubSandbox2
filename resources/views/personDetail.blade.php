@@ -159,7 +159,7 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th class="col-sm-3">
+                                            <th class="col-3">
                                                 Property Address
                                             </th>
                                             <th>
@@ -233,7 +233,7 @@
                 "<ul> </td>"+ "</th>";
         });
         const propertyList = personDetail.property.map((item)=>{
-            return "<tr>"+"<td class=\"col-sm-3\">"+item.address.data+"</td>"+"<td>"+item.assessment.assessedValue+"</td>"+"<td>"+item.assessment.assessorYear+"</td>"+"<td>"+item.assessment.date.data+"</td>"+
+            return "<tr>"+"<td class=\"col-3\">"+item.address.data+"</td>"+"<td>"+item.assessment.assessedValue+"</td>"+"<td>"+item.assessment.assessorYear+"</td>"+"<td>"+item.assessment.date.data+"</td>"+
                 "<td>$"+item.assessment.improvementValue+"</td>"+"<td>$"+item.assessment.landValue+"</td>"+"<td>$"+item.assessment.marketValue+"</td>"+"<td>"+item.assessment.taxYear+"</td>"+
                 "<td>$"+item.assessment.totalTax+"</td>"+
                 "</th>";
