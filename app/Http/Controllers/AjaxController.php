@@ -27,7 +27,7 @@ class AjaxController extends Controller
         return $this->sendMail(nl2br($content),$propertymail);
     }
 
-
+  
 
     public function showmail(Request $request,$fullname,$fulladdress,$emailaddress,$template = null)
     {
