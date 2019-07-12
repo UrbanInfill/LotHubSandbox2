@@ -40,10 +40,10 @@
     <script>
         const personDetail = {!! json_encode($persondetail) !!};
 
-        $('#NameTableBody').append personDetail.name.map((name)=>{
+        $('#NameTableBody').append(personDetail.name.map((name)=>{
             return "<tr>"+"<td>"+name.data+"</td>"+"<td>"+ name.gen +"</td></th>";
         }));
-        console.log( a );
+        console.log( personDetail );
 
     </script>
 
