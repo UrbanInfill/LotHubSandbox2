@@ -29,26 +29,63 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            DOB list
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>
-                                        Date
-                                    </th>
-                                    <th>
-                                        Age
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody id="dobTableBody">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    DOB list
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                Date
+                                            </th>
+                                            <th>
+                                                Age
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="dobTableBody">
 
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    Phone Number list
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                Type
+                                            </th>
+                                            <th>
+                                                Number
+                                            </th>
+                                            <th>
+                                                Provider
+                                            </th>
+                                            <th>
+                                                Business
+                                            </th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody id="PhoneTableBody">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -75,9 +112,13 @@
         const dobList = personDetail.dob.map((item)=>{
             return "<tr>"+"<td>"+item.date.data+"</td>"+"<td>"+item.age+"</td>"+"</th>";
         });
+        const phoneList = personDetail.phone.map((item)=>{
+            return "<tr>"+"<td>"+item.type+"</td>"+"<td>"+item.number+"</td>"+"<td>"+item.providerName+"</td>"+"<td>"+item.business+"</td>"+"</th>";
+        });
 
         $('#NameTableBody').append(nameList);
         $('#dobTableBody').append(dobList);
+        $('#PhoneTableBody').append(phoneList);
         console.log( personDetail );
 
     </script>
