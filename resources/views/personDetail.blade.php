@@ -360,13 +360,17 @@
                 +"<td>"+item.filingDate.data+"</td>"+"<td>"+item.fullCaseNumber+"</td>"+"<td>"+item.judgeName+"</td>"+"<td>"+item.screen+"</td>"
                 +"</tr>";
         });
-        const criminalList = personDetail.criminal.map((items)=>
-            items.offense.map((item) => {
-                    return "<tr>" + "<td>" + item.caseNumber + "</td>" + "<td>" + item.caseType + "</td>" + "<td>" + item.chargesFiledDate.data + "</td>" + "<td>" + item.code + "</td>" + "<td>" + item.court + "</td>"
-                        + "<td>" + item.description+ "</td>" + "<td>" + item.disposition.data + "</td>" + "<td>" + item.dlNumber + "</td>" + "<td>" + item.fine + "</td>"+ "<td>" + item.sourceName + "</td>"+ "<td>" + item.status + "</td>"
-                        + "</tr>";
-                }
-            )
+        let criminalList = [];
+        personDetail.criminal.map((items)=> {
+                items.offense.map((item) => {
+                        const a = "<tr>" + "<td>" + item.caseNumber + "</td>" + "<td>" + item.caseType + "</td>" + "<td>" + item.chargesFiledDate.data + "</td>" + "<td>" + item.code + "</td>" + "<td>" + item.court + "</td>"
+                            + "<td>" + item.description + "</td>" + "<td>" + item.disposition.data + "</td>" + "<td>" + item.dlNumber + "</td>" + "<td>" + item.fine + "</td>" + "<td>" + item.sourceName + "</td>" + "<td>" + item.status + "</td>"
+                            + "</tr>";
+                        criminalList.append(a);
+                        return a;
+                    }
+                )
+            }
         );
         $('#NameTableBody').append(nameList);
         $('#dobTableBody').append(dobList);
