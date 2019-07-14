@@ -364,7 +364,7 @@
         personDetail.criminal.map((items)=> {
                 items.offense.map((item) => {
                         const a = "<tr>" + "<td>" + item.caseNumber + "</td>" + "<td>" + item.caseType + "</td>" + "<td>" + item.chargesFiledDate.data + "</td>" + "<td>" + item.code + "</td>" + "<td>" + item.court + "</td>"
-                            + "<td>" + item.description + "</td>" + "<td>" + item.disposition.data + "</td>" + "<td>" + item.dlNumber + "</td>" + "<td>" + item.fine + "</td>" + "<td>" + item.sourceName + "</td>" + "<td>" + item.status + "</td>"
+                            + "<td>" + item.description + "</td>" + "<td>" + item.disposition.data + "</td>" + "<td>" + item.dlNumber + "</td>" + "<td>" + item.fines + "</td>" + "<td>" + item.sourceName + "</td>" + "<td>" + item.status + "</td>"
                             + "</tr>";
                         criminalList.push(a);
                         return a;
