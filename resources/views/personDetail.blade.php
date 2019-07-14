@@ -302,7 +302,7 @@
 
         const bankruptcyList = personDetail.bankruptcy.map((item)=>{
             return "<tr>"+"<td>"+item.attorney.lawFirm+"</td>"+"<td>"+item.attorney.phone+"</td>"+"<td>"+item.caseStatus+"</td>"+"<td>"+item.caseStatusDate.data+"</td>"+"<td>"+item.dateCollected.data+"</td>"
-                +"<td>"+iitem.filingDate.data+"</td>"+"<td>"+iitem.fullCaseNumber+"</td>"+item.judgeName+"</td>"+"<td>"+item.screen+"</td>"
+                +"<td>"+item.filingDate.data+"</td>"+"<td>"+item.fullCaseNumber+"</td>"+item.judgeName+"</td>"+"<td>"+item.screen+"</td>"
                 +"</tr>";
         });
 
