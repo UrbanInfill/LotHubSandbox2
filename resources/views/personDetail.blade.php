@@ -277,33 +277,33 @@
     <script>
         const personDetail = {!! json_encode($persondetail) !!};
         const nameList = personDetail.name.map((names)=>{
-            return "<tr>"+"<td>"+names.data+"</td>"+"</th>";
+            return "<tr>"+"<td>"+names.data+"</td>"+"</tr>";
         });
         const dobList = personDetail.dob.map((item)=>{
-            return "<tr>"+"<td>"+item.date.data+"</td>"+"<td>"+item.age+"</td>"+"</th>";
+            return "<tr>"+"<td>"+item.date.data+"</td>"+"<td>"+item.age+"</td>"+"</tr>";
         });
         const phoneList = personDetail.phone.map((item)=>{
-            return "<tr>"+"<td>"+item.type+"</td>"+"<td>"+item.number+"</td>"+"<td>"+item.providerName+"</td>"+"<td>"+item.business+"</td>"+"</th>";
+            return "<tr>"+"<td>"+item.type+"</td>"+"<td>"+item.number+"</td>"+"<td>"+item.providerName+"</td>"+"<td>"+item.business+"</td>"+"</tr>";
         });
         const EmailList = personDetail.email.map((item)=>{
-            return "<tr>"+"<td>"+item.data+"</td>"+"</th>";
+            return "<tr>"+"<td>"+item.data+"</td>"+"</tr>";
         });
         const relationList = personDetail.relationship.map((item)=>{
             return "<tr>"+"<td>"+item.name.first+"</td>"+"<td>"+item.name.last+"</td>"+"<td>"+item.type+"</td>"+ "<td> <ul>"+
                 item.phone.map((num)=>{return "<li>"+num.number+"</li>"}) +
-                "<ul> </td>"+ "</th>";
+                "<ul> </td>"+ "</tr>";
         });
         const propertyList = personDetail.property.map((item)=>{
             return "<tr>"+"<td>"+item.address.data+"</td>"+"<td>"+item.assessment.assessedValue+"</td>"+"<td>"+item.assessment.assessorYear+"</td>"+"<td>"+item.assessment.date.data+"</td>"+
                 "<td>$"+item.assessment.improvementValue+"</td>"+"<td>$"+item.assessment.landValue+"</td>"+"<td>$"+item.assessment.marketValue+"</td>"+"<td>"+item.assessment.taxYear+"</td>"+
                 "<td>$"+item.assessment.totalTax+"</td>"+
-                "</th>";
+                "</tr>";
         });
 
         const bankruptcyList = personDetail.bankruptcy.map((item)=>{
             return "<tr>"+"<td>"+item.attorney.lawFirm+"</td>"+"<td>"+item.attorney.phone+"</td>"+"<td>"+item.caseStatus+"</td>"+"<td>"+item.caseStatusDate.data+"</td>"+item.dateCollected.data+"</td>"
                 +item.filingDate.data+"</td>"+item.fullCaseNumber+"</td>"+item.judgeName+"</td>"+"</td>"+item.screen+"</td>"
-                +"</th>";
+                +"</tr>";
         });
 
         $('#NameTableBody').append(nameList);
