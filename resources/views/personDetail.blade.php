@@ -93,6 +93,40 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    Bankruptcy list
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    First Name
+                                                </th>
+                                                <th>
+                                                    Last Name
+                                                </th>
+                                                <th>
+                                                    Type
+                                                </th>
+                                                <th>
+                                                    Phone Number Lists
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="BankruptcyTableBody">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Second Column -->
                 <div class="col-7" style="padding-left: 0px;padding-right: 0px">
@@ -251,12 +285,17 @@
                 "</th>";
         });
 
+        const bankruptcyList = personDetail.bankruptcy.map((item)=>{
+            return "<tr>"+"<td>"+item.attorney.lawFirm+"</td>"+"<td>"+item.attorney.name.data+"</td>"+"<td>"+item.attorney.phone+"</td>"+"</th>";
+        });
+
         $('#NameTableBody').append(nameList);
         $('#dobTableBody').append(dobList);
         $('#PhoneTableBody').append(phoneList);
         $('#EmailTableBody').append(EmailList);
         $('#RelationTableBody').append(relationList);
         $('#PropertyTableBody').append(propertyList);
+        $('#BankruptcyTableBody').append(bankruptcyList);
         console.log( personDetail );
 
     </script>
