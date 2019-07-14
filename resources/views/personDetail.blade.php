@@ -142,6 +142,61 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    Criminal list
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    Case Number
+                                                </th>
+                                                <th>
+                                                    case Type
+                                                </th>
+                                                <th>
+                                                    Charges Filled Date
+                                                </th>
+                                                <th>
+                                                    Code
+                                                </th>
+                                                <th>
+                                                    Court
+                                                </th>
+                                                <th>
+                                                    Description
+                                                </th>
+                                                <th>
+                                                    Disposition
+                                                </th>
+                                                <th>
+                                                    dlNumber
+                                                </th>
+                                                <th>
+                                                    Fine
+                                                </th>
+                                                <th>
+                                                    Source Name
+                                                </th>
+                                                <th>
+                                                    Status
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="CriminalTableBody">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Second Column -->
                 <div class="col-7" style="padding-left: 0px;padding-right: 0px">
@@ -305,7 +360,14 @@
                 +"<td>"+item.filingDate.data+"</td>"+"<td>"+item.fullCaseNumber+"</td>"+"<td>"+item.judgeName+"</td>"+"<td>"+item.screen+"</td>"
                 +"</tr>";
         });
-
+        const criminalList = personDetail.criminal.map((items)=> {
+            items.offense.map((item) => {
+                    return "<tr>" + "<td>" + item.caseNumber + "</td>" + "<td>" + item.caseType + "</td>" + "<td>" + item.chargesFiledDate.data + "</td>" + "<td>" + item.code + "</td>" + "<td>" + item.court + "</td>"
+                        + "<td>" + item.description+ "</td>" + "<td>" + item.disposition.data + "</td>" + "<td>" + item.dlNumber + "</td>" + "<td>" + item.fine + "</td>"+ "<td>" + item.sourceName + "</td>"+ "<td>" + item.status + "</td>"
+                        + "</tr>";
+                }
+            )
+        });
         $('#NameTableBody').append(nameList);
         $('#dobTableBody').append(dobList);
         $('#PhoneTableBody').append(phoneList);
@@ -313,6 +375,7 @@
         $('#RelationTableBody').append(relationList);
         $('#PropertyTableBody').append(propertyList);
         $('#BankruptcyTableBody').append(bankruptcyList);
+        $('#CriminalTableBody').append(criminalList);
         console.log( personDetail );
 
     </script>
