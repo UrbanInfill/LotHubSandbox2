@@ -105,16 +105,31 @@
                                             <thead>
                                             <tr>
                                                 <th>
-                                                    First Name
+                                                    Law Firm
                                                 </th>
                                                 <th>
-                                                    Last Name
+                                                    Attorney Number
                                                 </th>
                                                 <th>
-                                                    Type
+                                                    Case Status
                                                 </th>
                                                 <th>
-                                                    Phone Number Lists
+                                                    Case Status Date
+                                                </th>
+                                                <th>
+                                                    Date Collected
+                                                </th>
+                                                <th>
+                                                    Filing Date
+                                                </th>
+                                                <th>
+                                                    Full Case Number
+                                                </th>
+                                                <th>
+                                                    Judge Name
+                                                </th>
+                                                <th>
+                                                    Screen
                                                 </th>
                                             </tr>
                                             </thead>
@@ -286,7 +301,9 @@
         });
 
         const bankruptcyList = personDetail.bankruptcy.map((item)=>{
-            return "<tr>"+"<td>"+item.attorney.lawFirm+"</td>"+"<td>"+item.attorney.name.data+"</td>"+"<td>"+item.attorney.phone+"</td>"+"</th>";
+            return "<tr>"+"<td>"+item.attorney.lawFirm+"</td>"+"<td>"+item.attorney.phone+"</td>"+"<td>"+item.caseStatus+"</td>"+"<td>"+item.caseStatusDate.data+"</td>"+item.dateCollected.data+"</td>"
+                +item.filingDate.data+"</td>"+item.fullCaseNumber+"</td>"+item.judgeName+"</td>"+"</td>"+item.screen+"</td>"
+                +"</th>";
         });
 
         $('#NameTableBody').append(nameList);
