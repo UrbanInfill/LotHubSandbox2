@@ -47,7 +47,7 @@ class AjaxController extends Controller
 
     return view('propertyEmail')->with('data',$data)->with('fullname',$fullname)->with('fulladdress',$fulladdress)->with('allTemplates',$allTemplates)->with('emailaddress',$emailaddress);
     }
-    public function persondetail($fname,$lname,$zip,$index)
+    public function persondetail($fname,$lname,$index)
     {
         $getList=$this->DetailPersonInformation($fname,$lname,$zip,$index);
 
@@ -133,7 +133,7 @@ class AjaxController extends Controller
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_SSL_VERIFYHOST => false,
             CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_POSTFIELDS => "{ \n\"pidlist\":[\"$index\"],\n\"zip\":\"$zip\",\n\"firstName\":\"$fName\",\n\"lastName\":\"$lName\",\n\"fields\":[\"ssn\",\"name\",\"phone\",\"email\",\"address\",\"dob\",\"relationship\",\"property\",\"motorVehicle\",\"bankruptcy\",\"employment\",\"criminal\",\"lien\",\"judgment\",\"death\",\"ip\",\"military\",\"death\"]\n\n}",
+            CURLOPT_POSTFIELDS => "{ \n\"pidlist\":[\"$index\"],\n\"firstName\":\"$fName\",\n\"lastName\":\"$lName\",\n\"fields\":[\"ssn\",\"name\",\"phone\",\"email\",\"address\",\"dob\",\"relationship\",\"property\",\"motorVehicle\",\"bankruptcy\",\"employment\",\"criminal\",\"lien\",\"judgment\",\"death\",\"ip\",\"military\",\"death\"]\n\n}",
             CURLOPT_HTTPHEADER => array(
                 "Authorization: $req_token",
                 "Content-Type: application/json",

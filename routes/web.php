@@ -34,7 +34,7 @@ Route::get("allVacantpropertiesList",'AjaxController@allVacantpropertiesList');
 Route::post("propertymail",'AjaxController@sendPropertymail');
 
 Route::get("personlist",'AjaxController@personlist');
-Route::get("perosndetail/{fname}/{lname}/{zip}/{index}",'AjaxController@persondetail');
+Route::get("perosndetail/{fname}/{lname}/{index}",'AjaxController@persondetail');
 
 Route::get('/school','AjaxController@school');
 Route::post('/sendMail','AjaxController@SendEmail');
