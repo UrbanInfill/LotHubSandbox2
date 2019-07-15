@@ -49,7 +49,7 @@ class AjaxController extends Controller
     }
     public function persondetail($fname,$lname,$index)
     {
-        $getList=$this->DetailPersonInformation($fname,$lname,$zip,$index);
+        $getList=$this->DetailPersonInformation($fname,$lname$index);
 
         return view('personDetail')->with("persondetail", $getList["result"][0]);
     }
@@ -89,7 +89,7 @@ class AjaxController extends Controller
     }
 
     private $obapiurl = 'http://search.onboard-apis.com', $obapikey = '577fd1cd7b08d87d237a427dac110573';
-    private function DetailPersonInformation($fName, $lName,$zip,$index)
+    private function DetailPersonInformation($fName, $lName,$index)
     {
         // Get Token
         $curl = curl_init();
