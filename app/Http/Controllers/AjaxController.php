@@ -49,7 +49,7 @@ class AjaxController extends Controller
     }
     public function persondetail($fname,$lname,$index)
     {
-        $getList=$this->DetailPersonInformation($fname,$lname$index);
+        $getList=$this->DetailPersonInformation($fname,$lname,$index);
 
         return view('personDetail')->with("persondetail", $getList["result"][0]);
     }
