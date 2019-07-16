@@ -98,11 +98,11 @@ h6 {
     align-items: center;
     width: 100%;
     background-image: url('/Img/Loading2.gif');
-    background-size: cover;
 
 
 
-    height: 50vh;
+
+    height: 90vh;
     padding:0;
     margin:0;
 }
