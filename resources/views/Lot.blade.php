@@ -13,6 +13,7 @@
                     </div>
                 </div>
 
+                <br>
                 <h1 class="center">Ready to Find Hot Property Deals Nationwide? Enter the Desired Zip-Code Below</h1>
 
                 <h4 class="center"><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
