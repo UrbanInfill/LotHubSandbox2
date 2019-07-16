@@ -3,30 +3,23 @@
 @section('content')
     <div class="pt-3">
         <div class="row">
-            <div class="col">
-                <div style="display: flex">
-                    <div class="row">
-                        <div class='col' style="justify-content: center; width: 560px" >
+            <div class="col" style="justify-content: center">
+                <h1 class="center" >Learn How to Find Deals with This Lothub Tutorial Video </h1>
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col" style="justify-content: center">
-                            <h1>Learn How to Find Deals with This Lothub Tutorial Video </h1>
-
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-
-                            <h1>Ready to Find Hot Property Deals Nationwide? Enter the Desired Zip-Code Below</h1>
-
-                            <h4><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
-
-                            <br>
-                            <label class="form-text text-muted" for="searchByPropForm">Enter the Zip-Code Below to Find Historically Platted Lots</label>
-                        </div>
-                    </div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+
+                <h1 class="center">Ready to Find Hot Property Deals Nationwide? Enter the Desired Zip-Code Below</h1>
+
+                <h4 class="center"><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
+
+                <br>
+                <label class="form-text text-muted center" for="searchByPropForm">Enter the Zip-Code Below to Find Historically Platted Lots</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <div class="form-group">
                     <div class="input-group  mb-3 search search-reduce" id="searchByPropForm">
                         <input class="form-control" id="search" name="address" type="text" placeholder="By Property"  onFocus="geolocate()" required="true" value="" aria-describedby="searchByProperty"/>
