@@ -128,7 +128,7 @@ $.ajaxSetup({
 });
 // Mialer event handler get request to send the email
 
-setTimeout(loadingOFF, 1000)
+setTimeout(loadingOFF, 1100)
 function loadingOFF()
 {
     $( "#loading" ).fadeOut( "slow", function() {
