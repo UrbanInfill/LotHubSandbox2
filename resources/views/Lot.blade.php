@@ -7,9 +7,12 @@
                 <div style="display: flex">
                     <div class="row">
                         <div class='col' style="justify-content: center; width: 560px" >
+                            <h3>Learn How to Find Deals with This Lothub Tutorial Video </h3>
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
+
+                            <h3>Ready to Find Hot Property Deals Nationwide? Enter the Desired Zip-Code Below</h3>
                         </div>
                     </div>
                     <div class="row">
