@@ -1,4 +1,7 @@
-
+$("#houseDiv").hide();
+$("#eduDiv").hide();
+$("#incomeDiv").hide();
+$("#poiContent").hide();
 $(document).on("click", '.saveBtn', function(event) {
 
 
@@ -114,10 +117,7 @@ $(document).ready(function(){
 });
 
 
-$("#houseDiv").hide();
-$("#eduDiv").hide();
-$("#incomeDiv").hide();
-$("#poiContent").hide();
+
 $('.toast').toast('show')
 // Ajax Requestsfas
 $.ajaxSetup({
