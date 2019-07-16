@@ -4,10 +4,13 @@
     <div class="pt-3">
         <div class="row">
             <div class="col" style="justify-content: center">
+                <img src="{{public_path()}}/Img/Lot_Hub_Banner.png" alt="">
                 <h1 class="center" >Learn How to Find Deals with This Lothub Tutorial Video </h1>
 
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div  style="width: 700px;">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
 
                 <h1 class="center">Ready to Find Hot Property Deals Nationwide? Enter the Desired Zip-Code Below</h1>
