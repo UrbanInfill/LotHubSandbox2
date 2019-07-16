@@ -12,12 +12,13 @@
                     </div>
                     <div class="row">
                         <div class="col" style="justify-content: center">
-                            <h3>Learn How to Find Deals with This Lothub Tutorial Video </h3>
+                            <h1>Learn How to Find Deals with This Lothub Tutorial Video </h1>
+
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
 
-                            <h3>Ready to Find Hot Property Deals Nationwide? Enter the Desired Zip-Code Below</h3>
+                            <h1>Ready to Find Hot Property Deals Nationwide? Enter the Desired Zip-Code Below</h1>
 
                             <h4><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
 
