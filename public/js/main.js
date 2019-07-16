@@ -128,7 +128,16 @@ $.ajaxSetup({
 });
 // Mialer event handler get request to send the email
 
+setTimeout(loadingOFF, 1000)
+function loadingOFF()
+{
+    $( "#loading" ).fadeOut( "slow", function() {
 
+        $('#loading').css("display","none");
+
+        $("#isLoaded").css("display","block");
+    });
+}
 $("#searchbyPerson").click(function (e) {
 e.preventDefault();
 const fName = $("#fName").val();

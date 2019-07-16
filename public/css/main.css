@@ -87,6 +87,25 @@ h6 {
     font-weight: 700;
     color: #43575f;
 }
+#isLoaded{
+    display: none;
+}
+#loading {
+    z-index: 100000;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image: url('/Img/Loading.gif');
+    background-size: cover;
+
+
+
+    height: 90vh;
+    padding:0;
+    margin:0;
+}
 .h1,
 h1 {
     font-size: 24px;

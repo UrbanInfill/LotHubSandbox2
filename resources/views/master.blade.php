@@ -63,7 +63,10 @@
     > PLEASE PAY THE DUE AMOUNT</h1>
 </div>
 -->
+<div id="loading"></div>
+<div id="isLoaded">
 @yield('content')
+</div>
 
 
 
