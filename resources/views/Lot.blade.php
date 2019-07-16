@@ -5,18 +5,21 @@
         <div class="row">
             <div class="col">
                 <div style="display: flex">
-
-                    <div style="justify-content: center; width: 560px">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="row">
+                        <div class='col' style="justify-content: center; width: 560px" >
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe  src="https://www.youtube.com/embed/dqcdh-W53Ag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
-                    <div style="justify-content: center">
+                    <div class="row">
+                        <div class="col" style="justify-content: center">
 
-                        <h4><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
+                            <h4><small> <strong>You have {{$Rcout}} Historic Lot Searches Left. Search Limit will refresh in {{$timeExceed}} </strong></small></h4>
 
-                        <br>
-                        <label class="form-text text-muted" for="searchByPropForm">Enter the Zip-Code Below to Find Historically Platted Lots</label>
+                            <br>
+                            <label class="form-text text-muted" for="searchByPropForm">Enter the Zip-Code Below to Find Historically Platted Lots</label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
