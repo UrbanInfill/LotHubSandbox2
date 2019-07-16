@@ -27,6 +27,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li>
+                <a class="nav-link" href="/">Lothub</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li>
                 <a class="nav-link" id="menu1" href="/">Historically Platted Lots</a>
             </li>
             <li>
@@ -36,10 +41,7 @@
                 <a class="nav-link " id="menu3" href="/location">Address Search </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " id="menu4" href="/person">Person Search</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
+                <a c
             <li class="nav-item">
                 <a href="/savedproperties" id="menu5" class="nav-link">Saved Properties</a>
             </li>
