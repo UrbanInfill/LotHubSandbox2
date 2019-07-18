@@ -16,7 +16,7 @@
         @foreach ($AVMResult["property"] as $key => $WholePropertydata)
             <div class="card">
                 <div class="card-header">
-                    <a  href="/propertymail/{{$fullname}}/{{$fulladdress}}/{{ is_null($OwnerInfo["result"][0]["email"])?$OwnerInfo["result"][0]["email"][0]["data"]: 'abc@email.com'}}/{{\App\Mailertemplate::first()->id}}" target="_blank"  class="btn btn-dark" style="float: right;" id='MailerBtn'>E-Mail Property Owner</a>
+                    <a  href="/propertymail/{{$fullname}}/{{$fulladdress}}/abc@email.com/{{\App\Mailertemplate::first()->id}}" target="_blank"  class="btn btn-dark" style="float: right;" id='MailerBtn'>E-Mail Property Owner</a>
                     <h4>{{$WholePropertydata["address"]["line1"]}}</h4>
                     <h7>{{$WholePropertydata["address"]["line2"]}}</h7>
                 </div>
@@ -121,39 +121,9 @@
                                             </td>
                                         </tr>
                                             <!-- Add IDe Core code here !!!! -->
-                                        <tr>
-                                            <td>
-                                                <hr/>
 
-                                                @if(array_key_exists("result",$OwnerInfo))
-                                                @if ( count( $OwnerInfo["result"]) > 0)
-                                                    @foreach ($OwnerInfo["result"][0]["phone"] as $key => $info)
-                                                        <strong>Phone Number: </strong>
-                                                        <span>{{$info["number"]}}</span>
-                                                            <br>
-                                                            <strong>Type: </strong>
-                                                            <span>{{$info["type"]}}</span>
-                                                            <br>
-                                                            <strong>Provider Name: </strong>
-                                                            <span>{{$info["providerName"]}}</span>
-                                                            <br>
-                                                            <hr/>
-                                                        @endforeach
-                                                @endif
-                                            @endif
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <hr/>
-                                                @if ( count( $OwnerInfo["result"]) > 0)
-                                                    <strong>Email: </strong>
-                                                    @foreach ($OwnerInfo["result"][0]["email"] as $key => $info)
-                                                        <span>{{$info["data"]}}</span>,
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                        </tr>
+
+                                        <!-- IDI code ends -->
                                         </tbody>
                                     </table>
                                 </div>
