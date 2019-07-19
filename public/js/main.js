@@ -131,6 +131,8 @@ $.ajaxSetup({
 setTimeout(loadingOFF, 1100)
 function loadingOFF()
 {
+    $('#isLoaded').css("display","none");
+    $('#loading').css("display","block");
     $( "#loading" ).fadeOut( "slow", function() {
 
         $('#loading').css("display","none");
