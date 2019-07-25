@@ -460,6 +460,7 @@ function postData(url = ``, data = {},isVacant) {
                         const patt7 = /l([0-9]*).-.([0-9]*)/gi;
                         const patt8 = /lot ([0-9]*).-.([0-9]*)/gi;
                         const patt9 = /lot([0-9]*).-.([0-9]*)/gi;
+                        const patt11 = /lts ([0-9]*).thru.([0-9]*)/gi;
                         if (property['summary']['legal1']) {
                             var result = property['summary']['legal1'].match(pattern);
                             var result2 = property['summary']['legal1'].match(patt1);
@@ -472,7 +473,8 @@ function postData(url = ``, data = {},isVacant) {
                             var result9 = property['summary']['legal1'].match(patt8);
                             var result10 = property['summary']['legal1'].match(patt9);
                             var result11 = property['summary']['legal1'].match(patt10);
-                            if (result || result2 || result3 || result4 || result5 || result6 || result7 || result8|| result9 || result10 || result11) {
+                            var result12 = property['summary']['legal1'].match(patt11);
+                            if (result || result2 || result3 || result4 || result5 || result6 || result7 || result8|| result9 || result10 || result11||result12) {
                                 searchCount++;
                                 $('#searchCount').text("Property count : "+searchCount);
                                 $("#poiContent").show();
