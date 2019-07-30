@@ -612,7 +612,7 @@ function f(locations) {
         on:{
             click: function(swiper, e){
                // var clicked = $(e.target);
-                focusonmarker(this.clickedIndex);
+                focusonmarker(this.activeIndex);
                 //console.log(clicked);
             },
             slideChangeTransitionEnd: function (swiper) {
