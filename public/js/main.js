@@ -279,7 +279,7 @@ $('#searchByAddress').click(function (e) {
             if (response.status >= 200 && response.status < 300) {
                 return response.json()
             }
-            throw new Error(response.statusText)
+            throw new Error(response.status)
         })
         .then(function(data)
         {
@@ -294,7 +294,10 @@ $('#searchByAddress').click(function (e) {
             f1();
             initMap(data["final_array"],data["lat"],data["lng"])
         }).catch(error=>{
-        $.notify('You exceed the Address search limit', 'error');
+            if(error == 500)
+                $.notify("You enter the wrong address");
+            else
+            $.notify('You exceed the Address search limit', 'error');
 
     });
         /*
