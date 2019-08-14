@@ -294,7 +294,7 @@ $('#searchByAddress').click(function (e) {
             f1();
             initMap(data["final_array"],data["lat"],data["lng"])
         }).catch(error=>{
-            if(error == 500)
+            if(error === '500')
                 $.notify("You enter the wrong address",'error');
             else
             $.notify('You exceed the Address search limit', 'error');
