@@ -156,7 +156,10 @@ class HomeController extends Controller
                     $Currentuser = User::find($request->user()->id);
                 }
             }
-            $propertiesList = $Currentuser->properties->sortByDesc('date')->values()->all();
+            $propertiesList = $Currentuser->properties->sortByDesc(function($col)
+            {
+                return $col;
+            })->values()->all();
             return view('SaveProperties')->with('propertiesList',$propertiesList)->with("Rcout",$Currentuser->savedcount)->with('timeExceed',$TimediffFormated);
         }
         else
