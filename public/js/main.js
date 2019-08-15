@@ -638,15 +638,15 @@ function f(locations) {
     });*/
     const siema = new Siema({
         perPage:7,
-        draggable = true,
+        draggable : true,
         loop:true
     });
-    document.querySelector('.next-slide').addEventListener('click',()=>
+    document.querySelector('.next-property').addEventListener('click',()=>
     {
         siema.next();
     });
 
-    document.querySelector('.prev-slide').addEventListener('click',()=>
+    document.querySelector('.prev-property').addEventListener('click',()=>
     {
         siema.prev();
     })
