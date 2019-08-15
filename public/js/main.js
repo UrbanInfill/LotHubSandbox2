@@ -346,9 +346,10 @@ $('#searchByAddress').click(function (e) {
 });
 let g_BoolFor_HistoricSearch = true;
 let g_BoolFor_VacantSearch = true;
+var totalPages = 10;
 function getlist(lat,lng,isVacant)
 {
-    var totalPages = 10;
+
 
     fetch(buildUrl('/getTotalPages',{lat:lat,lng:lng,zip:postalcode,isVacant:isVacant}), {
     method: "get", // *GET, POST, PUT, DELETE, etc.
@@ -580,6 +581,35 @@ function postData(url = ``, data = {},isVacant) {
                     }
                 }
                 clusterize.append(validPropertyList);
+            }
+            if(totalPages === data.page)
+            {
+                swiper = new Swiper('.swiper-container', {
+                    slidesPerView: 10,
+                    direction: 'vertical',
+                    slideToClickedSlide: false,
+                    on:{
+                        click: function(swiper, e){
+                            // var clicked = $(e.target);
+                            focusonmarker(this.activeIndex);
+                            //console.log(clicked);
+                        },
+                        slideChangeTransitionEnd: function (swiper) {
+                            focusonmarker(this.activeIndex);
+
+                        }
+                    },
+                    navigation: {
+                        nextEl: '.prev-slide',
+                        prevEl: '.next-slide',
+                    },scrollbar: {
+                        el: '.swiper-scrollbar',
+                        hide: true,
+                    },
+                    mousewheel: {
+                        invert: false,
+                    },
+                });
             }
             f(location);
 
