@@ -555,7 +555,7 @@ function postData(url = ``, data = {},isVacant) {
                 }
                 clusterize.append(validPropertyList);
             }
-            f(location);
+            //f(location);
 
         })
 }
