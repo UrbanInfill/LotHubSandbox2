@@ -275,9 +275,35 @@ $("#searchByPropertyVacant").click(function(e){
     ipage =1;
     $('.swiper-wrapper').empty();
     const address = $("#Vacantsearch").val();
-    if(!isEmptyOrSpaces(address))
-        codeAddress(address,true);
-    else
+    if(!isEmptyOrSpaces(address)) {
+        codeAddress(address, true);
+        swiper = new Swiper('.swiper-container', {
+            slidesPerView: 10,
+            direction: 'vertical',
+            slideToClickedSlide: false,
+            on:{
+                click: function(swiper, e){
+                    // var clicked = $(e.target);
+                    focusonmarker(this.activeIndex);
+                    //console.log(clicked);
+                },
+                slideChangeTransitionEnd: function (swiper) {
+                    focusonmarker(this.activeIndex);
+
+                }
+            },
+            navigation: {
+                nextEl: '.prev-slide',
+                prevEl: '.next-slide',
+            },scrollbar: {
+                el: '.swiper-scrollbar',
+                hide: true,
+            },
+            mousewheel: {
+                invert: false,
+            },
+        });
+    }else
         alert("Please enter the zip code")
 
 });
