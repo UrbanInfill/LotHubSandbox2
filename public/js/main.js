@@ -1,4 +1,4 @@
-
+import Siema from "./siema";
 
 
 $("#houseDiv").hide();
@@ -637,7 +637,20 @@ function f(locations) {
             invert: false,
         },
     });*/
+    const siema = new Siema({
+        perPage:7,
+        draggable : true,
+        loop:true
+    });
+    document.querySelector('.next-property').addEventListener('click',()=>
+    {
+        siema.next();
+    });
 
+    document.querySelector('.prev-property').addEventListener('click',()=>
+    {
+        siema.prev();
+    })
     var infowindow = new google.maps.InfoWindow();
     for (let i = 0; i < locations.length; i++)
     {
@@ -651,7 +664,7 @@ function f(locations) {
             return function() {
                 infowindow.setContent(locations[i][2]);
                 infowindow.open(map, markers);
-                //siema.goTo(markers.get("id"));
+                siema.goTo(markers.get("id"));
                 //swiper.slideTo(markers.get("id"));
                 //swiper.updateSlidesClasses();
             }
