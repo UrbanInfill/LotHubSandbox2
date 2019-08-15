@@ -100,24 +100,20 @@
 
             <br>
 
-            <div class="siema">
-
-            </div>
 
 
 
 
-            <!--
+
+
             <div class="swiper-container">
                 <div class="swiper-wrapper">
 
 
                 </div>
-                <!-- Add Arrows --
-                <!-- Add Pagination --
 
                 <div class="swiper-scrollbar"></div>
-            </div> -->
+            </div>
         </div>
         <!--<div class="swiper-button-next"><img src="images/icons/right.png" alt="right"></div>
         <div class="swiper-button-prev"><img src="images/icons/left.png" alt="left"></div>-->
