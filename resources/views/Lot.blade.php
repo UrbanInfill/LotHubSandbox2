@@ -36,6 +36,22 @@
         </div>
     </div>
     <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="next-slide "> <button type="button" class="btn btn-outline-dark" style="width: 100%;"><i class="fa fa-arrow-circle-up" aria-hidden="true" style="font-size: 20px;"></i></button></div>
+                </div>
+                <div class="col">
+                    <div class="prev-slide "> <button type="button" class="btn btn-outline-dark" style="width: 100%;"><i class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size: 20px;"></i></button></div>
+                </div>
+            </div>
+
+            <div class="siema">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6">
 
 
@@ -124,28 +140,31 @@
 
             <br>
 
-            <div class="swiper-container">
+
+            <!--
+
+                       <div class="swiper-container">
 
 
 
 
-                <div class="swiper-wrapper">
+                           <div class="swiper-wrapper">
 
 
 
-                    <!-- Add Arrows -->
-                    <!-- Add Pagination -->
+                               <!-- Add Arrows -->
+                    <!-- Add Pagination --
 
                 </div>
                 <!--<div class="swiper-button-next"><img src="images/icons/right.png" alt="right"></div>
-                <div class="swiper-button-prev"><img src="images/icons/left.png" alt="left"></div>-->
+                <div class="swiper-button-prev"><img src="images/icons/left.png" alt="left"></div>--
                 <div class="swiper-scrollbar"></div>
 
 
 
 
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="modal fade bd-example-modal-xl" id="myModal"  role="dialog">
