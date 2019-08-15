@@ -235,22 +235,7 @@
                 invert: false,
             },
         });*/
-        import Siema from "../../public/js/siema";
 
-        const siema = new Siema({
-            perPage:7,
-            draggable : true,
-            loop:true
-        });
-        document.querySelector('.next-property').addEventListener('click',()=>
-        {
-            siema.next();
-        });
-
-        document.querySelector('.prev-property').addEventListener('click',()=>
-        {
-            siema.prev();
-        });
 
         $('.nav-link').removeClass("active");
         $("#menu1").addClass("active");
