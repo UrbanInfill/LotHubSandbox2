@@ -1,3 +1,4 @@
+import Siema from "./siema";
 
 
 $("#houseDiv").hide();
