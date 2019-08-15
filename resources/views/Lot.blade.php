@@ -237,6 +237,8 @@
         });*/
 
 
+
+
         $('.nav-link').removeClass("active");
         $("#menu1").addClass("active");
         $("input[type='checkbox']").click(function ()  {

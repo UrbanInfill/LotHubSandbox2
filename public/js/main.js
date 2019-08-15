@@ -610,6 +610,7 @@ function getpageData(lat,lng,totalpage) {
 
 
 var homemarkers = [];
+import Siema from "./siema.js";
 function f(locations) {
     /*var swiper = new Swiper('.swiper-container', {
         slidesPerView: 10,
@@ -637,6 +638,7 @@ function f(locations) {
             invert: false,
         },
     });*/
+
     const siema = new Siema({
         perPage:7,
         draggable : true,
