@@ -1,6 +1,3 @@
-
-
-
 $("#houseDiv").hide();
 $("#eduDiv").hide();
 $("#incomeDiv").hide();
@@ -495,7 +492,7 @@ function postData(url = ``, data = {},isVacant) {
                                     '<div class="float-left">'+
                                     '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location='+ property["location"]["latitude"] +','+ property["location"]["longitude"]+'&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">'+
                                     '</div></div></div>';
-                                $(".siema").append(text);
+                                $(".swiper-wrapper").append(text);
                                 location.push([property["location"]['latitude'],property["location"]['longitude'],property['address']['oneLine']]);
                             } /*else if (result2) {
                                 var text = '<div class="swiper-slide" ajaxlink= "/getOwnerDetail/'+property["address"]["line1"]+'/' +property["address"]["line2"]+'"\>' +
@@ -610,9 +607,8 @@ function getpageData(lat,lng,totalpage) {
 
 
 var homemarkers = [];
-import Siema from "./siema.js";
 function f(locations) {
-    /*var swiper = new Swiper('.swiper-container', {
+    var swiper = new Swiper('.swiper-container', {
         slidesPerView: 10,
         direction: 'vertical',
         slideToClickedSlide: false,
@@ -637,22 +633,7 @@ function f(locations) {
         mousewheel: {
             invert: false,
         },
-    });*/
-
-    const siema = new Siema({
-        perPage:7,
-        draggable : true,
-        loop:true
     });
-    document.querySelector('.next-property').addEventListener('click',()=>
-    {
-        siema.next();
-    });
-
-    document.querySelector('.prev-property').addEventListener('click',()=>
-    {
-        siema.prev();
-    })
     var infowindow = new google.maps.InfoWindow();
     for (let i = 0; i < locations.length; i++)
     {
@@ -666,9 +647,8 @@ function f(locations) {
             return function() {
                 infowindow.setContent(locations[i][2]);
                 infowindow.open(map, markers);
-                siema.goTo(markers.get("id"));
-                //swiper.slideTo(markers.get("id"));
-                //swiper.updateSlidesClasses();
+                swiper.slideTo(markers.get("id"));
+                swiper.updateSlidesClasses();
             }
         })(markers, i))
         markers.set("id",homemarkers.length)
