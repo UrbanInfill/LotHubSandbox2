@@ -78,7 +78,7 @@
 <script src="{{ url('/js/bootstrap-notify.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script type="module"  src=" {{ url('/js/siema.js') }}"></script>
-<script src=" {{ url('/js/main.js') }}"></script>
+<script type="module" src=" {{ url('/js/main.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.6/js/swiper.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ&libraries=places&callback=initAutocomplete"></script>
 <script src=" {{ url('/js/notify.js') }}"></script>

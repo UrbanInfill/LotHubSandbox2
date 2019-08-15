@@ -611,20 +611,6 @@ function getpageData(lat,lng,totalpage) {
 
 var homemarkers = [];
 import Siema from "./siema.js";
-const siema = new Siema({
-    perPage:7,
-    draggable : true,
-    loop:true
-});
-document.querySelector('.next-property').addEventListener('click',()=>
-{
-    siema.next();
-});
-
-document.querySelector('.prev-property').addEventListener('click',()=>
-{
-    siema.prev();
-})
 function f(locations) {
     /*var swiper = new Swiper('.swiper-container', {
         slidesPerView: 10,
@@ -653,7 +639,20 @@ function f(locations) {
         },
     });*/
 
+    const siema = new Siema({
+        perPage:7,
+        draggable : true,
+        loop:true
+    });
+    document.querySelector('.next-property').addEventListener('click',()=>
+    {
+        siema.next();
+    });
 
+    document.querySelector('.prev-property').addEventListener('click',()=>
+    {
+        siema.prev();
+    })
     var infowindow = new google.maps.InfoWindow();
     for (let i = 0; i < locations.length; i++)
     {
