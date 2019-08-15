@@ -1,4 +1,4 @@
-import Siema from "./siema.js";
+import Siema from "siema.js";
 
 
 $("#houseDiv").hide();
