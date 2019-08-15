@@ -123,7 +123,7 @@
             </div>
 
             <br>
-            <div id="scrollArea" class="clusterize-scroll">
+            <div id="scrollArea" class="clusterize-scroll" style="max-height: 100%;">
                 <div id="contentArea" class="clusterize-content">
                     <div class="clusterize-no-data">Loading data…</div>
                 </div>
