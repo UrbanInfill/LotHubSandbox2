@@ -71,7 +71,7 @@
 <div id="isLoaded">
 @yield('content')
 </div>
-<div class="modal hide fade" id="myModal">
+<div class="modal hide fade" id="myModal1">
     <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
         <h3>Note</h3>
@@ -101,7 +101,7 @@
 
 <script type="text/javascript">
     $(window).on('load',function(){
-        $('#myModal').modal('show');
+        $('#myModal1').modal('show');
     });
 </script>
 </body>
