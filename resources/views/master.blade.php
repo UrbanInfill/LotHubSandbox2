@@ -71,15 +71,20 @@
 <div id="isLoaded">
 @yield('content')
 </div>
-<div class="modal hide fade" id="myModal1">
-    <div class="modal-header">
-        <a class="close" data-dismiss="modal">×</a>
-        <h3>Note</h3>
-    </div>
-    <div class="modal-body">
-        <p>LotHub is Currently Undergoing Maintenance. Please Expect Temporary Bugs That Will Disappear Within The Hour.…</p>
-    </div>
-    <div class="modal-footer">
+
+<div class="modal fade " id="myModal"  role="dialog">
+    <div class="modal-dialog modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                Note
+            </div>
+            <div class="modal-body">
+                LotHub is Currently Undergoing Maintenance. Please Expect Temporary Bugs That Will Disappear Within The Hour.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>
 
