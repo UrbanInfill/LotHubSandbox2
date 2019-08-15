@@ -252,6 +252,7 @@ $("#searchByPropertyVacant").click(function(e){
 });
 
 var detailViews;
+var clusterize;
 $('#searchByAddress').click(function (e) {
     e.preventDefault();
     const address = $("#searchAddress").val();
@@ -259,7 +260,10 @@ $('#searchByAddress').click(function (e) {
         alert("Please enter the address code")
         return
     }
-
+    clusterize = new Clusterize({
+        scrollId: 'scrollArea',
+        contentId: 'contentArea'
+    });
 
     fetch("/getPropertyResponse", {
         method: "post", // *GET, POST, PUT, DELETE, etc.
@@ -421,7 +425,7 @@ function postData(url = ``, data = {},isVacant) {
             console.log(data);
             let location = [];
             if(data) {
-
+                let validPropertyList = [];
 
                 for (const[i, property] of data.property.entries()) {
                     if(property["address"]["postal1"] != postalcode)
@@ -493,6 +497,7 @@ function postData(url = ``, data = {},isVacant) {
                                     '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location='+ property["location"]["latitude"] +','+ property["location"]["longitude"]+'&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">'+
                                     '</div></div></div>';
                                 $(".swiper-wrapper").append(text);
+                                validPropertyList.push(text);
                                 location.push([property["location"]['latitude'],property["location"]['longitude'],property['address']['oneLine']]);
                             } /*else if (result2) {
                                 var text = '<div class="swiper-slide" ajaxlink= "/getOwnerDetail/'+property["address"]["line1"]+'/' +property["address"]["line2"]+'"\>' +
@@ -547,8 +552,10 @@ function postData(url = ``, data = {},isVacant) {
                         }
                     }
                 }
+                clusterize.append(validPropertyList);
             }
             f(location);
+
         })
 }
 var ipage =1;
