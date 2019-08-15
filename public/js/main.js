@@ -451,9 +451,10 @@ function postData(url = ``, data = {},isVacant) {
         })
         .then(function(data) {
             console.log(data);
+
+            let validPropertyList = [];
             let location = [];
             if(data) {
-                let validPropertyList = [];
 
                 for (const[i, property] of data.property.entries()) {
                     if(property["address"]["postal1"] != postalcode)
@@ -580,7 +581,6 @@ function postData(url = ``, data = {},isVacant) {
                         }
                     }
                 }
-                clusterize.append(validPropertyList);
             }
             if(totalPages === data.page)
             {
@@ -613,6 +613,7 @@ function postData(url = ``, data = {},isVacant) {
             }
             f(location);
 
+            clusterize.append(validPropertyList);
         })
 }
 var ipage =1;
