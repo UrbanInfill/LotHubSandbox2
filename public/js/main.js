@@ -585,7 +585,7 @@ function postData(url = ``, data = {},isVacant) {
             if(document.URL.includes('hpl2'))
             {
 
-                clusterize.append(validPropertyList);
+                clusterize.update(validPropertyList);
                 if(totalPages == data.page)
                 {
                     clusterize.refresh();
