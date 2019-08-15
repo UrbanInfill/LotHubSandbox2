@@ -233,9 +233,14 @@ $("#searchByProperty").click(function(e){
     ipage =1;
     $('.swiper-wrapper').empty();
     const address = $("#search").val();
-    if(!isEmptyOrSpaces(address))
+    if(!isEmptyOrSpaces(address)) {
         codeAddress(address);
-    else
+
+        clusterize = new Clusterize({
+            scrollId: 'scrollArea',
+            contentId: 'contentArea'
+        });
+    }else
         alert("Please enter the zip code")
 });
 
@@ -260,10 +265,6 @@ $('#searchByAddress').click(function (e) {
         alert("Please enter the address code")
         return
     }
-    clusterize = new Clusterize({
-        scrollId: 'scrollArea',
-        contentId: 'contentArea'
-    });
 
     fetch("/getPropertyResponse", {
         method: "post", // *GET, POST, PUT, DELETE, etc.
