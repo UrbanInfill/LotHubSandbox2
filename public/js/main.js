@@ -582,38 +582,43 @@ function postData(url = ``, data = {},isVacant) {
                     }
                 }
             }
-            if(totalPages === data.page)
+            if(document.URL.includes('hpl2'))
             {
-                swiper = new Swiper('.swiper-container', {
-                    slidesPerView: 10,
-                    direction: 'vertical',
-                    slideToClickedSlide: false,
-                    on:{
-                        click: function(swiper, e){
-                            // var clicked = $(e.target);
-                            focusonmarker(this.activeIndex);
-                            //console.log(clicked);
-                        },
-                        slideChangeTransitionEnd: function (swiper) {
-                            focusonmarker(this.activeIndex);
 
-                        }
-                    },
-                    navigation: {
-                        nextEl: '.prev-slide',
-                        prevEl: '.next-slide',
-                    },scrollbar: {
-                        el: '.swiper-scrollbar',
-                        hide: true,
-                    },
-                    mousewheel: {
-                        invert: false,
-                    },
-                });
+                clusterize.append(validPropertyList);
             }
-            f(location);
+            else {
+                if (totalPages === data.page) {
+                    swiper = new Swiper('.swiper-container', {
+                        slidesPerView: 10,
+                        direction: 'vertical',
+                        slideToClickedSlide: false,
+                        on: {
+                            click: function (swiper, e) {
+                                // var clicked = $(e.target);
+                                focusonmarker(this.activeIndex);
+                                //console.log(clicked);
+                            },
+                            slideChangeTransitionEnd: function (swiper) {
+                                focusonmarker(this.activeIndex);
 
-            clusterize.append(validPropertyList);
+                            }
+                        },
+                        navigation: {
+                            nextEl: '.prev-slide',
+                            prevEl: '.next-slide',
+                        }, scrollbar: {
+                            el: '.swiper-scrollbar',
+                            hide: true,
+                        },
+                        mousewheel: {
+                            invert: false,
+                        },
+                    });
+                }
+                f(location);
+            }
+
         })
 }
 var ipage =1;
