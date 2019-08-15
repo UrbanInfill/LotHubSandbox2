@@ -71,7 +71,17 @@
 <div id="isLoaded">
 @yield('content')
 </div>
-
+<div class="modal hide fade" id="myModal">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Note</h3>
+    </div>
+    <div class="modal-body">
+        <p>LotHub is Currently Undergoing Maintenance. Please Expect Temporary Bugs That Will Disappear Within The Hour.…</p>
+    </div>
+    <div class="modal-footer">
+    </div>
+</div>
 
 
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
@@ -89,5 +99,10 @@
 <script src=" {{ url('/js/notify.js') }}"></script>
 @yield('script')
 
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
 </body>
 </html>
