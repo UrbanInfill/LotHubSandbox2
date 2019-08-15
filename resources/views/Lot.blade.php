@@ -210,7 +210,7 @@
 
     <script type='text/javascript' src="js/donut-chart.js"></script>
     <script>
-        var swiper = new Swiper('.swiper-container', {
+        /*var swiper = new Swiper('.swiper-container', {
             slidesPerView: 10,
             direction: 'vertical',
             slideToClickedSlide: true,
@@ -234,7 +234,22 @@
             },mousewheel: {
                 invert: false,
             },
+        });*/
+        const siema = new Siema({
+            perPage:7,
+            draggable : true,
+            loop:true
         });
+        document.querySelector('.next-property').addEventListener('click',()=>
+        {
+            siema.next();
+        });
+
+        document.querySelector('.prev-property').addEventListener('click',()=>
+        {
+            siema.prev();
+        });
+
         $('.nav-link').removeClass("active");
         $("#menu1").addClass("active");
         $("input[type='checkbox']").click(function ()  {
