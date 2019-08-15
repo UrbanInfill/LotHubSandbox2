@@ -709,7 +709,7 @@ function getpageData(lat,lng,totalpage) {
 var homemarkers = [];
 var swiper;
 function f(locations) {
-    swiper.init();
+   // swiper.init();
     swiper.update();
     var infowindow = new google.maps.InfoWindow();
     for (let i = 0; i < locations.length; i++)
