@@ -586,6 +586,10 @@ function postData(url = ``, data = {},isVacant) {
             {
 
                 clusterize.append(validPropertyList);
+                if(totalPages == data.page)
+                {
+                    clusterize.refresh();
+                }
             }
             else {
                 if (totalPages === data.page) {
