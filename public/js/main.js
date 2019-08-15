@@ -240,6 +240,32 @@ $("#searchByProperty").click(function(e){
             scrollId: 'scrollArea',
             contentId: 'contentArea'
         });
+        swiper = new Swiper('.swiper-container', {
+            slidesPerView: 10,
+            direction: 'vertical',
+            slideToClickedSlide: false,
+            on:{
+                click: function(swiper, e){
+                    // var clicked = $(e.target);
+                    focusonmarker(this.activeIndex);
+                    //console.log(clicked);
+                },
+                slideChangeTransitionEnd: function (swiper) {
+                    focusonmarker(this.activeIndex);
+
+                }
+            },
+            navigation: {
+                nextEl: '.prev-slide',
+                prevEl: '.next-slide',
+            },scrollbar: {
+                el: '.swiper-scrollbar',
+                hide: true,
+            },
+            mousewheel: {
+                invert: false,
+            },
+        });
     }else
         alert("Please enter the zip code")
 });
@@ -555,7 +581,7 @@ function postData(url = ``, data = {},isVacant) {
                 }
                 clusterize.append(validPropertyList);
             }
-            //f(location);
+            f(location);
 
         })
 }
@@ -615,33 +641,9 @@ function getpageData(lat,lng,totalpage) {
 
 
 var homemarkers = [];
+var swiper;
 function f(locations) {
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 10,
-        direction: 'vertical',
-        slideToClickedSlide: false,
-        on:{
-            click: function(swiper, e){
-               // var clicked = $(e.target);
-                focusonmarker(this.activeIndex);
-                //console.log(clicked);
-            },
-            slideChangeTransitionEnd: function (swiper) {
-                focusonmarker(this.activeIndex);
-
-            }
-        },
-        navigation: {
-            nextEl: '.prev-slide',
-            prevEl: '.next-slide',
-        },scrollbar: {
-            el: '.swiper-scrollbar',
-            hide: true,
-        },
-        mousewheel: {
-            invert: false,
-        },
-    });
+    swiper.init();
     var infowindow = new google.maps.InfoWindow();
     for (let i = 0; i < locations.length; i++)
     {
