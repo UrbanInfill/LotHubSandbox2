@@ -235,6 +235,8 @@
                 invert: false,
             },
         });*/
+        import Siema from "../../public/js/siema";
+
         const siema = new Siema({
             perPage:7,
             draggable : true,
