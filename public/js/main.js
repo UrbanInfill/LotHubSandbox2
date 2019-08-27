@@ -88,8 +88,8 @@ $(document).ready(function(){
         gline2 = line2;
         const lat = $(this).attr("lat");
         const long = $(this).attr("long");
-        $('#ModalImg').attr("src","https://maps.googleapis.com/maps/api/streetview?size=800x400&location=" +lat+ "," +long + "&pitch=-0.76&key=AIzaSyD1rCmHXfPl5Q6PwzrcoIF8aEeAVCN-D_A");
-        //$('#SaveLink').attr("href","https://maps.googleapis.com/maps/api/streetview?size=800x400&location=" +lat+ "," +long + "&pitch=-0.76&key=AIzaSyD1rCmHXfPl5Q6PwzrcoIF8aEeAVCN-D_A");
+        $('#ModalImg').attr("src","https://maps.googleapis.com/maps/api/streetview?size=800x400&location=" +lat+ "," +long + "&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ");
+        //$('#SaveLink').attr("href","https://maps.googleapis.com/maps/api/streetview?size=800x400&location=" +lat+ "," +long + "&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ");
 
         const myOptions = {
             zoom: 19,
