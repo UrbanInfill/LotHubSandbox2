@@ -108,13 +108,16 @@
 @yield('script')
 
 <script type="text/javascript">
+$(window).on('load',function () {
     setTimeout(function(){
         if(!Cookies.get('modalShown')) {
             $("#noteModal").modal('show');
             Cookies.set('modalShown', true);
         }
 
-    },3000);
+    },30);
+})
+
    /* $(window).on('load',function(){
         $('#noteModal').modal('show');
     });*/
