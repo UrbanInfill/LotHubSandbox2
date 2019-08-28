@@ -69,6 +69,10 @@
 -->
 <div id="loading"></div>
 <div id="isLoaded">
+
+
+<div id="searchloading"></div>
+<div id="issearchdone">
 @yield('content')
 </div>
 

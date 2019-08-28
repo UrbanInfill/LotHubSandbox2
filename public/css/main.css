@@ -106,6 +106,25 @@ h6 {
     padding:0;
     margin:0;
 }
+#issearchdone{
+    display: none;
+}
+#searchloading {
+    z-index: 100000;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image: url('/Img/searchLoading.gif');
+    background-size: auto;
+
+
+
+    height: 90vh;
+    padding:0;
+    margin:0;
+}
 .h1,
 h1 {
     font-size: 24px;

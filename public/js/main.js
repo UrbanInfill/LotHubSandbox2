@@ -230,6 +230,8 @@ $("#Vacantsearch").on('keypress',function(e) {
 });
 $("#searchByProperty").click(function(e){
     e.preventDefault();
+    $('#issearchdone').css("display","none");
+    $('#searchloading').css("display","block");
     ipage =1;
     $('.swiper-wrapper').empty();
     const address = $("#search").val();
@@ -273,6 +275,9 @@ $("#searchByProperty").click(function(e){
 $("#searchByPropertyVacant").click(function(e){
     e.preventDefault();
     ipage =1;
+
+    $('#issearchdone').css("display","none");
+    $('#searchloading').css("display","block");
     $('.swiper-wrapper').empty();
     const address = $("#Vacantsearch").val();
     if(!isEmptyOrSpaces(address)) {
@@ -312,6 +317,9 @@ var detailViews;
 var clusterize;
 $('#searchByAddress').click(function (e) {
     e.preventDefault();
+
+    $('#issearchdone').css("display","none");
+    $('#searchloading').css("display","block");
     const address = $("#searchAddress").val();
     if(isEmptyOrSpaces(address)) {
         alert("Please enter the address code")
@@ -454,6 +462,7 @@ function buildUrl(url, parameters,isVacant) {
     return url;
 }
 let searchCount = 0
+let requestCompleted = 0;
 function postData(url = ``, data = {},isVacant) {
     // Default options are marked with *
     fetch(buildUrl(url,data), {
@@ -607,6 +616,15 @@ function postData(url = ``, data = {},isVacant) {
                         }
                     }
                 }
+            }
+            if(totalPages == data.page)
+            {
+                $( "#searchloading" ).fadeOut( "slow", function() {
+
+                    $('#searchloading').css("display","none");
+
+                    $("#issearchdone").css("display","block");
+                });
             }
             if(document.URL.includes('hpl2'))
             {
