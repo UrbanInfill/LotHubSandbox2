@@ -71,10 +71,10 @@
 <div id="isLoaded">
 
 
-<div id="searchloading"></div>
-<div id="issearchdone">
+
 @yield('content')
 </div>
+
 
 <div class="modal fade" tabindex="-1" role="dialog" id="noteModal">
     <div class="modal-dialog" role="document">

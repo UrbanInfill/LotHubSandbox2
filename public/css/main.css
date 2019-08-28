@@ -107,7 +107,7 @@ h6 {
     margin:0;
 }
 #issearchdone{
-    display: none;
+    display: block;
 }
 #searchloading {
     z-index: 100000;
