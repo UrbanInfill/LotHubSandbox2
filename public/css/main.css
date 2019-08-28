@@ -116,7 +116,7 @@ h6 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: url('/Img/searchLoading.gif') no-repeat center;
+    background: url('/Img/searchL.gif') no-repeat center;
     background-size: auto;
 
     display: none;
