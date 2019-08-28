@@ -617,7 +617,7 @@ function postData(url = ``, data = {},isVacant) {
                     }
                 }
             }
-            if(totalPages == data.page)
+            if(totalPages == data.status.page)
             {
                 $( "#searchloading" ).fadeOut( "slow", function() {
 
@@ -636,7 +636,7 @@ function postData(url = ``, data = {},isVacant) {
                 }
             }
             else {
-                if (totalPages === data.page) {
+                if (totalPages === data.status.page) {
                     swiper = new Swiper('.swiper-container', {
                         slidesPerView: 10,
                         direction: 'vertical',
