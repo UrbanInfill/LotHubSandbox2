@@ -358,6 +358,13 @@ $('#searchByAddress').click(function (e) {
             $('#detailviewBTN').attr('href',link);
             f1();
             initMap(data["final_array"],data["lat"],data["lng"])
+
+            $( "#searchloading" ).fadeOut( "slow", function() {
+
+                $('#searchloading').css("display","none");
+
+                $("#issearchdone").css("display","block");
+            });
         }).catch(error=>{
             if(error.message === '500')
                 $.notify("You enter the wrong address",'error');

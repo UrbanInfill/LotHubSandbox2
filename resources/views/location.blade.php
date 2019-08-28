@@ -21,7 +21,8 @@
                 </div>
             </div>
 
-
+            <div id="searchloading"></div>
+            <div id="issearchdone">
             <div class="col-md-8 col-xs-12 mt-30 ">
                 <h3>
                     Legal Description
@@ -41,6 +42,7 @@
         <div class="col-10"id="view">
 
         </div>
+    </div>
     </div>
 
 @endsection
