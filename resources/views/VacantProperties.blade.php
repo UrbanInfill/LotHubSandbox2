@@ -18,6 +18,8 @@
             </div>
         </div>
     </div>
+    <div id="searchloading"></div>
+    <div id="issearchdone">
     <div class="row">
         <div class="col-md-6">
             <div class=" map" id="map"></div>
@@ -117,6 +119,7 @@
         </div>
         <!--<div class="swiper-button-next"><img src="images/icons/right.png" alt="right"></div>
         <div class="swiper-button-prev"><img src="images/icons/left.png" alt="left"></div>-->
+    </div>
     </div>
     <div class="modal fade bd-example-modal-xl" id="myModal"  role="dialog">
         <div class="modal-dialog modal-xl">
