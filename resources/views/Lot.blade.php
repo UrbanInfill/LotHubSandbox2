@@ -6,7 +6,7 @@
             <div class="col" style="justify-content: center">
                 <img src="{{URL::asset('/Img/Lot_Hub_Banner.png')}}" alt="" class="mx-auto d-block">
                 <h1 class="center" >Learn How to Find Deals with This Lothub Tutorial Video </h1>
-                <a class="center" href="https://www.youtube.com/embed/dqcdh-W53Ag" target="_blank">Click Here To Watch Video Tutorial.</a>
+                <h1 class="center"> <a  href="https://www.youtube.com/embed/dqcdh-W53Ag" target="_blank">Click Here To Watch Video Tutorial.</a> </h1>
 
                 <!--
                 <div  style="width: 700px;" class="mx-auto d-block">
