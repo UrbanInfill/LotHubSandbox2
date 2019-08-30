@@ -650,7 +650,7 @@ function postData(url = ``, data = {},isVacant) {
             }
             else {
                 if (totalPages == data.status.page) {
-                 
+
                 }
                 f(location);
 
@@ -717,7 +717,6 @@ var homemarkers = [];
 var swiper;
 function f(locations) {
    // swiper.init();
-    swiper.slideReset();
     swiper.update();
     var infowindow = new google.maps.InfoWindow();
     for (let i = 0; i < locations.length; i++)
