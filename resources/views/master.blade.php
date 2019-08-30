@@ -48,7 +48,7 @@
                 <a class="nav-link " id="menu4" href="/hpl2">hpl2</a>
             </li>
             <li class="nav-item">
-                <a href="/savedproperties" id="menu5" class="nav-link">Saved Properties</a>
+                <a href="/savedproperties" target="_blank" id="menu5" class="nav-link">Saved Properties</a>
             </li>
             <li class="nav-item">
                 <a href="/logout" class="nav-link">Logout</a>
