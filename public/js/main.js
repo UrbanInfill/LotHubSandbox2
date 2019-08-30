@@ -640,13 +640,13 @@ function postData(url = ``, data = {},isVacant) {
             {
 
                 clusterize.update(validPropertyList);
-                if(totalPages == data.page)
+                if(totalPages == data.status.page)
                 {
                     clusterize.refresh();
                 }
             }
             else {
-                if (totalPages === data.page) {
+                if (totalPages === data.status.page) {
                     swiper = new Swiper('.swiper-container', {
                         slidesPerView: 10,
                         direction: 'vertical',
