@@ -643,7 +643,7 @@ function postData(url = ``, data = {},isVacant) {
                 }
             }
             else {
-                if (totalPages === data.status.page) {
+                if (totalPages === data.page) {
                     swiper = new Swiper('.swiper-container', {
                         slidesPerView: 10,
                         direction: 'vertical',
