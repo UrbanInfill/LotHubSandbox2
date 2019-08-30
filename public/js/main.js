@@ -654,10 +654,10 @@ function postData(url = ``, data = {},isVacant) {
                     const w = document.documentElement.clientWidth;
                     const h = document.documentElement.clientHeight;
 
-                    window.resizeto(w-1,h-1);
+                    window.resizeto(w-100,h-100);
                     setTimeout(function () {
                         window.resizeTo(w,h);
-                    },100);
+                    },1000);
                 }
                 f(location);
 
