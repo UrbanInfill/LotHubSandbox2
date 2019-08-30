@@ -545,6 +545,12 @@ function postData(url = ``, data = {},isVacant) {
                         const patt8 = /lot ([0-9]*).-.([0-9]*)/gi;
                         const patt9 = /lot([0-9]*).-.([0-9]*)/gi;
                         const patt11 = /lts ([0-9]*).thru.([0-9]*)/gi;
+
+                        const patt12 = /l ([0-9]*).thru.([0-9]*)/gi;
+                        const patt13 = /lt ([0-9]*).thru.([0-9]*)/gi;
+                        const patt14 = /lots ([0-9]*).thru.([0-9]*)/gi;
+                        const patt15 = /lots ([0-9]*).thru.([0-9]*)/gi;
+                        const patt16 = /lts ([0-9]*).thru.([0-9]*)/gi;
                         if (property['summary']['legal1']) {
                             var result = property['summary']['legal1'].match(pattern);
                             var result2 = property['summary']['legal1'].match(patt1);
@@ -558,7 +564,14 @@ function postData(url = ``, data = {},isVacant) {
                             var result10 = property['summary']['legal1'].match(patt9);
                             var result11 = property['summary']['legal1'].match(patt10);
                             var result12 = property['summary']['legal1'].match(patt11);
-                            if (result || result2 || result3 || result4 || result5 || result6 || result7 || result8|| result9 || result10 || result11||result12) {
+
+                            var result13 = property['summary']['legal1'].match(patt12);
+                            var result14 = property['summary']['legal1'].match(patt13);
+                            var result15 = property['summary']['legal1'].match(patt14);
+                            var result16 = property['summary']['legal1'].match(patt15);
+                            var result17 = property['summary']['legal1'].match(patt16);
+
+                            if (result || result2 || result3 || result4 || result5 || result6 || result7 || result8|| result9 || result10 || result11||result12|| result13|| result14 || result15 || result16||result17) {
                                 searchCount++;
                                 $('#searchCount').text("Property count : "+searchCount);
                                 $("#poiContent").show();
