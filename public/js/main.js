@@ -248,7 +248,8 @@ $("#searchByProperty").click(function(e){
             swiper = new Swiper('.swiper-container', {
                 slidesPerView: 10,
                 direction: 'vertical',
-                slideToClickedSlide: false,
+                slideToClickedSlide: true,
+                preventClicks:true,
                 on: {
                     click: function (swiper, e) {
                         // var clicked = $(e.target);
@@ -261,11 +262,10 @@ $("#searchByProperty").click(function(e){
                     }
                 },
                 navigation: {
-                    nextEl: '.prev-slide',
-                    prevEl: '.next-slide',
+                    nextEl: '#prev-slide',
+                    prevEl: '#next-slide',
                 }, scrollbar: {
                     el: '.swiper-scrollbar',
-                    hide: true,
                 },
                 mousewheel: {
                     invert: false,
@@ -290,9 +290,10 @@ $("#searchByPropertyVacant").click(function(e){
         swiper = new Swiper('.swiper-container', {
             slidesPerView: 10,
             direction: 'vertical',
-            slideToClickedSlide: false,
-            on:{
-                click: function(swiper, e){
+            slideToClickedSlide: true,
+            preventClicks:true,
+            on: {
+                click: function (swiper, e) {
                     // var clicked = $(e.target);
                     focusonmarker(this.activeIndex);
                     //console.log(clicked);
@@ -303,11 +304,10 @@ $("#searchByPropertyVacant").click(function(e){
                 }
             },
             navigation: {
-                nextEl: '.prev-slide',
-                prevEl: '.next-slide',
-            },scrollbar: {
+                nextEl: '#prev-slide',
+                prevEl: '#next-slide',
+            }, scrollbar: {
                 el: '.swiper-scrollbar',
-                hide: true,
             },
             mousewheel: {
                 invert: false,
@@ -650,33 +650,7 @@ function postData(url = ``, data = {},isVacant) {
             }
             else {
                 if (totalPages == data.status.page) {
-                    swiper = new Swiper('.swiper-container', {
-                        slidesPerView: 10,
-                        direction: 'vertical',
-                        slideToClickedSlide: false,
-                        on: {
-                            click: function (swiper, e) {
-                                // var clicked = $(e.target);
-                                focusonmarker(this.activeIndex);
-                                //console.log(clicked);
-                            },
-                            slideChangeTransitionEnd: function (swiper) {
-                                focusonmarker(this.activeIndex);
-
-                            }
-                        },
-                        navigation: {
-                            nextEl: '#prev-slide',
-                            prevEl: '#next-slide',
-                        }, scrollbar: {
-                            el: '.swiper-scrollbar',
-                            hide: true,
-                        },
-                        mousewheel: {
-                            invert: false,
-                        },
-                    });
-                    swiper.slideTo(0, 1, false);
+                 
                 }
                 f(location);
 
