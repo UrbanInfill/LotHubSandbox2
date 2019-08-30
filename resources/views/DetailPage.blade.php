@@ -5,7 +5,7 @@
 
 
     <script>
-        let a = {!! json_encode($AVMResult["property"][0]["owner"]["owner1"]) !!};
+        let a = {!! json_encode($AVMResult !!};
 
         console.log( a );
 
