@@ -650,7 +650,7 @@ function postData(url = ``, data = {},isVacant) {
             }
             else {
                 if (totalPages == data.status.page) {
-
+                    reinitSwiper(swiper);
                 }
                 f(location);
 
@@ -712,7 +712,11 @@ function getpageData(lat,lng,totalpage) {
 
 }
 
-
+function reinitSwiper(swiper) {
+    setTimeout(function () {
+        swiper.reInit();
+    }, 500);
+}
 var homemarkers = [];
 var swiper;
 function f(locations) {
