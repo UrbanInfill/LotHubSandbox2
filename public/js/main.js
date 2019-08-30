@@ -663,8 +663,8 @@ function postData(url = ``, data = {},isVacant) {
                             }
                         },
                         navigation: {
-                            nextEl: '.prev-slide',
-                            prevEl: '.next-slide',
+                            nextEl: '#prev-slide',
+                            prevEl: '#next-slide',
                         }, scrollbar: {
                             el: '.swiper-scrollbar',
                             hide: true,
@@ -673,8 +673,10 @@ function postData(url = ``, data = {},isVacant) {
                             invert: false,
                         },
                     });
+                    swiper.slideTo(0, 1, false);
                 }
                 f(location);
+
             }
 
         })
