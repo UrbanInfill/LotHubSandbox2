@@ -664,14 +664,7 @@ function postData(url = ``, data = {},isVacant) {
             }
             else {
                 if (totalPages == data.status.page) {
-                    reinitSwiper(swiper);
-                    const w = document.documentElement.clientWidth;
-                    const h = document.documentElement.clientHeight;
-
-                    window.resizeTo(w-100,h-100);
-                    setTimeout(function () {
-                        window.resizeTo(w,h);
-                    },1000);
+                   
                 }
                 f(location);
 
@@ -733,11 +726,7 @@ function getpageData(lat,lng,totalpage) {
 
 }
 
-function reinitSwiper(swiper) {
-    setTimeout(function () {
-        swiper.reInit();
-    }, 500);
-}
+
 var homemarkers = [];
 var swiper;
 function f(locations) {
