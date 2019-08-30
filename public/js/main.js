@@ -230,12 +230,13 @@ $("#Vacantsearch").on('keypress',function(e) {
 });
 $("#searchByProperty").click(function(e){
     e.preventDefault();
-    $('#issearchdone').css("display","none");
-    $('#searchloading').css("display","block");
     ipage =1;
     $('.swiper-wrapper').empty();
     const address = $("#search").val();
     if(!isEmptyOrSpaces(address)) {
+
+        $('#issearchdone').css("display","none");
+        $('#searchloading').css("display","block");
         codeAddress(address);
         if(document.URL.includes('hpl2')) {
             clusterize = new Clusterize({
@@ -279,11 +280,12 @@ $("#searchByPropertyVacant").click(function(e){
     e.preventDefault();
     ipage =1;
 
-    $('#issearchdone').css("display","none");
-    $('#searchloading').css("display","block");
+
     $('.swiper-wrapper').empty();
     const address = $("#Vacantsearch").val();
     if(!isEmptyOrSpaces(address)) {
+        $('#issearchdone').css("display","none");
+        $('#searchloading').css("display","block");
         codeAddress(address, true);
         swiper = new Swiper('.swiper-container', {
             slidesPerView: 10,
