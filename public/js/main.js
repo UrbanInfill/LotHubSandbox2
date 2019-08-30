@@ -249,7 +249,7 @@ $("#searchByProperty").click(function(e){
                 slidesPerView: 10,
                 direction: 'vertical',
                 slideToClickedSlide: true,
-                preventClicks:true,
+                preventClicks:true,observer: true, observeParents: true
                 on: {
                     click: function (swiper, e) {
                         // var clicked = $(e.target);
@@ -292,6 +292,7 @@ $("#searchByPropertyVacant").click(function(e){
             direction: 'vertical',
             slideToClickedSlide: true,
             preventClicks:true,
+            observer: true, observeParents: true
             on: {
                 click: function (swiper, e) {
                     // var clicked = $(e.target);
