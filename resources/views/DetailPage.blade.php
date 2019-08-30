@@ -5,7 +5,7 @@
 
 
     <script>
-        let a = {!! json_encode($AVMResult !!};
+        let a = {!! json_encode($AVMResult) !!};
 
         console.log( a );
 
