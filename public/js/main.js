@@ -552,7 +552,11 @@ function postData(url = ``, data = {},isVacant) {
                         const patt15 = /lots ([0-9]*).thru.([0-9]*)/gi;
                         const patt16 = /lts ([0-9]*).thru.([0-9]*)/gi;
 
-                        const patt17 = /LOT ([0-9]*).& PT LOT.([0-9]*)/gi;
+                        const patt17 = /lot ([0-9]*).& PT LOT.([0-9]*)/gi;
+                        const patt18 = /lt ([0-9]*).&pt.([0-9]*)/gi;
+                        const patt19 = /lt ([0-9]*).& pt.([0-9]*)/gi;
+
+
                         if (property['summary']['legal1']) {
                             var result = property['summary']['legal1'].match(pattern);
                             var result2 = property['summary']['legal1'].match(patt1);
@@ -573,8 +577,12 @@ function postData(url = ``, data = {},isVacant) {
                             var result16 = property['summary']['legal1'].match(patt15);
                             var result17 = property['summary']['legal1'].match(patt16);
                             var result18 = property['summary']['legal1'].match(patt17);
+                            var result19 = property['summary']['legal1'].match(patt18);
+                            var result20 = property['summary']['legal1'].match(patt19);
 
-                            if (result || result2 || result3 || result4 || result5 || result6 || result7 || result8|| result9 || result10 || result11||result12|| result13|| result14 || result15 || result16||result17 || result18) {
+
+
+                            if (result || result2 || result3 || result4 || result5 || result6 || result7 || result8|| result9 || result10 || result11||result12|| result13|| result14 || result15 || result16||result17 || result18 || result19||result20) {
                                 searchCount++;
                                 $('#searchCount').text("Property count : "+searchCount);
                                 $("#poiContent").show();
