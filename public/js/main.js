@@ -570,7 +570,8 @@ function postData(url = ``, data = {},isVacant) {
                                     '<div class="float-left">'+
                                     '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location='+ property["location"]["latitude"] +','+ property["location"]["longitude"]+'&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">'+
                                     '</div></div></div>';
-                                $(".swiper-wrapper").append(text);
+                                //$(".swiper-wrapper").append(text);
+                                swiper.appendSlide(text);
                                 validPropertyList.push(text);
                                 location.push([property["location"]['latitude'],property["location"]['longitude'],property['address']['oneLine']]);
                             } /*else if (result2) {
@@ -740,6 +741,7 @@ var homemarkers = [];
 var swiper;
 function f(locations) {
    // swiper.init();
+    swiper.slideReset();
     swiper.update();
     var infowindow = new google.maps.InfoWindow();
     for (let i = 0; i < locations.length; i++)
