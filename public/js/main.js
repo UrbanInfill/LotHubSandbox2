@@ -523,7 +523,7 @@ function postData(url = ``, data = {},isVacant) {
                                     '<div class="float-left">'+
                                     '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location='+ property["location"]["latitude"] +','+ property["location"]["longitude"]+'&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">'+
                                     '</div></div></div>';
-                                $(".swiper-wrapper").append(text);
+                                swiper.appendSlide(text);
                                 location.push([property["location"]['latitude'],property["location"]['longitude'],property['address']['oneLine']]);
                             }
                         }
@@ -647,7 +647,7 @@ function postData(url = ``, data = {},isVacant) {
                 }
             }
             else {
-                if (totalPages === data.status.page) {
+                if (totalPages == data.status.page) {
                     swiper = new Swiper('.swiper-container', {
                         slidesPerView: 10,
                         direction: 'vertical',
