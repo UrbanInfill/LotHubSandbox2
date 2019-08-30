@@ -651,6 +651,13 @@ function postData(url = ``, data = {},isVacant) {
             else {
                 if (totalPages == data.status.page) {
                     reinitSwiper(swiper);
+                    const w = document.documentElement.clientWidth;
+                    const h = document.documentElement.clientHeight;
+
+                    window.resizeto(w-1,h-1);
+                    setTimeout(function () {
+                        window.resizeTo(w,h);
+                    },100);
                 }
                 f(location);
 
