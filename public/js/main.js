@@ -237,37 +237,40 @@ $("#searchByProperty").click(function(e){
     const address = $("#search").val();
     if(!isEmptyOrSpaces(address)) {
         codeAddress(address);
+        if(document.URL.includes('hpl2')) {
+            clusterize = new Clusterize({
+                scrollId: 'scrollArea',
+                contentId: 'contentArea'
+            });
+        }
+        else {
+            swiper = new Swiper('.swiper-container', {
+                slidesPerView: 10,
+                direction: 'vertical',
+                slideToClickedSlide: false,
+                on: {
+                    click: function (swiper, e) {
+                        // var clicked = $(e.target);
+                        focusonmarker(this.activeIndex);
+                        //console.log(clicked);
+                    },
+                    slideChangeTransitionEnd: function (swiper) {
+                        focusonmarker(this.activeIndex);
 
-        clusterize = new Clusterize({
-            scrollId: 'scrollArea',
-            contentId: 'contentArea'
-        });
-        swiper = new Swiper('.swiper-container', {
-            slidesPerView: 10,
-            direction: 'vertical',
-            slideToClickedSlide: false,
-            on:{
-                click: function(swiper, e){
-                    // var clicked = $(e.target);
-                    focusonmarker(this.activeIndex);
-                    //console.log(clicked);
+                    }
                 },
-                slideChangeTransitionEnd: function (swiper) {
-                    focusonmarker(this.activeIndex);
-
-                }
-            },
-            navigation: {
-                nextEl: '.prev-slide',
-                prevEl: '.next-slide',
-            },scrollbar: {
-                el: '.swiper-scrollbar',
-                hide: true,
-            },
-            mousewheel: {
-                invert: false,
-            },
-        });
+                navigation: {
+                    nextEl: '.prev-slide',
+                    prevEl: '.next-slide',
+                }, scrollbar: {
+                    el: '.swiper-scrollbar',
+                    hide: true,
+                },
+                mousewheel: {
+                    invert: false,
+                },
+            });
+        }
     }else
         alert("Please enter the zip code")
 });
