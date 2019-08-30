@@ -194,6 +194,8 @@
 
     <script type='text/javascript' src="js/donut-chart.js"></script>
     <script>
+
+        /*
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 10,
             direction: 'vertical',
@@ -219,6 +221,8 @@
                 invert: false,
             },
         });
+
+        */
         $('.nav-link').removeClass("active");
         $("#menu1").addClass("active");
         $("input[type='checkbox']").click(function ()  {
