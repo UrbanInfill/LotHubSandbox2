@@ -533,28 +533,28 @@ function postData(url = ``, data = {},isVacant) {
 
                     }
                     else {
-                        const pattern = /l ([0-9]*).-.([0-9]*)/gi;
-                        const patt1 = /lot.([0-9]*).&.([0-9]*)/gi;
-                        const patt10 = /lots.([0-9]*).&.([0-9]*)/gi;
-                        const patt2 = /lots.([0-9]*).([0-9]*).&.([0-9]*)/gi;
-                        const patt3 = /lts.([0-9]*).([0-9]*).&.([0-9]*)/gi;
-                        const patt4 = /lts.([0-9]*).([0-9]*).([&]*).([0-9]*)/gi;
-                        const patt5 = /lts.([0-9]*).([0-9]*).(&[0-9]*)/gi;
-                        const patt6 = /lts.([0-9]*).([0-9]*).&.([0-9]*)/gi;
-                        const patt7 = /l([0-9]*).-.([0-9]*)/gi;
-                        const patt8 = /lot ([0-9]*).-.([0-9]*)/gi;
-                        const patt9 = /lot([0-9]*).-.([0-9]*)/gi;
-                        const patt11 = /lts ([0-9]*).thru.([0-9]*)/gi;
+                        const pattern = /l\s*([0-9]*).-.([0-9]*)/gi;
+                        const patt1 = /lot\s*.([0-9]*).&.([0-9]*)/gi;
+                        const patt10 = /lots\s*.([0-9]*).&.([0-9]*)/gi;
+                        const patt2 = /lots\s*.([0-9]*).([0-9]*).&.([0-9]*)/gi;
+                        const patt3 = /lts\s*.([0-9]*).([0-9]*).&.([0-9]*)/gi;
+                        const patt4 = /lts\s*.([0-9]*).([0-9]*).([&]*).([0-9]*)/gi;
+                        const patt5 = /lts\s*.([0-9]*).([0-9]*).(&[0-9]*)/gi;
+                        const patt6 = /lts\s*.([0-9]*).([0-9]*).&.([0-9]*)/gi;
+                        const patt7 = /l\s*([0-9]*).-.([0-9]*)/gi;
+                        const patt8 = /lot\s*([0-9]*).-.([0-9]*)/gi;
+                        const patt9 = /lot\s*([0-9]*).-.([0-9]*)/gi;
+                        const patt11 = /lts\s*([0-9]*).thru.([0-9]*)/gi;
 
-                        const patt12 = /l ([0-9]*).thru.([0-9]*)/gi;
-                        const patt13 = /lt ([0-9]*).thru.([0-9]*)/gi;
-                        const patt14 = /lots ([0-9]*).thru.([0-9]*)/gi;
-                        const patt15 = /lots ([0-9]*).thru.([0-9]*)/gi;
-                        const patt16 = /lts ([0-9]*).thru.([0-9]*)/gi;
+                        const patt12 = /l\s*([0-9]*).thru.([0-9]*)/gi;
+                        const patt13 = /lt\s*([0-9]*).thru.([0-9]*)/gi;
+                        const patt14 = /lots\s*([0-9]*).thru.([0-9]*)/gi;
+                        const patt15 = /lots\s*([0-9]*).thru.([0-9]*)/gi;
+                        const patt16 = /lts\s*([0-9]*).thru.([0-9]*)/gi;
 
-                        const patt17 = /lot ([0-9]*).& PT LOT.([0-9]*)/gi;
-                        const patt18 = /lt ([0-9]*).&pt.([0-9]*)/gi;
-                        const patt19 = /lt ([0-9]*).& pt.([0-9]*)/gi;
+                        const patt17 = /lot\s*([0-9]*).&\s*PT\s*LOT.([0-9]*)/gi;
+                        const patt18 = /lt\s*([0-9]*).&\s*pt.([0-9]*)/gi;
+                        const patt19 = /lts\s*([0-9]*).&\s*pt.([0-9]*)/gi;
 
 
                         if (property['summary']['legal1']) {
