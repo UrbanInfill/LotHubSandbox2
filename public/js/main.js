@@ -656,7 +656,7 @@ function postData(url = ``, data = {},isVacant) {
                     }
                 }
             }
-            if(totalPages == data.status.page)
+            if(Math.round(totalPages) == data.status.page)
             {
                 $( "#searchloading" ).fadeOut( "slow", function() {
 
@@ -669,7 +669,7 @@ function postData(url = ``, data = {},isVacant) {
             {
 
                 clusterize.update(validPropertyList);
-                if(totalPages == data.status.page)
+                if(Math.round(totalPages) == data.status.page)
                 {
                     clusterize.refresh();
                 }
