@@ -555,7 +555,7 @@ function postData(url = ``, data = {},isVacant) {
                         const patt17 = /lot\s*([0-9]*).&\s*PT\s*LOT.([0-9]*)/gi;
                         const patt18 = /lt\s*([0-9]*).&\s*pt.([0-9]*)/gi;
                         const patt19 = /lts\s*([0-9]*).&\s*pt.([0-9]*)/gi;
-                        const patt20 = /lot\s*([0-9]*).\s*.([0-9]*)/gi;
+                        
 
                         if (property['summary']['legal1']) {
                             var result = property['summary']['legal1'].match(pattern);
@@ -579,7 +579,7 @@ function postData(url = ``, data = {},isVacant) {
                             var result18 = property['summary']['legal1'].match(patt17);
                             var result19 = property['summary']['legal1'].match(patt18);
                             var result20 = property['summary']['legal1'].match(patt19);
-                            var result21 = property['summary']['legal1'].match(patt20);
+                            
 
 
 
