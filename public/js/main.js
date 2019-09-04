@@ -1028,6 +1028,10 @@ function codeAddress(address,isVacant = false) {
             lat = results[0].geometry.location.lat();
             lng = results[0].geometry.location.lng()
 
+            var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+            geocoder.geocode({'location': latlng}, function(result, status) {
+                console.log(result)
+            })
 
             $.ajax({
                 type:'POST',
