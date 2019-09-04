@@ -1009,7 +1009,7 @@ var geocoder;
 var communitydata;
 function codeAddress(address,isVacant = false) {
 
-    postalcode = 22901;
+    postalcode = -1;
     geocoder = new google.maps.Geocoder();
     geocoder.geocode({
         'address': address
