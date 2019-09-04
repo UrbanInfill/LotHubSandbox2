@@ -23,7 +23,7 @@ Route::get("person","HomeController@person");
 Route::get("deletesaveproperty/{id}",'HomeController@deletesaveproperty');
 Route::get("propertymail/{fullname}/{fulladdress}/{emailaddress}/{template?}",'AjaxController@showmail');
 
-Route::get('geocode/{address}','AjaxController@geocode_public')
+Route::get('geocode/{address}','AjaxController@geocode_public');
 // Ajax Responses
 Route::get('/test','AjaxController@test');
 Route::get("allpropertiesList",'AjaxController@allpropertiesList');
