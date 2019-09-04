@@ -282,7 +282,7 @@ class AjaxController extends Controller
     }
     public function geocode_public($address)
     {
-        $this->geocode($address);
+        return $this->geocode($address);
     }
     private function geocode($address){
 
