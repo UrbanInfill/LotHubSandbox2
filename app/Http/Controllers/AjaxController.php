@@ -27,7 +27,7 @@ class AjaxController extends Controller
         return $this->sendMail(nl2br($content),$propertymail);
     }
 
-  
+
 
     public function showmail(Request $request,$fullname,$fulladdress,$emailaddress,$template = null)
     {
@@ -396,7 +396,7 @@ class AjaxController extends Controller
             $geoValName[$area['geo_key']] = $area['name'];
         }
         $boundary = $this->getAreaBoundary($geoARRAY[0]);
-       
+
         return response($boundary['response']['result']['package']['item'][0]['boundary']);
     }
     public function ExtendedDetail(Request $request,$line1, $line2)
@@ -437,7 +437,7 @@ class AjaxController extends Controller
         $zip = $request->input('zip');
         $zip = urlencode($zip);
         $pagesize = 1000;
-        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize .'&debug=True';
+        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize .'&state=VA&debug=True';
         //$url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?postalcode=' . $zip . '&page=' . $page . '&pagesize=' . $pagesize;
         $result = $this->curlPOIAPI($url);
         echo json_encode(($result));

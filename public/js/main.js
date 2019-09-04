@@ -1,3 +1,4 @@
+
 $("#houseDiv").hide();
 $("#eduDiv").hide();
 $("#incomeDiv").hide();
@@ -1008,6 +1009,7 @@ var geocoder;
 var communitydata;
 function codeAddress(address,isVacant = false) {
 
+    postalcode = 0;
     geocoder = new google.maps.Geocoder();
     geocoder.geocode({
         'address': address
