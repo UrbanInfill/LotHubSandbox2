@@ -89,7 +89,7 @@ class AjaxController extends Controller
         return "Error";
     }
 
-    private $obapiurl = 'http://search.onboard-apis.com', $obapikey = '4a2e82dd7b189205534e4b233e38ccac';
+    private $obapiurl = 'http://search.onboard-apis.com', $obapikey = '1108b08f4bf98e0bef68fb06f0e7311d';
     private function DetailPersonInformation($fName, $lName,$index)
     {
         // Get Token
@@ -437,7 +437,7 @@ class AjaxController extends Controller
         $zip = $request->input('zip');
         $zip = urlencode($zip);
         $pagesize = 1000;
-        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize .'&debug=True';
+        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize .'&state=VA&debug=True';
         //$url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?postalcode=' . $zip . '&page=' . $page . '&pagesize=' . $pagesize;
         $result = $this->curlPOIAPI($url);
         echo json_encode(($result));
@@ -509,7 +509,6 @@ class AjaxController extends Controller
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
-            return $result;
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
