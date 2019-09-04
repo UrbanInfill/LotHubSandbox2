@@ -9,6 +9,7 @@ use http\Exception;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use phpDocumentor\Reflection\DocBlock\Tags\Property;
+use function foo\func;
 use function PHPSTORM_META\elementType;
 use vendor\project\StatusTest;
 use Illuminate\Support\Facades\Mail;
@@ -278,6 +279,10 @@ class AjaxController extends Controller
         } else {
             return json_decode($response,true);
         }
+    }
+    public function geocode_public($address)
+    {
+        $this->geocode($address);
     }
     private function geocode($address){
 
