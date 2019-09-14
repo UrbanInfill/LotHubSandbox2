@@ -1,4 +1,4 @@
-
+var bar1 = new ldBar("#myItem1");
 $("#houseDiv").hide();
 $("#eduDiv").hide();
 $("#incomeDiv").hide();
@@ -238,6 +238,7 @@ $("#searchByProperty").click(function(e){
 
         $('#issearchdone').css("display","none");
         $('#searchloading').css("display","block");
+        bar1.set(0);
         codeAddress(address);
         if(document.URL.includes('hpl2')) {
             clusterize = new Clusterize({
@@ -500,7 +501,7 @@ function postData(url = ``, data = {},isVacant) {
         })
         .then(function(data) {
             console.log(data);
-
+            bar1.set(Math.floor(parseInt(data.status.page)/parseInt(totalPages)))
             let validPropertyList = [];
             let location = [];
             if(data) {
