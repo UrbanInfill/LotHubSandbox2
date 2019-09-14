@@ -510,7 +510,7 @@ function postData(url = ``, data = {},isVacant) {
             let validPropertyList = [];
             let location = [];
             if(data) {
-                bar1.set((Math.floor(count_request_completed/parseInt(totalPages)))*100);
+                bar1.set((count_request_completed/parseInt(totalPages))*100);
 
                 for (const[i, property] of data.property.entries()) {
                     if(property["address"]["postal1"] != postalcode)
