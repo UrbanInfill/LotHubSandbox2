@@ -26,7 +26,7 @@
             data-value="0"
             data-preset="circle">
         </div>
-    </div>
+      </div>
     <div id="issearchdone">
     <div class="row">
         <div class="col-md-6">

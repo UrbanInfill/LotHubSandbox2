@@ -42,9 +42,9 @@
         <div
             class="label-center"
             id="ldBar"
-            style="width:50%;height:50%;margin:auto"
+            style="width:30%;height:30%;margin:auto"
             data-value="0"
-            data-preset="circle">
+            data-preset="fant">
         </div>
     </div>
     <div id="issearchdone">
