@@ -1,4 +1,4 @@
-var bar1 = new ldBar("#myItem1");
+var bar1 = new ldBar("#ldBar");
 $("#houseDiv").hide();
 $("#eduDiv").hide();
 $("#incomeDiv").hide();
