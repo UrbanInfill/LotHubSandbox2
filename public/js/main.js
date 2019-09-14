@@ -1,6 +1,6 @@
 
 
-if(!document.URL.includes('saved'))
+if(!(document.URL.includes('saved')||document.URL.includes('location')||document.URL.includes('detail')))
     var bar1 = new ldBar("#ldBar");
 $("#houseDiv").hide();
 $("#eduDiv").hide();
