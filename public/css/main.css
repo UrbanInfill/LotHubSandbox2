@@ -116,7 +116,7 @@ h6 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: rgba(0,0,0,0.04);
+    //background-color: rgba(0,0,0,0.04);
     opacity: 10%;
 
     display: none;
