@@ -825,7 +825,7 @@ class AjaxController extends Controller
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 1000,
-            CURLOPT_TCP_KEEPALIVE => 50,
+            CURLOPT_TCP_KEEPALIVE => 100,
             CURLOPT_TCP_KEEPIDLE => 100,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",

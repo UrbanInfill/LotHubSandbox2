@@ -437,9 +437,9 @@ function getlist(lat,lng,isVacant)
             console.log(data);
             searchCount = 0;
             $("#poiContent").hide();
-            for (let i = 1; i <= totalPages; i++) {
+            //for (let i = 1; i <= totalPages; i++) {
                 console.log(postData('/allpropertiesList', {lat: lat, lng: lng, page: i, zip: postalcode}, isVacant));
-            }
+            //}
         }
     });
 
