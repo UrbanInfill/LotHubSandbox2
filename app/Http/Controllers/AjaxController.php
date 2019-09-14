@@ -442,11 +442,11 @@ class AjaxController extends Controller
         $zip = $request->input('zip');
         $zip = urlencode($zip);
         $pagesize = 1000;
-        $url = $this->obapiurl .  '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
+        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
+        $result = $this->curlPOIAPI($url);
         //$url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?postalcode=' . $zip . '&page=' . $page . '&pagesize=' . $pagesize;
         //'/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
-        $result = $this->curlPOIAPI($url);
-        echo json_encode(($result));
+        echo json_encode($result);
     }
     public function getHouseInventry(Request $request){
         $lat = $request->input('lat');
@@ -515,7 +515,7 @@ class AjaxController extends Controller
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
-            return $result;
+            return json_encode($result);
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
