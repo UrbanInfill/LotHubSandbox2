@@ -242,6 +242,7 @@ $("#searchByProperty").click(function(e){
         $('#issearchdone').css("display","none");
         $('#searchloading').css("display","block");
         bar1.set(0);
+        count_request_completed = 0;
         codeAddress(address);
         if(document.URL.includes('hpl2')) {
             clusterize = new Clusterize({
