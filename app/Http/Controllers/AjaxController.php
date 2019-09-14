@@ -441,12 +441,11 @@ class AjaxController extends Controller
         $page = $request->input('page');
         $zip = $request->input('zip');
         $zip = urlencode($zip);
-        $pagesize = 1000;
-        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
-        $result = $this->curlPOIAPI($url);
+        $pagesize = 100;
+        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize .'&debug=True';
         //$url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?postalcode=' . $zip . '&page=' . $page . '&pagesize=' . $pagesize;
-        //'/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
-        echo json_encode($result);
+        $result = $this->curlPOIAPI($url);
+        echo json_encode(($result));
     }
     public function getHouseInventry(Request $request){
         $lat = $request->input('lat');
@@ -511,15 +510,14 @@ class AjaxController extends Controller
         {
 
 
-            $pagesize = 100;
+            $pagesize = 1;
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
-            return json_encode($result);
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
-            $totalPages = $total / 1000;
+            $totalPages = $total / 100;
             return response($totalPages);
         }
         else if($getCurrentUser->Vacantsavedcount > 0 && $isVacant == 'true')
@@ -826,7 +824,7 @@ class AjaxController extends Controller
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 1000,
-            CURLOPT_TCP_KEEPALIVE => 100,
+            CURLOPT_TCP_KEEPALIVE => 50,
             CURLOPT_TCP_KEEPIDLE => 100,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
@@ -841,6 +839,7 @@ class AjaxController extends Controller
         $err = curl_error($curl);
         //echo "<pre>"; print_r($err); die;
         curl_close($curl);
+
         if ($err) {
             return '{"status": { "code": 999, "msg": "cURL Error #:"'. $err.'"}}';
         }else{

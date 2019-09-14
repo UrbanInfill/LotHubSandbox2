@@ -423,8 +423,6 @@ function getlist(lat,lng,isVacant)
         throw new Error(response.statusText)
     })
     .then(function(data) {
-        console.log(data);
-        return;
         if(data === "Error")
         {
             if(!isVacant)
@@ -507,11 +505,12 @@ function postData(url = ``, data = {},isVacant) {
         })
         .then(function(data) {
             console.log(data);
-            bar1.set(Math.floor(count_request_completed/parseInt(totalPages)));
+
             count_request_completed++;
             let validPropertyList = [];
             let location = [];
             if(data) {
+                bar1.set(Math.floor(count_request_completed/parseInt(totalPages)));
 
                 for (const[i, property] of data.property.entries()) {
                     if(property["address"]["postal1"] != postalcode)
@@ -1061,7 +1060,6 @@ function codeAddress(address,isVacant = false) {
                 },
                 cache:false,
                 complete:function(){
-                    for(let i = 0 ; i <10 ; i ++)
                         getlist(lat,lng,isVacant)
 
                     fetch(buildUrl('/getHouseInventry',{lat : lat,lng:lng}), {
