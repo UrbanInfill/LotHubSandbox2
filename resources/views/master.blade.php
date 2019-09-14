@@ -14,7 +14,7 @@
     <script src="https://cdn.tiny.cloud/1/zhx39j2ohsweb3po62947uwrnum0n1xhy3t5ospk0vkgobcs/tinymce/5/tinymce.min.js"></script>
     <script>tinymce.init({selector:'textarea',height : 500});</script>
     <link rel="stylesheet" href="{{ url('/css/main.css') }}">
-    <link rel="stylesheet" href="{{url('/css/loading-bar.css)}}">
+    <link rel="stylesheet" href="{{url('/css/loading-bar.css')}}">
     @yield('head')
     <title>@yield('title')</title>
 </head>
