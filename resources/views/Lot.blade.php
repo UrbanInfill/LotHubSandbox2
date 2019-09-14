@@ -42,6 +42,7 @@
         <div
             class="label-center"
             id="ldBar"
+            style="width:30%;height:30%;margin:auto"
             data-value="0"
             data-preset="bubble">
         </div>
