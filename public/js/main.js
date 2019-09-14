@@ -1,7 +1,7 @@
 
 
-if(!(document.URL.includes('saved')||document.URL.includes('location')||document.URL.includes('Detail')))
-    var bar1 = new ldBar("#ldBar");
+
+    var bar1;
 $("#houseDiv").hide();
 $("#eduDiv").hide();
 $("#incomeDiv").hide();
@@ -238,7 +238,7 @@ $("#searchByProperty").click(function(e){
     $('.swiper-wrapper').empty();
     const address = $("#search").val();
     if(!isEmptyOrSpaces(address)) {
-
+        bar1 = new ldBar("#ldBar");
         $('#issearchdone').css("display","none");
         $('#searchloading').css("display","block");
         bar1.set(0);
