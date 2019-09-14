@@ -14,6 +14,7 @@
     <script src="https://cdn.tiny.cloud/1/zhx39j2ohsweb3po62947uwrnum0n1xhy3t5ospk0vkgobcs/tinymce/5/tinymce.min.js"></script>
     <script>tinymce.init({selector:'textarea',height : 500});</script>
     <link rel="stylesheet" href="{{ url('/css/main.css') }}">
+    <link rel="stylesheet" href="{{url('/css/loading-bar.css)}}"
     @yield('head')
     <title>@yield('title')</title>
 </head>
@@ -106,6 +107,7 @@
 <script src="{{ url('/js/cookies.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script type="module"  src=" {{ url('/js/siema.js') }}"></script>
+<script src="{{url('/js/loading-bar.js')}}"></script>
 <script src=" {{ url('/js/main.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.6/js/swiper.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ&libraries=places&callback=initAutocomplete"></script>

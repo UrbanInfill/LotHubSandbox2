@@ -97,7 +97,8 @@ h6 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-image: url('/Img/Loading.gif');
+    background-color: black;
+    opacity: 4%;
     background-size: auto;
 
 
