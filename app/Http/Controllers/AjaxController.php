@@ -514,6 +514,7 @@ class AjaxController extends Controller
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
+            return $result;
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
@@ -529,7 +530,6 @@ class AjaxController extends Controller
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
             $total = $result['status']['total'];
-            return $result;
             $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
             $totalPages = $total / 1000;
