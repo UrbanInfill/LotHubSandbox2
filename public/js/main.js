@@ -512,7 +512,7 @@ function postData(url = ``, data = {},isVacant) {
             let location = [];
             if(data) {
                 bar1.set((count_request_completed/parseInt(totalPages))*100);
-                if(count_request_completed == data.status.page)
+                if(count_request_completed == totalPages)
                 {
                     $( "#searchloading" ).fadeOut( "slow", function() {
 
