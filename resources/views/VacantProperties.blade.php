@@ -18,7 +18,15 @@
             </div>
         </div>
     </div>
-    <div id="searchloading"></div>
+    <div id="searchloading">
+        <div
+            class="label-center"
+            id="ldBar"
+            style="width:50%;height:50%;margin:auto"
+            data-value="0"
+            data-preset="circle">
+        </div>
+    </div>
     <div id="issearchdone">
     <div class="row">
         <div class="col-md-6">

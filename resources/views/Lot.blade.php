@@ -44,7 +44,8 @@
             id="ldBar"
             style="width:50%;height:50%;margin:auto"
             data-value="0"
-            data-preset="circle"></div>
+            data-preset="circle">
+        </div>
     </div>
     <div id="issearchdone">
     <div class="row">

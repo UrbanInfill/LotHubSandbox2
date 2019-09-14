@@ -341,9 +341,6 @@ $('#searchByAddress').click(function (e) {
         alert("Please enter the address code")
         return
     }
-    bar1 = new ldBar("#ldBar");
-    bar1.set(0);
-    count_request_completed = 0;
 
     fetch("/getPropertyResponse", {
         method: "post", // *GET, POST, PUT, DELETE, etc.
@@ -366,7 +363,7 @@ $('#searchByAddress').click(function (e) {
             throw new Error(response.status)
         })
         .then(function(data)
-        {bar1.set(50);
+        {
             console.log(data);
             detailViews = data["detailViews"];
             $('#LegalAddress').text(data["legaladdress"]);
@@ -377,7 +374,7 @@ $('#searchByAddress').click(function (e) {
             $('#detailviewBTN').attr('href',link);
             f1();
             initMap(data["final_array"],data["lat"],data["lng"])
-            bar1.set(100);
+
             $( "#searchloading" ).fadeOut( "slow", function() {
 
                 $('#searchloading').css("display","none");
