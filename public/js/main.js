@@ -437,9 +437,9 @@ function getlist(lat,lng,isVacant)
             console.log(data);
             searchCount = 0;
             $("#poiContent").hide();
-            //for (let i = 1; i <= totalPages; i++) {
+            for (let i = 1; i <= totalPages; i++) {
                 console.log(postData('/allpropertiesList', {lat: lat, lng: lng, page: 1, zip: postalcode}, isVacant));
-            //}
+            }
         }
     });
 
@@ -510,7 +510,7 @@ function postData(url = ``, data = {},isVacant) {
             let validPropertyList = [];
             let location = [];
             if(data) {
-                bar1.set(Math.floor(count_request_completed/parseInt(totalPages)));
+                bar1.set((Math.floor(count_request_completed/parseInt(totalPages)))*100);
 
                 for (const[i, property] of data.property.entries()) {
                     if(property["address"]["postal1"] != postalcode)
