@@ -239,10 +239,11 @@ $("#searchByProperty").click(function(e){
     const address = $("#search").val();
     if(!isEmptyOrSpaces(address)) {
         bar1 = new ldBar("#ldBar");
-        $('#issearchdone').css("display","none");
-        $('#searchloading').css("display","block");
         bar1.set(0);
         count_request_completed = 0;
+        $('#issearchdone').css("display","none");
+        $('#searchloading').css("display","block");
+
         codeAddress(address);
         if(document.URL.includes('hpl2')) {
             clusterize = new Clusterize({
@@ -290,6 +291,9 @@ $("#searchByPropertyVacant").click(function(e){
     $('.swiper-wrapper').empty();
     const address = $("#Vacantsearch").val();
     if(!isEmptyOrSpaces(address)) {
+        bar1 = new ldBar("#ldBar");
+        bar1.set(0);
+        count_request_completed = 0;
         $('#issearchdone').css("display","none");
         $('#searchloading').css("display","block");
         codeAddress(address, true);
@@ -337,6 +341,9 @@ $('#searchByAddress').click(function (e) {
         alert("Please enter the address code")
         return
     }
+    bar1 = new ldBar("#ldBar");
+    bar1.set(0);
+    count_request_completed = 0;
 
     fetch("/getPropertyResponse", {
         method: "post", // *GET, POST, PUT, DELETE, etc.
@@ -359,7 +366,7 @@ $('#searchByAddress').click(function (e) {
             throw new Error(response.status)
         })
         .then(function(data)
-        {
+        {bar1.set(50);
             console.log(data);
             detailViews = data["detailViews"];
             $('#LegalAddress').text(data["legaladdress"]);
@@ -370,7 +377,7 @@ $('#searchByAddress').click(function (e) {
             $('#detailviewBTN').attr('href',link);
             f1();
             initMap(data["final_array"],data["lat"],data["lng"])
-
+            bar1.set(100);
             $( "#searchloading" ).fadeOut( "slow", function() {
 
                 $('#searchloading').css("display","none");
