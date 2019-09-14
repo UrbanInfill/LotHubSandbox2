@@ -42,9 +42,8 @@
         <div
             class="label-center"
             id="ldBar"
-            style="width:30%;height:30%;margin:auto"
             data-value="0"
-            data-preset="fant">
+            data-preset="bubble">
         </div>
     </div>
     <div id="issearchdone">
