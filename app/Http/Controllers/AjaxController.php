@@ -529,6 +529,7 @@ class AjaxController extends Controller
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
             $total = $result['status']['total'];
+            return $result;
             $getCurrentUser->Historicsavedcount =  $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
             $totalPages = $total / 1000;
@@ -839,7 +840,6 @@ class AjaxController extends Controller
         $err = curl_error($curl);
         //echo "<pre>"; print_r($err); die;
         curl_close($curl);
-        return json_decode($response, true);
         if ($err) {
             return '{"status": { "code": 999, "msg": "cURL Error #:"'. $err.'"}}';
         }else{
