@@ -1,4 +1,7 @@
-var bar1 = new ldBar("#ldBar");
+
+
+if(!document.URL.includes('saved'))
+    var bar1 = new ldBar("#ldBar");
 $("#houseDiv").hide();
 $("#eduDiv").hide();
 $("#incomeDiv").hide();
