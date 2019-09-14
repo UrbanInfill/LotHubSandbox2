@@ -512,7 +512,15 @@ function postData(url = ``, data = {},isVacant) {
             let location = [];
             if(data) {
                 bar1.set((count_request_completed/parseInt(totalPages))*100);
+                if(count_request_completed == data.status.page)
+                {
+                    $( "#searchloading" ).fadeOut( "slow", function() {
 
+                        $('#searchloading').css("display","none");
+
+                        $("#issearchdone").css("display","block");
+                    });
+                }
                 for (const[i, property] of data.property.entries()) {
                     if(property["address"]["postal1"] != postalcode)
                         continue;
@@ -674,15 +682,7 @@ function postData(url = ``, data = {},isVacant) {
                     }
                 }
             }
-            if(Math.floor(totalPages) == data.status.page)
-            {
-                $( "#searchloading" ).fadeOut( "slow", function() {
 
-                    $('#searchloading').css("display","none");
-
-                    $("#issearchdone").css("display","block");
-                });
-            }
             if(document.URL.includes('hpl2'))
             {
 
