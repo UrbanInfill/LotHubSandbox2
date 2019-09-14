@@ -511,7 +511,7 @@ class AjaxController extends Controller
         {
 
 
-            $pagesize = 1000;
+            $pagesize = 100;
             $page = 1;
             $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
