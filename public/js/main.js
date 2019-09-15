@@ -705,16 +705,16 @@ function postData(url = ``, data = {}, isVacant) {
 
 function check_visited_links(link) {
     let visited_links = JSON.parse(sessionStorage.getItem('visited_links')) || [];
-    const clicked_url = link.href;
-    if (visited_links.indexOf(clicked_url) === -1) {
-        visited_links.push(clicked_url);
+
+    if (visited_links.indexOf(link) === -1) {
+        visited_links.push(link);
         sessionStorage.setItem('visited_links', JSON.stringify(visited_links));
     }//that.parentNode.className += ' visited';
 }
 function b_check_visited_links(link) {
     let visited_links = JSON.parse(sessionStorage.getItem('visited_links')) || [];
-    const clicked_url = link.href;
-    if (visited_links.indexOf(clicked_url) === -1) {
+
+    if (visited_links.indexOf(link) === -1) {
         return false;
     }//that.parentNode.className += ' visited';
     return true;
