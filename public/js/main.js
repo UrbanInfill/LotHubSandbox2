@@ -527,6 +527,10 @@ function postData(url = ``, data = {}, isVacant) {
                 for (const [i, property] of data.property.entries()) {
                     if (property["address"]["postal1"] != postalcode)
                         continue;
+                    let visited = '';
+                    const address = encodeURI(property["address"]["line1"]) + encodeURI(property["address"]["line2"]);
+                    if(b_check_visited_links(address))
+                        visited = 'parent';
                     if (isVacant) {
 
                         if (property['summary']['propclass']) {
@@ -536,7 +540,7 @@ function postData(url = ``, data = {}, isVacant) {
                                 $("#poiContent").show();
                                 var text = '<div class="swiper-slide" style="height: 100px;">' +
                                     '<div class="box selectPOI">' +
-                                    '<span class="h3 hotlineLabel" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
+                                    '<span class="h3 hotlineLabel '+visited+'" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
                                     '<div class="float-right">' +
                                     '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                                     //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
@@ -614,7 +618,7 @@ function postData(url = ``, data = {}, isVacant) {
                                 $("#poiContent").show();
                                 var text = '<div class="swiper-slide" style="height: 100px;">' +
                                     '<div class="box selectPOI">' +
-                                    '<span class="h3 hotlineLabel" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
+                                    '<span class="h3 hotlineLabel '+ visited +'" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
                                     '<div class="float-right">' +
                                     '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                                     //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
@@ -707,7 +711,15 @@ function check_visited_links(link) {
         sessionStorage.setItem('visited_links', JSON.stringify(visited_links));
     }//that.parentNode.className += ' visited';
 }
+function b_check_visited_links(link) {
+    let visited_links = JSON.parse(sessionStorage.getItem('visited_links')) || [];
+    const clicked_url = link.href;
+    if (visited_links.indexOf(clicked_url) === -1) {
+        return false;
+    }//that.parentNode.className += ' visited';
+    return true;
 
+}
 var ipage = 1;
 
 function getpageData(lat, lng, totalpage) {
