@@ -812,3 +812,6 @@ body .box .info .rating .rating-img {
     color: red;
     cursor: pointer;
 }
+.parent{
+    color blue;
+}

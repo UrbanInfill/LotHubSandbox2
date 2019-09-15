@@ -1,24 +1,20 @@
-
-
-
-    var bar1;
+var bar1;
 $("#houseDiv").hide();
 $("#eduDiv").hide();
 $("#incomeDiv").hide();
 $("#poiContent").hide();
-$(document).on("click", '.saveBtn', function(event) {
+$(document).on("click", '.saveBtn', function (event) {
 
 
     const line1 = $(this).attr("line1");
     const line2 = $(this).attr("line2");
 
-    saveProperty(line1,line2);
+    saveProperty(line1, line2);
 
 })
 
-function saveProperty(line1,line2)
-{
-    fetch(buildUrl('/savedata',{line1:line1,line2:line2}), {
+function saveProperty(line1, line2) {
+    fetch(buildUrl('/savedata', {line1: line1, line2: line2}), {
         method: "get", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, cors, *same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -31,19 +27,16 @@ function saveProperty(line1,line2)
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
     })
-        .then(function(response) {
+        .then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response.text()
             }
             throw new Error(response.statusText)
         })
-        .then(function(data)
-        {
-            if( data.toString() === "Error" ) {
+        .then(function (data) {
+            if (data.toString() === "Error") {
                 $.notify(data, 'error');
-            }
-            else
-            {
+            } else {
                 $.notify(data, 'success');
             }
             console.log(data);
@@ -51,6 +44,7 @@ function saveProperty(line1,line2)
 
         });
 }
+
 var styles = {
     default: null,
     hide: [
@@ -82,33 +76,35 @@ var styles = {
     ]
 };
 
-$(document).ready(function(){
+$(document).ready(function () {
     let gline1;
     let gline2
-    $(document).on("click",".hotlineLabel",function (event) {
+    $(document).on("click", ".hotlineLabel", function (event) {
         const line1 = $(this).attr("line1");
         const line2 = $(this).attr("line2");
         gline1 = line1;
         gline2 = line2;
+        check_visited_links(line1+line2);
+        this.addClass('parent');
         const lat = $(this).attr("lat");
         const long = $(this).attr("long");
-        $('#ModalImg').attr("src","https://maps.googleapis.com/maps/api/streetview?size=800x400&location=" +lat+ "," +long + "&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ");
+        $('#ModalImg').attr("src", "https://maps.googleapis.com/maps/api/streetview?size=800x400&location=" + lat + "," + long + "&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ");
         //$('#SaveLink').attr("href","https://maps.googleapis.com/maps/api/streetview?size=800x400&location=" +lat+ "," +long + "&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ");
 
         const myOptions = {
             zoom: 19,
-            center: new google.maps.LatLng( lat ,long )
-    };
+            center: new google.maps.LatLng(lat, long)
+        };
         const map = new google.maps.Map(document.getElementById("Modalmap"), myOptions);
 
         //marker;
         //console.log(locations);
 
         const marker = new google.maps.Marker({
-            position: new google.maps.LatLng( lat,long),
+            position: new google.maps.LatLng(lat, long),
             map: map,
             animation: google.maps.Animation.DROP
-    });
+        });
 
         map.setOptions({styles: styles['hide']});
 
@@ -116,10 +112,9 @@ $(document).ready(function(){
     });
 
     $("#SaveLink").click(function () {
-        saveProperty(gline1,gline2)
+        saveProperty(gline1, gline2)
     })
 });
-
 
 
 $('.toast').toast('show')
@@ -133,24 +128,25 @@ $.ajaxSetup({
 // Mialer event handler get request to send the email
 
 setTimeout(loadingOFF, 1100)
-function loadingOFF()
-{
-    $('#isLoaded').css("display","none");
-    $('#loading').css("display","block");
-    $( "#loading" ).fadeOut( "slow", function() {
 
-        $('#loading').css("display","none");
+function loadingOFF() {
+    $('#isLoaded').css("display", "none");
+    $('#loading').css("display", "block");
+    $("#loading").fadeOut("slow", function () {
 
-        $("#isLoaded").css("display","block");
+        $('#loading').css("display", "none");
+
+        $("#isLoaded").css("display", "block");
     });
 }
-$("#searchbyPerson").click(function (e) {
-e.preventDefault();
-const fName = $("#fName").val();
-const lName = $("#lName").val();
-const zip = $("#zip").val();
 
-    fetch(buildUrl('/personlist',{fName:fName,lName:lName,zip:zip}), {
+$("#searchbyPerson").click(function (e) {
+    e.preventDefault();
+    const fName = $("#fName").val();
+    const lName = $("#lName").val();
+    const zip = $("#zip").val();
+
+    fetch(buildUrl('/personlist', {fName: fName, lName: lName, zip: zip}), {
         method: "get", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, cors, *same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -163,14 +159,13 @@ const zip = $("#zip").val();
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
     })
-        .then(function(response) {
+        .then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response.json()
             }
             throw new Error(response.statusText)
         })
-        .then(function(data)
-        {
+        .then(function (data) {
             console.log(data);
             let index = 0;
             $('#personSearchListdiv').empty();
@@ -178,25 +173,24 @@ const zip = $("#zip").val();
                 var text = '<li class="list-group-item list-group-item-action ">' +
                     '<div class="d-flex w-100 justify-content-between">' +
                     '<h5 class="mb-1">' + rest.name[0].data + '</h5>' +
-                    '<a href="/perosndetail/' + encodeURI(rest.name[0].first) + '/' + encodeURI(rest.name[0].last) + '/' + encodeURI(rest.pid) +'" class="btn btn-primary">Detail</a>' +
+                    '<a href="/perosndetail/' + encodeURI(rest.name[0].first) + '/' + encodeURI(rest.name[0].last) + '/' + encodeURI(rest.pid) + '" class="btn btn-primary">Detail</a>' +
                     '</div>' +
                     '<hr>' +
                     '<div class="d-flex w-100 justify-content-between">';
                 for (const phone of rest.phone) {
-                    text = text + '  <p>Phone #'+ phone.number + '</p>';
+                    text = text + '  <p>Phone #' + phone.number + '</p>';
                 }
-                if(rest.dob.length > 0) {
+                if (rest.dob.length > 0) {
                     text = text + '</div>' +
                         ' <hr>' +
                         '<p class="mb-1">DoB ' + rest.dob[0].date.data + '</p>';
                 }
-                text = text +'<div class="d-flex w-100 justify-content-between">';
+                text = text + '<div class="d-flex w-100 justify-content-between">';
 
-                for (const email of rest.email)
-                {
-                    text = text + '<p class="mb-1">'+email.data+'</p>'
+                for (const email of rest.email) {
+                    text = text + '<p class="mb-1">' + email.data + '</p>'
                 }
-                text = text + '</div>'+
+                text = text + '</div>' +
                     ' </li>';
                 $("#personSearchListdiv").append(text);
                 index++;
@@ -205,58 +199,57 @@ const zip = $("#zip").val();
 
 });
 
-function isEmptyOrSpaces(str){
+function isEmptyOrSpaces(str) {
     return str === null || str.match(/^ *$/) !== null || str === "";
 }
 
-$("#search").on('keypress',function(e) {
-    if(e.which == 13) {
-        ipage =1;
+$("#search").on('keypress', function (e) {
+    if (e.which == 13) {
+        ipage = 1;
         $('.swiper-wrapper').empty();
         const address = $("#search").val();
-        if(!isEmptyOrSpaces(address))
+        if (!isEmptyOrSpaces(address))
             codeAddress(address);
         else
             alert("Please enter the zip code")
     }
 });
 
-$("#searchAddress").on('keypress',function(e) {
-    if(e.which == 13) {
-        $( "#searchByAddress" ).trigger( "click" );
+$("#searchAddress").on('keypress', function (e) {
+    if (e.which == 13) {
+        $("#searchByAddress").trigger("click");
     }
 });
 
-$("#Vacantsearch").on('keypress',function(e) {
-    if(e.which == 13) {
-        $( "#searchByPropertyVacant" ).trigger( "click" );
+$("#Vacantsearch").on('keypress', function (e) {
+    if (e.which == 13) {
+        $("#searchByPropertyVacant").trigger("click");
     }
 });
-$("#searchByProperty").click(function(e){
+$("#searchByProperty").click(function (e) {
     e.preventDefault();
-    ipage =1;
+    ipage = 1;
     $('.swiper-wrapper').empty();
     const address = $("#search").val();
-    if(!isEmptyOrSpaces(address)) {
+    if (!isEmptyOrSpaces(address)) {
         bar1 = new ldBar("#ldBar");
         bar1.set(0);
         count_request_completed = 0;
-        $('#issearchdone').css("display","none");
-        $('#searchloading').css("display","block");
+        $('#issearchdone').css("display", "none");
+        $('#searchloading').css("display", "block");
 
         codeAddress(address);
-        if(document.URL.includes('hpl2')) {
+        if (document.URL.includes('hpl2')) {
             clusterize = new Clusterize({
                 scrollId: 'scrollArea',
                 contentId: 'contentArea'
             });
-        }
-        else {
+        } else {
             swiper = new Swiper('.swiper-container', {
                 slidesPerView: 10,
                 direction: 'vertical',
                 slideToClickedSlide: true,
-                preventClicks:true,observer: true, observeParents: true,
+                preventClicks: true, observer: true, observeParents: true,
                 on: {
                     click: function (swiper, e) {
                         // var clicked = $(e.target);
@@ -279,29 +272,29 @@ $("#searchByProperty").click(function(e){
                 },
             });
         }
-    }else
+    } else
         alert("Please enter the zip code")
 });
 
-$("#searchByPropertyVacant").click(function(e){
+$("#searchByPropertyVacant").click(function (e) {
     e.preventDefault();
-    ipage =1;
+    ipage = 1;
 
 
     $('.swiper-wrapper').empty();
     const address = $("#Vacantsearch").val();
-    if(!isEmptyOrSpaces(address)) {
+    if (!isEmptyOrSpaces(address)) {
         bar1 = new ldBar("#ldBar");
         bar1.set(0);
         count_request_completed = 0;
-        $('#issearchdone').css("display","none");
-        $('#searchloading').css("display","block");
+        $('#issearchdone').css("display", "none");
+        $('#searchloading').css("display", "block");
         codeAddress(address, true);
         swiper = new Swiper('.swiper-container', {
             slidesPerView: 10,
             direction: 'vertical',
             slideToClickedSlide: true,
-            preventClicks:true,
+            preventClicks: true,
             observer: true, observeParents: true,
             on: {
                 click: function (swiper, e) {
@@ -324,7 +317,7 @@ $("#searchByPropertyVacant").click(function(e){
                 invert: false,
             },
         });
-    }else
+    } else
         alert("Please enter the zip code")
 
 });
@@ -334,10 +327,10 @@ var clusterize;
 $('#searchByAddress').click(function (e) {
     e.preventDefault();
 
-    $('#issearchdone').css("display","none");
-    $('#searchloading').css("display","block");
+    $('#issearchdone').css("display", "none");
+    $('#searchloading').css("display", "block");
     const address = $("#searchAddress").val();
-    if(isEmptyOrSpaces(address)) {
+    if (isEmptyOrSpaces(address)) {
         alert("Please enter the address code")
         return
     }
@@ -347,7 +340,7 @@ $('#searchByAddress').click(function (e) {
         mode: "cors", // no-cors, cors, *same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "same-origin", // include, *same-origin, omit
-        body: JSON.stringify({address:address}),
+        body: JSON.stringify({address: address}),
         headers: {
             "Content-Type": "application/json",
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -356,119 +349,122 @@ $('#searchByAddress').click(function (e) {
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
     })
-        .then(function(response) {
+        .then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response.json()
             }
             throw new Error(response.status)
         })
-        .then(function(data)
-        {
+        .then(function (data) {
             console.log(data);
             detailViews = data["detailViews"];
             $('#LegalAddress').text(data["legaladdress"]);
 
             $('#view').html(data["view"]);
-            const link  = '/getOwnerDetail/'+encodeURI(data["line1"])+'/' +encodeURI(data["line2"]);
+            const link = '/getOwnerDetail/' + encodeURI(data["line1"]) + '/' + encodeURI(data["line2"]);
             $('#detailviewBTN').show();
-            $('#detailviewBTN').attr('href',link);
+            $('#detailviewBTN').attr('href', link);
             f1();
-            initMap(data["final_array"],data["lat"],data["lng"])
+            initMap(data["final_array"], data["lat"], data["lng"])
 
-            $( "#searchloading" ).fadeOut( "slow", function() {
+            $("#searchloading").fadeOut("slow", function () {
 
-                $('#searchloading').css("display","none");
+                $('#searchloading').css("display", "none");
 
-                $("#issearchdone").css("display","block");
+                $("#issearchdone").css("display", "block");
             });
-        }).catch(error=>{
-            if(error.message === '500')
-                $.notify("You enter the wrong address",'error');
-            else
+        }).catch(error => {
+        if (error.message === '500')
+            $.notify("You enter the wrong address", 'error');
+        else
             $.notify('You exceed the Address search limit', 'error');
 
     });
-        /*
-    $.ajax({
-        type:'post',
-        url:'/getPropertyResponse',
-        data:{address:address},
-        success:function(data){
-            console.log(data);
-            $('#LegalAddress').text(data["legaladdress"]);
-            $('#view').html(data["view"]);
-        },
-        timeout: 5000
-    });*/
+    /*
+$.ajax({
+    type:'post',
+    url:'/getPropertyResponse',
+    data:{address:address},
+    success:function(data){
+        console.log(data);
+        $('#LegalAddress').text(data["legaladdress"]);
+        $('#view').html(data["view"]);
+    },
+    timeout: 5000
+});*/
 });
 let g_BoolFor_HistoricSearch = true;
 let g_BoolFor_VacantSearch = true;
 var totalPages = 10;
-function getlist(lat,lng,isVacant)
-{
+
+function getlist(lat, lng, isVacant) {
 
 
-    fetch(buildUrl('/getTotalPages',{lat:lat,lng:lng,zip:postalcode,isVacant:isVacant}), {
-    method: "get", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, cors, *same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-        "Content-Type": "application/json",
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        // "Content-Type": "application/x-www-form-urlencoded",
-    },
-    redirect: "follow", // manual, *follow, error
-    referrer: "no-referrer", // no-referrer, *client
-})
-    .then(function(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.json()
-        }
-        throw new Error(response.statusText)
+    fetch(buildUrl('/getTotalPages', {lat: lat, lng: lng, zip: postalcode, isVacant: isVacant}), {
+        method: "get", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        redirect: "follow", // manual, *follow, error
+        referrer: "no-referrer", // no-referrer, *client
     })
-    .then(function(data) {
-        if(data === "Error")
-        {
-            if(!isVacant)
-                $.notify('You exceed the search limit in Historic lot', 'error');
-            else
-                $.notify('You exceed the search limit in Vacant lot', 'error')
-
-            return
-        }
-        else {
-            totalPages = data;
-            console.log(data);
-            searchCount = 0;
-            $("#poiContent").hide();
-            for (let i = 1; i <= totalPages; i++) {
-                console.log(postData('/allpropertiesList', {lat: lat, lng: lng, page: 1, zip: postalcode}, isVacant));
+        .then(function (response) {
+            if (response.status >= 200 && response.status < 300) {
+                return response.json()
             }
-        }
-    });
+            throw new Error(response.statusText)
+        })
+        .then(function (data) {
+            if (data === "Error") {
+                if (!isVacant)
+                    $.notify('You exceed the search limit in Historic lot', 'error');
+                else
+                    $.notify('You exceed the search limit in Vacant lot', 'error')
 
-  /*  $.ajax({
-        type:'get',
-        url:'/getTotalPages',
-        data:{lat:lat,lng:lng,zip:postalcode},
-        cache:false,
-        success:function(data){
-            totalPages = data;
-            console.log(data);
-
-        },
-        complete:function()
-        {
-            for (let i = 1; i <= totalPages; i++) {
-                console.log(postData('/allpropertiesList', {lat: lat, lng: lng, page: i, zip: postalcode},isVacant));
+                return
+            } else {
+                totalPages = data;
+                console.log(data);
+                searchCount = 0;
+                $("#poiContent").hide();
+                for (let i = 1; i <= totalPages; i++) {
+                    console.log(postData('/allpropertiesList', {
+                        lat: lat,
+                        lng: lng,
+                        page: 1,
+                        zip: postalcode
+                    }, isVacant));
+                }
             }
+        });
 
-        },
-        timeout: 5000
-    });*/
+    /*  $.ajax({
+          type:'get',
+          url:'/getTotalPages',
+          data:{lat:lat,lng:lng,zip:postalcode},
+          cache:false,
+          success:function(data){
+              totalPages = data;
+              console.log(data);
+
+          },
+          complete:function()
+          {
+              for (let i = 1; i <= totalPages; i++) {
+                  console.log(postData('/allpropertiesList', {lat: lat, lng: lng, page: i, zip: postalcode},isVacant));
+              }
+
+          },
+          timeout: 5000
+      });*/
 }
-function buildUrl(url, parameters,isVacant) {
+
+function buildUrl(url, parameters, isVacant) {
     let qs = "";
     for (const key in parameters) {
         if (parameters.hasOwnProperty(key)) {
@@ -484,12 +480,14 @@ function buildUrl(url, parameters,isVacant) {
 
     return url;
 }
+
 let searchCount = 0
 let requestCompleted = 0;
 let count_request_completed = 0
-function postData(url = ``, data = {},isVacant) {
+
+function postData(url = ``, data = {}, isVacant) {
     // Default options are marked with *
-    fetch(buildUrl(url,data), {
+    fetch(buildUrl(url, data), {
         method: "get", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, cors, *same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -502,60 +500,57 @@ function postData(url = ``, data = {},isVacant) {
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
     })
-        .then(function(response) {
+        .then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response.json()
             }
             throw new Error(response.statusText)
         })
-        .then(function(data) {
+        .then(function (data) {
             console.log(data);
 
             count_request_completed++;
             let validPropertyList = [];
             let location = [];
-            if(data) {
-                bar1.set((count_request_completed/parseInt(totalPages))*100);
-                if(count_request_completed == totalPages)
-                {
-                    $( "#searchloading" ).fadeOut( "slow", function() {
+            if (data) {
+                bar1.set((count_request_completed / parseInt(totalPages)) * 100);
+                if (count_request_completed == totalPages) {
+                    $("#searchloading").fadeOut("slow", function () {
 
-                        $('#searchloading').css("display","none");
+                        $('#searchloading').css("display", "none");
 
-                        $("#issearchdone").css("display","block");
+                        $("#issearchdone").css("display", "block");
                     });
                 }
-                if(typeof(data) === typeof('d'))
+                if (typeof (data) === typeof ('d'))
                     return;
-                for (const[i, property] of data.property.entries()) {
-                    if(property["address"]["postal1"] != postalcode)
+                for (const [i, property] of data.property.entries()) {
+                    if (property["address"]["postal1"] != postalcode)
                         continue;
-                    if(isVacant)
-                    {
+                    if (isVacant) {
 
-                        if(property['summary']['propclass']){
-                            if(property['summary']['propclass'] .toLowerCase() ==="vacant") {
+                        if (property['summary']['propclass']) {
+                            if (property['summary']['propclass'].toLowerCase() === "vacant") {
                                 searchCount++;
-                                $('#searchCount').text("Property count : "+searchCount);
+                                $('#searchCount').text("Property count : " + searchCount);
                                 $("#poiContent").show();
-                                var text = '<div class="swiper-slide" style="height: 100px;">'  +
+                                var text = '<div class="swiper-slide" style="height: 100px;">' +
                                     '<div class="box selectPOI">' +
-                                    '<span class="h3 hotlineLabel" target="_blank" lat ="'+ property["location"]["latitude"] +'" long = "'+ property["location"]["longitude"] +'" line1 = "'+encodeURI(property["address"]["line1"])+'" line2="' +encodeURI(property["address"]["line2"])+'" > Hot Property </span>' +
-                                    '<div class="float-right">'+
-                                    '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">'+
+                                    '<span class="h3 hotlineLabel" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
+                                    '<div class="float-right">' +
+                                    '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                                     //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
-                                    '<button type="button" class="saveBtn btn btn-link"  line1 = "'+encodeURI(property["address"]["line1"])+'" line2="' +encodeURI(property["address"]["line2"])+'" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>'+
-                                    '</div>'+
-                                    '<div class="float-left">'+
-                                    '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location='+ property["location"]["latitude"] +','+ property["location"]["longitude"]+'&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">'+
+                                    '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
+                                    '</div>' +
+                                    '<div class="float-left">' +
+                                    '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location=' + property["location"]["latitude"] + ',' + property["location"]["longitude"] + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
                                     '</div></div></div>';
                                 swiper.appendSlide(text);
-                                location.push([property["location"]['latitude'],property["location"]['longitude'],property['address']['oneLine']]);
+                                location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine']]);
                             }
                         }
 
-                    }
-                    else {
+                    } else {
                         const pattern = /l\s*([0-9]*).-.([0-9]*)/gi;
                         const patt1 = /lot\s*.([0-9]*).&.([0-9]*)/gi;
                         const patt10 = /lots\s*.([0-9]*).&.([0-9]*)/gi;
@@ -613,27 +608,25 @@ function postData(url = ``, data = {},isVacant) {
                             var result25 = property['summary']['legal1'].match(patt24);
 
 
-
-
-                            if (result || result2 || result3 || result4 || result5 || result6 || result7 || result8|| result9 || result10 || result11||result12|| result13|| result14 || result15 || result16||result17 || result18 || result19||result20||result21|| result22 || result23||result24||result25) {
+                            if (result || result2 || result3 || result4 || result5 || result6 || result7 || result8 || result9 || result10 || result11 || result12 || result13 || result14 || result15 || result16 || result17 || result18 || result19 || result20 || result21 || result22 || result23 || result24 || result25) {
                                 searchCount++;
-                                $('#searchCount').text("Property count : "+searchCount);
+                                $('#searchCount').text("Property count : " + searchCount);
                                 $("#poiContent").show();
-                                var text = '<div class="swiper-slide" style="height: 100px;">'  +
+                                var text = '<div class="swiper-slide" style="height: 100px;">' +
                                     '<div class="box selectPOI">' +
-                                    '<span class="h3 hotlineLabel" target="_blank" lat ="'+ property["location"]["latitude"] +'" long = "'+ property["location"]["longitude"] +'" line1 = "'+encodeURI(property["address"]["line1"])+'" line2="' +encodeURI(property["address"]["line2"])+'" > Hot Property </span>' +
-                                    '<div class="float-right">'+
-                                    '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">'+
+                                    '<span class="h3 hotlineLabel" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
+                                    '<div class="float-right">' +
+                                    '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                                     //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
-                                    '<button type="button" class="saveBtn btn btn-link"  line1 = "'+encodeURI(property["address"]["line1"])+'" line2="' +encodeURI(property["address"]["line2"])+'" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>'+
-                                    '</div>'+
-                                    '<div class="float-left">'+
-                                    '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location='+ property["location"]["latitude"] +','+ property["location"]["longitude"]+'&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">'+
+                                    '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
+                                    '</div>' +
+                                    '<div class="float-left">' +
+                                    '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location=' + property["location"]["latitude"] + ',' + property["location"]["longitude"] + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
                                     '</div></div></div>';
                                 //$(".swiper-wrapper").append(text);
                                 swiper.appendSlide(text);
                                 validPropertyList.push(text);
-                                location.push([property["location"]['latitude'],property["location"]['longitude'],property['address']['oneLine']]);
+                                location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine']]);
                             } /*else if (result2) {
                                 var text = '<div class="swiper-slide" ajaxlink= "/getOwnerDetail/'+property["address"]["line1"]+'/' +property["address"]["line2"]+'"\>' +
                                     '<div class="box selectPOI" id="5">' +
@@ -689,16 +682,13 @@ function postData(url = ``, data = {},isVacant) {
                 }
             }
 
-            if(document.URL.includes('hpl2'))
-            {
+            if (document.URL.includes('hpl2')) {
 
                 clusterize.update(validPropertyList);
-                if(Math.floor(totalPages) == data.status.page)
-                {
+                if (Math.floor(totalPages) == data.status.page) {
                     clusterize.refresh();
                 }
-            }
-            else {
+            } else {
                 if (totalPages == data.status.page) {
 
                 }
@@ -708,38 +698,47 @@ function postData(url = ``, data = {},isVacant) {
 
         })
 }
-var ipage =1;
-function getpageData(lat,lng,totalpage) {
+
+function check_visited_links(link) {
+    let visited_links = JSON.parse(sessionStorage.getItem('visited_links')) || [];
+    const clicked_url = link.href;
+    if (visited_links.indexOf(clicked_url) === -1) {
+        visited_links.push(clicked_url);
+        sessionStorage.setItem('visited_links', JSON.stringify(visited_links));
+    }//that.parentNode.className += ' visited';
+}
+
+var ipage = 1;
+
+function getpageData(lat, lng, totalpage) {
     console.log(postalcode);
     $.ajax({
         type: 'get',
-        async:false,
+        async: false,
         url: '/allpropertiesList',
-        data: {lat: lat, lng: lng, page: ipage,zip:postalcode},
+        data: {lat: lat, lng: lng, page: ipage, zip: postalcode},
         success: function (data) {
-            if(data) {
+            if (data) {
                 for (const property of data.property) {
                     const pattern = /l.([0-9]*)-([0-9]*)/gi;
                     const patt1 = /lot.([0-9]*)&([0-9]*)/gi;
-                    if(property['summary']['legal1']) {
+                    if (property['summary']['legal1']) {
                         var result = property['summary']['legal1'].match(pattern);
                         var result2 = property['summary']['legal1'].match(patt1);
                         if (result) {
-                            var text = '<div class="swiper-slide">'+
-                                '<div class="box selectPOI" id="5">'+
-                                '<h1>' + property['address']['oneLine'] + '</h1>'+
-                                '<div class="restaurant-content">'+
-                                '<label>Legal Description</label>'+
+                            var text = '<div class="swiper-slide">' +
+                                '<div class="box selectPOI" id="5">' +
+                                '<h1>' + property['address']['oneLine'] + '</h1>' +
+                                '<div class="restaurant-content">' +
+                                '<label>Legal Description</label>' +
                                 '<small>' + property['summary']['legal1'] + '</small></div></div></div>';
                             $(".swiper-wrapper").append(text);
-                        }
-                        else if (result2)
-                        {
-                            var text = '<div class="swiper-slide">'+
-                                '<div class="box selectPOI" id="5">'+
-                                '<h1>' + property['address']['oneLine'] + '</h1>'+
-                                '<div class="restaurant-content">'+
-                                '<label>Legal Description</label>'+
+                        } else if (result2) {
+                            var text = '<div class="swiper-slide">' +
+                                '<div class="box selectPOI" id="5">' +
+                                '<h1>' + property['address']['oneLine'] + '</h1>' +
+                                '<div class="restaurant-content">' +
+                                '<label>Legal Description</label>' +
                                 '<small>' + property['summary']['legal1'] + '</small></div></div></div>';
                             $(".swiper-wrapper").append(text);
                         }
@@ -749,12 +748,10 @@ function getpageData(lat,lng,totalpage) {
             //console.log(data);
 
         },
-        complete:function()
-        {
+        complete: function () {
             ipage++;
-            if(ipage <=totalpage)
-            {
-                getpageData(lat,lng,totalpage)
+            if (ipage <= totalpage) {
+                getpageData(lat, lng, totalpage)
             }
         },
         timeout: 5000
@@ -765,43 +762,44 @@ function getpageData(lat,lng,totalpage) {
 
 var homemarkers = [];
 var swiper;
+
 function f(locations) {
-   // swiper.init();
+    // swiper.init();
     swiper.slideTo(swiper.initialSlide);
     swiper.update();
     var infowindow = new google.maps.InfoWindow();
-    for (let i = 0; i < locations.length; i++)
-    {
+    for (let i = 0; i < locations.length; i++) {
         var markers = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i][0], locations[i][1]),
             animation: google.maps.Animation.DROP,
             map: map,
             icon: 'Img/icons/pin_b.png'
         });
-        google.maps.event.addListener(markers, 'click', (function(markers, i) {
-            return function() {
+        google.maps.event.addListener(markers, 'click', (function (markers, i) {
+            return function () {
                 infowindow.setContent(locations[i][2]);
                 infowindow.open(map, markers);
                 swiper.slideTo(markers.get("id"));
                 swiper.updateSlidesClasses();
             }
         })(markers, i))
-        markers.set("id",homemarkers.length)
+        markers.set("id", homemarkers.length)
         homemarkers.push(markers);
         focusonmarker(0);
     }
 
 
 }
+
 function focusonmarker(i) {
 
     setMapOnAll(null)
-    if(homemarkers.length >0)
-    {
+    if (homemarkers.length > 0) {
         homemarkers[i].setMap(map);
         google.maps.event.trigger(homemarkers[i], "click");
     }
 }
+
 function setMapOnAll(map) {
     for (var i = 0; i < homemarkers.length; i++) {
         homemarkers[i].setMap(map);
@@ -817,20 +815,20 @@ function f1() {
             el: '.swiper-pagination',
             clickable: true,
         },
-        on:{
-            click: function(swiper, e){
+        on: {
+            click: function (swiper, e) {
                 // var clicked = $(e.target);
-                openInfoModal(this.clickedIndex+1);
+                openInfoModal(this.clickedIndex + 1);
                 $('#detailViews').empty();
-                $('#detailViews').html( detailViews[this.clickedIndex]);
+                $('#detailViews').html(detailViews[this.clickedIndex]);
                 //console.log(clicked);
             },
-            slideChange:function () {
+            slideChange: function () {
 
                 //$(".selectSchool")[this.activeIndex+1].trigger("click");
-                openInfoModal(this.activeIndex+1);
+                openInfoModal(this.activeIndex + 1);
                 $('#detailViews').empty();
-                $('#detailViews').html( detailViews[this.activeIndex]);
+                $('#detailViews').html(detailViews[this.activeIndex]);
 
             }
         },
@@ -848,9 +846,11 @@ function f1() {
             }
         }
     });
-    $(function(){
+    $(function () {
 
-        setTimeout(function(){$('#body').css("min-height",(parseInt($( window ).height())-55)+"px");},500);
+        setTimeout(function () {
+            $('#body').css("min-height", (parseInt($(window).height()) - 55) + "px");
+        }, 500);
 
         /* $("body").on("click",".swiper-button-next",function(){
             var active1= $('.swiper-slide-active > .box').attr("id");
@@ -864,7 +864,7 @@ function f1() {
 
         }); */
 
-        $("body").on("click",".selectSchool",function(){
+        $("body").on("click", ".selectSchool", function () {
 
             var schoolID = $(this).data("school");
             var blockID = $(this).attr("id");
@@ -897,14 +897,15 @@ function f1() {
     openInfoModal(1);
     $(".selectSchool").first().trigger("click");
     $('#detailViews').empty();
-    $('#detailViews').html( detailViews[0]);
+    $('#detailViews').html(detailViews[0]);
 }
 
 var marker;
 var gmarkers = [];
-function initMap(finalarray,lat,lng) {
+
+function initMap(finalarray, lat, lng) {
     var locations = [];
-    if(finalarray.length != 0) {
+    if (finalarray.length != 0) {
         for (let $publicSchool of finalarray) {
             if ($publicSchool['InstitutionName'] != '') {
                 locations.push([
@@ -927,7 +928,7 @@ function initMap(finalarray,lat,lng) {
 
     var infowindow = new google.maps.InfoWindow();
 
-     var i;
+    var i;
     //console.log(locations);
 
     marker = new google.maps.Marker({
@@ -941,7 +942,6 @@ function initMap(finalarray,lat,lng) {
     gmarkers.push(marker);
 
 
-
     for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
@@ -950,12 +950,12 @@ function initMap(finalarray,lat,lng) {
             icon: 'Img/1.png'
         });
 
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
                 infowindow.setContent(locations[i][3]);
                 infowindow.open(map, marker);
                 for (var sm = 0; sm < gmarkers.length; sm++) {
-                    if(sm!=0){
+                    if (sm != 0) {
                         gmarkers[sm].setIcon("Img/1.png");
                     }
                 }
@@ -971,24 +971,8 @@ function openInfoModal(i) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Auto complete text field for google map
-var lat,lng,postalcode;
+var lat, lng, postalcode;
 var placeSearch, autocomplete;
 var componentForm = {
     postal_code: 'short_name'
@@ -1010,11 +994,12 @@ function initAutocomplete() {
     //autocomplete.addListener('place_changed', fillInAddress);
 
 }
+
 // Bias the autocomplete object to the user's geographical location,
 // as supplied by the browser's 'navigator.geolocation' object.
 function geolocate() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             var geolocation = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
@@ -1030,19 +1015,18 @@ function geolocate() {
 
 var geocoder;
 var communitydata;
-function codeAddress(address,isVacant = false) {
+
+function codeAddress(address, isVacant = false) {
 
     postalcode = -1;
     geocoder = new google.maps.Geocoder();
     geocoder.geocode({
         'address': address
-    }, function(results, status) {
+    }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             //alert(results[0].geometry.location);
-            for(let a of results[0].address_components)
-            {
-                if(a.types[0] == 'postal_code')
-                {
+            for (let a of results[0].address_components) {
+                if (a.types[0] == 'postal_code') {
                     postalcode = parseInt(a.long_name)
                     console.log(parseInt(postalcode));
                 }
@@ -1052,24 +1036,28 @@ function codeAddress(address,isVacant = false) {
             lng = results[0].geometry.location.lng()
 
             var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
-            geocoder.geocode({'location': latlng}, function(result, status) {
+            geocoder.geocode({'location': latlng}, function (result, status) {
                 console.log(result)
             })
 
             $.ajax({
-                type:'POST',
-                url:'/getzipdata',
-                data:{address:address,location : [results[0].geometry.location.lat(),results[0].geometry.location.lng()],zip:postalcode},
-                success:function(data){
+                type: 'POST',
+                url: '/getzipdata',
+                data: {
+                    address: address,
+                    location: [results[0].geometry.location.lat(), results[0].geometry.location.lng()],
+                    zip: postalcode
+                },
+                success: function (data) {
                     //console.log(data);
                     polys = [data];
                     init();
                 },
-                cache:false,
-                complete:function(){
-                        getlist(lat,lng,isVacant)
+                cache: false,
+                complete: function () {
+                    getlist(lat, lng, isVacant)
 
-                    fetch(buildUrl('/getHouseInventry',{lat : lat,lng:lng}), {
+                    fetch(buildUrl('/getHouseInventry', {lat: lat, lng: lng}), {
                         method: "get", // *GET, POST, PUT, DELETE, etc.
                         mode: "cors", // no-cors, cors, *same-origin
                         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -1082,13 +1070,13 @@ function codeAddress(address,isVacant = false) {
                         redirect: "follow", // manual, *follow, error
                         referrer: "no-referrer", // no-referrer, *client
                     })
-                        .then(function(response) {
+                        .then(function (response) {
                             if (response.status >= 200 && response.status < 300) {
                                 return response.json()
                             }
                             throw new Error(response.statusText)
                         })
-                        .then(function(data) {
+                        .then(function (data) {
                             console.log(data);
                             dountChart(data);
                             $("#houseDiv").show();
@@ -1099,25 +1087,23 @@ function codeAddress(address,isVacant = false) {
                         })
 
 
+                    /* $.ajax({
+                         type:'get',
+                         url:'/getHouseInventry',
+                         data:{lat : lat,lng:lng},
+                         cache:false,
+                         success:function(data){
+                             console.log(data);
+                             dountChart(data);
+                             $("#houseDiv").show();
+                             higherEdu(data);
+                             $("#eduDiv").show();
+                             incomeChart(data);
+                             $("#incomeDiv").show();
 
-
-                   /* $.ajax({
-                        type:'get',
-                        url:'/getHouseInventry',
-                        data:{lat : lat,lng:lng},
-                        cache:false,
-                        success:function(data){
-                            console.log(data);
-                            dountChart(data);
-                            $("#houseDiv").show();
-                            higherEdu(data);
-                            $("#eduDiv").show();
-                            incomeChart(data);
-                            $("#incomeDiv").show();
-
-                        },
-                        timeout: 5000
-                    });*/
+                         },
+                         timeout: 5000
+                     });*/
                 },
                 timeout: 5000
             });
@@ -1130,13 +1116,13 @@ function codeAddress(address,isVacant = false) {
 
 //Higher Education
 function higherEdu(communityData) {
-    $("#noHS").html(Math.round((100*(communityData['EDULTGR9']/communityData['EDUTOTALPOP'])))+"%");
-    $("#someHS").html(Math.round((100*(communityData['EDUSHSCH']/communityData['EDUTOTALPOP'])))+"%");
-    $("#hsGrad").html(Math.round((100*(communityData['EDUHSCH']/communityData['EDUTOTALPOP'])))+"%");
-    $("#someCollege").html(Math.round((100*(communityData['EDUSCOLL']/communityData['EDUTOTALPOP'])))+"%");
-    $("#associate").html(Math.round((100*(communityData['EDUASSOC']/communityData['EDUTOTALPOP'])))+"%");
-    $("#bachlor").html(Math.round((100*(communityData['EDUBACH']/communityData['EDUTOTALPOP'])))+"%");
-    $("#graduate").html(Math.round((100*(communityData['EDUGRAD']/communityData['EDUTOTALPOP'])))+"%");
+    $("#noHS").html(Math.round((100 * (communityData['EDULTGR9'] / communityData['EDUTOTALPOP']))) + "%");
+    $("#someHS").html(Math.round((100 * (communityData['EDUSHSCH'] / communityData['EDUTOTALPOP']))) + "%");
+    $("#hsGrad").html(Math.round((100 * (communityData['EDUHSCH'] / communityData['EDUTOTALPOP']))) + "%");
+    $("#someCollege").html(Math.round((100 * (communityData['EDUSCOLL'] / communityData['EDUTOTALPOP']))) + "%");
+    $("#associate").html(Math.round((100 * (communityData['EDUASSOC'] / communityData['EDUTOTALPOP']))) + "%");
+    $("#bachlor").html(Math.round((100 * (communityData['EDUBACH'] / communityData['EDUTOTALPOP']))) + "%");
+    $("#graduate").html(Math.round((100 * (communityData['EDUGRAD'] / communityData['EDUTOTALPOP']))) + "%");
 
 }
 
@@ -1145,22 +1131,22 @@ function higherEdu(communityData) {
 function dountChart($communityData) {
 
 
-    var mychart = AmCharts.makeChart( "chart-1", {
+    var mychart = AmCharts.makeChart("chart-1", {
         "type": "pie",
         "theme": "light",
-        "dataProvider": [ {
-            "title": "Rented " + Math.round (100*($communityData['DWLRENT']/$communityData['DWLTOTAL'])),
-            "value": Math.round (100*($communityData['DWLRENT']/$communityData['DWLTOTAL'])),
-            "color":'#0051FF'
+        "dataProvider": [{
+            "title": "Rented " + Math.round(100 * ($communityData['DWLRENT'] / $communityData['DWLTOTAL'])),
+            "value": Math.round(100 * ($communityData['DWLRENT'] / $communityData['DWLTOTAL'])),
+            "color": '#0051FF'
         }, {
-            "title": "Owned "+Math.round (100*($communityData['DWLOWNED']/$communityData['DWLTOTAL'])),
-            "value": Math.round (100*($communityData['DWLOWNED']/$communityData['DWLTOTAL'])),
-            "color":'#43575f'
+            "title": "Owned " + Math.round(100 * ($communityData['DWLOWNED'] / $communityData['DWLTOTAL'])),
+            "value": Math.round(100 * ($communityData['DWLOWNED'] / $communityData['DWLTOTAL'])),
+            "color": '#43575f'
         }, {
-            "title": "Vacant "+Math.round (100*($communityData['DWLVACNT']/$communityData['DWLTOTAL'])),
-            "value": Math.round (100*($communityData['DWLVACNT']/$communityData['DWLTOTAL'])),
-            "color":'#d6d6d6'
-        } ],
+            "title": "Vacant " + Math.round(100 * ($communityData['DWLVACNT'] / $communityData['DWLTOTAL'])),
+            "value": Math.round(100 * ($communityData['DWLVACNT'] / $communityData['DWLTOTAL'])),
+            "color": '#d6d6d6'
+        }],
         "titleField": "title",
         "valueField": "value",
         "colorField": "color",
@@ -1172,7 +1158,7 @@ function dountChart($communityData) {
         "export": {
             "enabled": true
         }
-    } );
+    });
 
 }
 
@@ -1180,7 +1166,6 @@ function dountChart($communityData) {
 // income chart
 
 function incomeChart($communityData) {
-
 
 
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -1220,7 +1205,7 @@ function incomeChart($communityData) {
         options: {
             responsive: true,
             legend: {
-                display:false
+                display: false
             },
             title: {
                 display: false,
@@ -1283,17 +1268,9 @@ function incomeChart($communityData) {
 }
 
 
-
-
-
-
-
-
-
-
-
 //  Zip code Area highlight
 var polys;
+
 function parsePolyStrings(ps) {
     var i, j, lat, lng, tmp, tmpArr,
         arr = [],
@@ -1305,7 +1282,7 @@ function parsePolyStrings(ps) {
             tmp = m[i].match(/-?\d+\.?\d*/g);
             if (tmp !== null) {
                 //convert all the coordinate sets in tmp from strings to Numbers and convert to LatLng objects
-                for (j = 0, tmpArr = []; j < tmp.length; j+=2) {
+                for (j = 0, tmpArr = []; j < tmp.length; j += 2) {
                     lng = Number(tmp[j]);
                     lat = Number(tmp[j + 1]);
                     tmpArr.push(new google.maps.LatLng(lat, lng));
@@ -1317,7 +1294,9 @@ function parsePolyStrings(ps) {
     //array of arrays of LatLng objects, or empty array
     return arr;
 }
+
 var map;
+
 function init() {
     var i;
     var tmp;
@@ -1340,64 +1319,31 @@ function init() {
         tmp = parsePolyStrings(polys[i]);
         if (tmp.length) {
             polys[i] = new google.maps.Polygon({
-                paths : tmp,
-                strokeColor : '#0051FF',
-                strokeOpacity : 0.8,
-                strokeWeight : 2,
-                fillColor : '#0051FF',
-                fillOpacity : 0.20
+                paths: tmp,
+                strokeColor: '#0051FF',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#0051FF',
+                fillOpacity: 0.20
             });
             polys[i].setMap(map);
         }
     }
-    $('#map').css('height','450px');
+    $('#map').css('height', '450px');
     return map;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //send Email
 
-$("#sendEmail").click((e)=>{
+$("#sendEmail").click((e) => {
     e.preventDefault();
-    let i =0;
+    let i = 0;
     let listArray = [];
-    if($("#emailaddress").val() == "")
-    {
+    if ($("#emailaddress").val() == "") {
         $("#emailHelp").text("Please Enter Email address")
         return "";
-    }
-    else {
+    } else {
         if (!$("#emailaddress")[0].checkValidity()) {
             $("#emailHelp").text("Please Enter Correct Email address")
             return "";
@@ -1406,8 +1352,8 @@ $("#sendEmail").click((e)=>{
             $("#emailHelp").text("")
         }
     }
-    $('input[name="selectedItem"]:checked').each(function() {
-        listArray.push([$(this).closest('.box').find('a').attr('line1'),$(this).closest('.box').find('a').attr('line2')]);
+    $('input[name="selectedItem"]:checked').each(function () {
+        listArray.push([$(this).closest('.box').find('a').attr('line1'), $(this).closest('.box').find('a').attr('line2')]);
     });
 
 
@@ -1416,7 +1362,7 @@ $("#sendEmail").click((e)=>{
         mode: "cors", // no-cors, cors, *same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "same-origin", // include, *same-origin, omit
-        body: JSON.stringify({addressList:JSON.stringify(listArray),email:$("#emailaddress").val() }),
+        body: JSON.stringify({addressList: JSON.stringify(listArray), email: $("#emailaddress").val()}),
         headers: {
             "Content-Type": "application/json",
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1425,15 +1371,15 @@ $("#sendEmail").click((e)=>{
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
     })
-        .then(function(response) {
+        .then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response.json()
             }
             throw new Error(response.statusText)
         })
-        .then(function(data) {
+        .then(function (data) {
             console.log(data);
-            if(data[0] == "send") {
+            if (data[0] == "send") {
                 $.notify({
                     // options
                     icon: 'fas fa-check-circle',
@@ -1442,9 +1388,7 @@ $("#sendEmail").click((e)=>{
                     // settings
                     type: 'success'
                 });
-            }
-            else
-            {
+            } else {
                 $.notify({
                     // options
                     icon: 'fa fa-exclamation-circle',
@@ -1455,19 +1399,12 @@ $("#sendEmail").click((e)=>{
                 });
             }
         })
-    $("input[type='checkbox']").click(function ()  {
-        if($('input:checkbox:checked').length > 10)
-        {
+    $("input[type='checkbox']").click(function () {
+        if ($('input:checkbox:checked').length > 10) {
             alert("Email send limit is 10");
-            $(this).attr('checked',false)
+            $(this).attr('checked', false)
         }
     });
-
-
-
-
-
-
 
 
     /*$.ajax({
