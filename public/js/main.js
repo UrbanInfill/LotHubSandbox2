@@ -84,7 +84,7 @@ $(document).ready(function () {
         const line2 = $(this).attr("line2");
         gline1 = line1;
         gline2 = line2;
-        check_visited_links(line1+line2);
+        check_visited_links(line1 + line2);
         this.className += ' parent';
         const lat = $(this).attr("lat");
         const long = $(this).attr("long");
@@ -529,7 +529,7 @@ function postData(url = ``, data = {}, isVacant) {
                         continue;
                     let visited = '';
                     const address = encodeURI(property["address"]["line1"]) + encodeURI(property["address"]["line2"]);
-                    if(b_check_visited_links(address))
+                    if (b_check_visited_links(address))
                         visited = 'parent';
                     if (isVacant) {
 
@@ -540,7 +540,7 @@ function postData(url = ``, data = {}, isVacant) {
                                 $("#poiContent").show();
                                 var text = '<div class="swiper-slide" style="height: 100px;">' +
                                     '<div class="box selectPOI">' +
-                                    '<span class="h3 hotlineLabel '+visited+'" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
+                                    '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
                                     '<div class="float-right">' +
                                     '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                                     //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
@@ -618,7 +618,7 @@ function postData(url = ``, data = {}, isVacant) {
                                 $("#poiContent").show();
                                 var text = '<div class="swiper-slide" style="height: 100px;">' +
                                     '<div class="box selectPOI">' +
-                                    '<span class="h3 hotlineLabel '+ visited +'" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
+                                    '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
                                     '<div class="float-right">' +
                                     '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                                     //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
@@ -711,6 +711,7 @@ function check_visited_links(link) {
         sessionStorage.setItem('visited_links', JSON.stringify(visited_links));
     }//that.parentNode.className += ' visited';
 }
+
 function b_check_visited_links(link) {
     let visited_links = JSON.parse(sessionStorage.getItem('visited_links')) || [];
 
@@ -720,6 +721,7 @@ function b_check_visited_links(link) {
     return true;
 
 }
+
 var ipage = 1;
 
 function getpageData(lat, lng, totalpage) {

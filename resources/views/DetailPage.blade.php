@@ -228,7 +228,7 @@
             const myOptions = {
                 zoom: 13,
                 center: new google.maps.LatLng( {{$AVMResult["property"][0]["location"]["latitude"]}} ,{{$AVMResult["property"][0]["location"]["longitude"]}})
-            };
+        };
             const map = new google.maps.Map(document.getElementById("Mymap"), myOptions);
 
             //marker;
@@ -236,9 +236,9 @@
 
             const marker = new google.maps.Marker({
                 position: new google.maps.LatLng( {{$AVMResult["property"][0]["location"]["latitude"]}} ,{{$AVMResult["property"][0]["location"]["longitude"]}}),
-                map: map,
+            map: map,
                 animation: google.maps.Animation.DROP
-            });
+        });
         }
     </script>
 @endsection
