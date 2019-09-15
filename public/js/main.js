@@ -525,6 +525,8 @@ function postData(url = ``, data = {},isVacant) {
                         $("#issearchdone").css("display","block");
                     });
                 }
+                if(typeof(data) === typeof('d'))
+                    return;
                 for (const[i, property] of data.property.entries()) {
                     if(property["address"]["postal1"] != postalcode)
                         continue;
