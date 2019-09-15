@@ -815,3 +815,6 @@ body .box .info .rating .rating-img {
 .parent{
     color :blue;
 }
+body .swiper-slide-active .box .parent{
+    color: blue;
+}
