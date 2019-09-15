@@ -436,7 +436,7 @@ function getlist(lat, lng, isVacant) {
                     console.log(postData('/allpropertiesList', {
                         lat: lat,
                         lng: lng,
-                        page: 1,
+                        page: i,
                         zip: postalcode
                     }, isVacant));
                 }
