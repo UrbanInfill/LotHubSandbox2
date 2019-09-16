@@ -1052,6 +1052,7 @@ body .box .info .rating .rating-img {
 .hotlineLabel {
     color: red;
     cursor: pointer;
+    font-size: 17;
 }
 
 .parent {
