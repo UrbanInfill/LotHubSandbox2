@@ -625,7 +625,7 @@ function postData(url = ``, data = {}, isVacant) {
                                     '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
                                     '</div>' +
                                     '<div class="float-left">' +
-                                    '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location=' + property["location"]["latitude"] + ',' + property["location"]["longitude"] + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
+                                    '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=250x250&location=' + property["location"]["latitude"] + ',' + property["location"]["longitude"] + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
                                     '</div></div></div>';
                                 //$(".swiper-wrapper").append(text);
                                 swiper.appendSlide(text);
