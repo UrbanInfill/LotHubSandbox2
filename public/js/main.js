@@ -246,7 +246,7 @@ $("#searchByProperty").click(function (e) {
             });
         } else {
             swiper = new Swiper('.swiper-container', {
-                slidesPerView: 10,
+                slidesPerView: 5,
                 direction: 'vertical',
                 slideToClickedSlide: true,
                 preventClicks: true, observer: true, observeParents: true,
@@ -291,7 +291,7 @@ $("#searchByPropertyVacant").click(function (e) {
         $('#searchloading').css("display", "block");
         codeAddress(address, true);
         swiper = new Swiper('.swiper-container', {
-            slidesPerView: 10,
+            slidesPerView: 5,
             direction: 'vertical',
             slideToClickedSlide: true,
             preventClicks: true,
