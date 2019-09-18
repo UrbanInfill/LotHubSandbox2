@@ -449,7 +449,28 @@ class AjaxController extends Controller
                     $fullName = $fullName . $value . " ";
                 }
             }
-            return view('DetailPage')->with('result', $result)->with("AVMResult", $AVMResult)->with("Assessment", $psArray)->with("OwnerInfo", $information)->with('fullname', $fullName)->with('fulladdress', $line1 . ' ' . $line2);
+
+            // url encode the address
+            $address = urlencode($line1 . ' ' . $line2);
+
+            // google map geocode api url
+            $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$address}&key=AIzaSyCPAVKxutIiPNXJr8UeB2wwSrzrFA3-GuI";
+
+            // get the json response
+            $resp_json = file_get_contents($url);
+
+            // decode the json
+            $resp = json_decode($resp_json, true);
+            $lati = 0;
+            $longi=0;
+            // response status will be 'OK', if able to geocode given address
+            if ($resp['status'] == 'OK') {
+
+                // get the important data
+                $lati = isset($resp['results'][0]['geometry']['location']['lat']) ? $resp['results'][0]['geometry']['location']['lat'] : "";
+                $longi = isset($resp['results'][0]['geometry']['location']['lng']) ? $resp['results'][0]['geometry']['location']['lng'] : "";
+            }
+            return view('DetailPage')->with('result', $result)->with("AVMResult", $AVMResult)->with("Assessment", $psArray)->with("OwnerInfo", $information)->with('fullname', $fullName)->with('fulladdress', $line1 . ' ' . $line2)->with('lat',$lati)->with ('longi',$longi);
         } else
             return redirect('/logout');
     }

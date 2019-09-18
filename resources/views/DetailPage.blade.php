@@ -23,7 +23,7 @@
                 <div>
                     <div class="row">
                         <div class="col-6">
-                            <img width="100%" height="400" src="https://maps.googleapis.com/maps/api/streetview?size=800x400&location= {{$WholePropertydata["location"]["latitude"]}} ,{{$WholePropertydata["location"]["longitude"]}}&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">
+                            <img width="100%" height="400" src="https://maps.googleapis.com/maps/api/streetview?size=800x400&location={{$lat}},{{$longi}}&pitch=0&fov=120&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">
                         </div>
                         <div class="col-6">
                             <div class=" map" id="Mymap" style="width: 100%;height: 100%">
@@ -228,7 +228,7 @@
             const myOptions = {
                 enableHighAccuracy: true,
                 zoom: 13,
-                center: new google.maps.LatLng( {{$AVMResult["property"][0]["location"]["latitude"]}} ,{{$AVMResult["property"][0]["location"]["longitude"]}})
+                center: new google.maps.LatLng( {{$lat} ,{{$longi}})
         };
             const map = new google.maps.Map(document.getElementById("Mymap"), myOptions);
 
@@ -241,5 +241,6 @@
                 animation: google.maps.Animation.DROP
         });
         }
+
     </script>
 @endsection
