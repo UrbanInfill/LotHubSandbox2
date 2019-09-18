@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 
 class AjaxController extends Controller
 {
-    private $obapiurl = 'http://search.onboard-apis.com', $obapikey = '1108b08f4bf98e0bef68fb06f0e7311d';
+    private $obapiurl = 'http://search.onboard-apis.com', $obapikey = '4510c2477044a3393dcdaf68cf299a3d';
 
     public function __construct()
     {
