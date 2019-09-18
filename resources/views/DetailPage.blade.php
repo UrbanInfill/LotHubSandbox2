@@ -226,6 +226,7 @@
         function init() {
 
             const myOptions = {
+                enableHighAccuracy: true,
                 zoom: 13,
                 center: new google.maps.LatLng( {{$AVMResult["property"][0]["location"]["latitude"]}} ,{{$AVMResult["property"][0]["location"]["longitude"]}})
         };
