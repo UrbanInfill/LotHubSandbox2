@@ -23,7 +23,7 @@
                 <div>
                     <div class="row">
                         <div class="col-6">
-                            <img width="100%" height="400" src="https://maps.googleapis.com/maps/api/streetview?size=800x400&location={{$lat}},{{$longi}}&pitch=0&fov=120&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">
+                            <img width="100%" height="400" src="https://maps.googleapis.com/maps/api/streetview?size=800x400&location={{$fulladdress}}&pitch=0&fov=120&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">
                         </div>
                         <div class="col-6">
                             <div class=" map" id="Mymap" style="width: 100%;height: 100%">
@@ -236,7 +236,7 @@
             //console.log(locations);
 
             const marker = new google.maps.Marker({
-                position: new google.maps.LatLng( {{$AVMResult["property"][0]["location"]["latitude"]}} ,{{$AVMResult["property"][0]["location"]["longitude"]}}),
+                position: new google.maps.LatLng({{$lat}} ,{{$longi}}),
             map: map,
                 animation: google.maps.Animation.DROP
         });
