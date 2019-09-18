@@ -564,7 +564,7 @@ class AjaxController extends Controller
         $page = $request->input('page');
         $zip = $request->input('zip');
         $zip = urlencode($zip);
-        $pagesize = 100;
+        $pagesize = 1000;
         $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize . '&debug=True';
         //$url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?postalcode=' . $zip . '&page=' . $page . '&pagesize=' . $pagesize;
         $result = $this->curlPOIAPI($url);
@@ -638,7 +638,7 @@ class AjaxController extends Controller
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount = $getCurrentUser->Historicsavedcount - 1;
             $getCurrentUser->save();
-            $totalPages = $total / 100;
+            $totalPages = $total / 1000;
             return response($totalPages);
         } else if ($getCurrentUser->Vacantsavedcount > 0 && $isVacant == 'true') {
 
