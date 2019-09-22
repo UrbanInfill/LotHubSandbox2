@@ -38,7 +38,11 @@
 
 
    
-   
+   var layerGroup = L.geoJSON(data, {
+  onEachFeature: function (feature, layer) {
+    layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>');
+  }
+}).addTo(map);
    
    </br>  </br>  </br>  </br>  </br>
  
