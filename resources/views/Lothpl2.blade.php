@@ -39,12 +39,11 @@
   L.esri.basemapLayer('Topographic').addTo(map);
 </script>
 
-</body>
-</html>
+
    
    
    
-   
+   </br>  </br>  </br>  </br>  </br>
    <div class="pt-3">
         <div class="row">
             <div class="col" style="justify-content: center">
@@ -268,5 +267,6 @@
             display: none !important;
         }
 
-    </style>
-@endsection<body>
+    </style></body>
+</html>
+@endsection
