@@ -1,9 +1,6 @@
   <html>
 <head>
-@extends('master')
-@section('title','Historically Platted Lots')
-@section('content')
-   
+
  
   <meta charset="utf-8" />
   <title>Esri Leaflet Quickstart</title>
@@ -47,4 +44,4 @@
  
     </style></body>
 </html>
-@endsection
+
