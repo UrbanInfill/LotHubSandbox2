@@ -13,7 +13,7 @@
                     <div class="input-group  mb-3 search search-reduce" id="searchByPropForm">
                         <input class="form-control" id="search" name="address" type="text" placeholder="By Property"  onFocus="geolocate()" required="true" value="" aria-describedby="searchByProperty"/>
                         <div class="input-group-append">
-                            <select class="parameter " name="propertytype" id="mpropertytype0.25184042477811386">
+                            <select class="parameter " name="propertytype" id="typeSelect">
                                 <option selected="" value=""></option>
                                 <option value="AGRICULTURAL (NEC)"> AGRICULTURAL (NEC)  </option>
                                 <option value="APARTMENT"> APARTMENT  </option>
@@ -59,7 +59,7 @@
                                 <option value="UTILITIES"> UTILITIES  </option>
                                 <option value="VACANT LAND (NEC)"> VACANT LAND (NEC)  </option>
                             </select>
-                            <input class="btn btn-primary" type="button" value="Search" id="searchByProperty">
+                            <input class="btn btn-primary" type="button" value="Search" id="searchByTypeProperty">
                         </div>
                     </div>
                 </div>

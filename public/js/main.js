@@ -276,6 +276,7 @@ $("#searchByProperty").click(function (e) {
         alert("Please enter the zip code")
 });
 
+
 $("#searchByPropertyVacant").click(function (e) {
     e.preventDefault();
     ipage = 1;
@@ -321,7 +322,55 @@ $("#searchByPropertyVacant").click(function (e) {
         alert("Please enter the zip code")
 
 });
+$("#searchByTypeProperty").click(function (e) {
+    e.preventDefault();
+    ipage = 1;
 
+
+    $('.swiper-wrapper').empty();
+    const address = $("#Vacantsearch").val();
+    const type = $("#typeSelect").val();
+    console.log(address)
+    console.log(type)
+    return
+    if (!isEmptyOrSpaces(address)) {
+        bar1 = new ldBar("#ldBar");
+        bar1.set(0);
+        count_request_completed = 0;
+        $('#issearchdone').css("display", "none");
+        $('#searchloading').css("display", "block");
+        codeAddress(address, true);
+        swiper = new Swiper('.swiper-container', {
+            slidesPerView: 5,
+            direction: 'vertical',
+            slideToClickedSlide: true,
+            preventClicks: true,
+            observer: true, observeParents: true,
+            on: {
+                click: function (swiper, e) {
+                    // var clicked = $(e.target);
+                    focusonmarker(this.activeIndex);
+                    //console.log(clicked);
+                },
+                slideChangeTransitionEnd: function (swiper) {
+                    focusonmarker(this.activeIndex);
+
+                }
+            },
+            navigation: {
+                nextEl: '#prev-slide',
+                prevEl: '#next-slide',
+            }, scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+            mousewheel: {
+                invert: false,
+            },
+        });
+    } else
+        alert("Please enter the zip code")
+
+});
 var detailViews;
 var clusterize;
 $('#searchByAddress').click(function (e) {
