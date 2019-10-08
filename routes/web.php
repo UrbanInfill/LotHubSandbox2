@@ -13,6 +13,7 @@
 
 Route::get('/', 'homeController@home');
 Route::get('/hpl2', 'homeController@homehpl2');
+Route::get('/typesearch', 'homeController@typesearch');
 Route::get('/location','homeController@location');
 Route::get('/VacantProperties','homeController@VacantProperties');
 Route::get('/getOwnerDetail/{line1}/{line2}','AjaxController@ExtendedDetail');

@@ -107,6 +107,35 @@ class HomeController extends Controller
         }else
             return redirect('/logout');
     }
+    public function typesearch(Request $request)
+    {
+        if ($request->user()->authorizeRoles(['user'])) {
+            /*
+            $Currentuser = User::find($request->user()->id);
+            $TimediffFormated = null;
+            if(!$Currentuser->IsHistoricRest) {
+                $date1 = new DateTime("now");
+                $getTime = strtotime($Currentuser->HistoricFirstDate . " + " . $request->user()->Historicresttime . " days");
+                $time = date("Y-m-d H:i:s", $getTime);
+                $date2 = new DateTime($time);
+                $interval = date_diff($date1, $date2);
+                $TimediffFormated = $interval->format('%a days %h hours %i Mins %s Sec remaining');
+                if($date1 > $date2)
+                {
+                    $Currentuser->HistoricFirstDate = null;
+                    $Currentuser->IsHistoricRest = true;
+                    $Currentuser->Historicsavedcount =$Currentuser->HistoricTotalSaveCount;
+                    $Currentuser->save();
+                    $Currentuser = User::find($request->user()->id);
+                }
+            }
+            */
+
+
+            return view('TypeSearch')->with("Rcout",0)->with('timeExceed',0);
+        }else
+            return redirect('/logout');
+    }
 
     public function location(Request $request)
     {
