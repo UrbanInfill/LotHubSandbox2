@@ -366,7 +366,7 @@ body .search input[type="button"], body .Vacantsearch input[type="button"] {
     float: left;
     font-size: 12px;
     padding: 10px 15px;
-    min-width: 0;
+    //min-width: 0;
     font-family: 'Roboto', sans-serif;
 }
 
