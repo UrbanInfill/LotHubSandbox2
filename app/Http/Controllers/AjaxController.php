@@ -675,13 +675,14 @@ class AjaxController extends Controller
     }
     public function getTotalTypePages(Request $request)
     {
-        $lat = $request->input('postalcode');
-        $lng = $request->input('type');
+        $zip = $request->input('postalcode');
+        $type = $request->input('type');
 
 
         $pagesize = 1;
         $page = 1;
-        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
+
+        $url = 'https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/address?postalcode='.$zip.'&propertytype='.$type.'&page='.$page.'&pagesize='.$pagesize. '&debug=True';
         $result = $this->curlPOIAPI($url);
         $total = $result['status']['total'];
         $totalPages = $total / 1000;
