@@ -328,18 +328,15 @@ $("#searchByTypeProperty").click(function (e) {
 
 
     $('.swiper-wrapper').empty();
-    const address = $("#Vacantsearch").val();
+    const address = $("#Typesearch").val();
     const type = $("#typeSelect").val();
-    console.log(address)
-    console.log(type)
-    return
-    if (!isEmptyOrSpaces(address)) {
+    if (!(isEmptyOrSpaces(address) || isEmptyOrSpaces(type) ) ) {
         bar1 = new ldBar("#ldBar");
         bar1.set(0);
         count_request_completed = 0;
         $('#issearchdone').css("display", "none");
         $('#searchloading').css("display", "block");
-        codeAddress(address, true);
+        codeAddress(address, true,type);
         swiper = new Swiper('.swiper-container', {
             slidesPerView: 5,
             direction: 'vertical',
@@ -512,6 +509,126 @@ function getlist(lat, lng, isVacant) {
           timeout: 5000
       });*/
 }
+
+function getTypelist(postalcode, type) {
+
+
+    fetch(buildUrl('/getTotalTypePages', {postalcode: postalcode, type: type}), {
+        method: "get", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        redirect: "follow", // manual, *follow, error
+        referrer: "no-referrer", // no-referrer, *client
+    })
+        .then(function (response) {
+            if (response.status >= 200 && response.status < 300) {
+                return response.json()
+            }
+            throw new Error(response.statusText)
+        })
+        .then(function (data) {
+            if (data === "Error") {
+                if (!isVacant)
+                    $.notify('You exceed the search limit in Historic lot', 'error');
+                else
+                    $.notify('You exceed the search limit in Vacant lot', 'error')
+
+                return
+            } else {
+                totalPages = data;
+                console.log(data);
+                searchCount = 0;
+                $("#poiContent").hide();
+                for (let i = 1; i <= totalPages; i++) {
+                    console.log(postTypeData('/getpropertiesByTypeList', {
+                        postalcode: postalcode,
+                        type: type,
+                        page: i
+                    }, ));
+                }
+            }
+        });
+}
+function postTypeData(url = ``, data = {}) {
+    // Default options are marked with *
+    fetch(buildUrl(url, data), {
+        method: "get", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        redirect: "follow", // manual, *follow, error
+        referrer: "no-referrer", // no-referrer, *client
+    })
+        .then(function (response) {
+            if (response.status >= 200 && response.status < 300) {
+                return response.json()
+            }
+            throw new Error(response.statusText)
+        })
+        .then(function (data) {
+            console.log(data);
+
+            count_request_completed++;
+            let validPropertyList = [];
+            let location = [];
+            if (data) {
+                bar1.set((count_request_completed / parseInt(totalPages)) * 100);
+                if (count_request_completed == totalPages) {
+                    $("#searchloading").fadeOut("slow", function () {
+
+                        $('#searchloading').css("display", "none");
+
+                        $("#issearchdone").css("display", "block");
+                    });
+                }
+                if (typeof (data) === typeof ('d'))
+                    return;
+                for (const [i, property] of data.property.entries()) {
+                    if (property["address"]["postal1"] != postalcode)
+                        continue;
+                    let visited = '';
+                    const address = encodeURI(property["address"]["line1"]) + encodeURI(property["address"]["line2"]);
+                    if (b_check_visited_links(address))
+                        visited = 'parent';
+
+                    searchCount++;
+
+                    //$('#searchCount').text("Property count : " + searchCount);
+                    //$("#poiContent").show();
+
+                    var text = '<div class="swiper-slide" style="height: 100px;">' +
+                        '<div class="box selectPOI">' +
+                        '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
+                        '<div class="float-right">' +
+                        '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
+                        //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
+                        '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
+                        '</div>' +
+                        '<div class="float-left">' +
+                        '<img width="100px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location=' + property["location"]["latitude"] + ',' + property["location"]["longitude"] + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
+                        '</div></div></div>';
+
+                    swiper.appendSlide(text);
+
+                    location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine']]);
+
+                }
+                f(location);
+            }
+        })
+}
+
 
 function buildUrl(url, parameters, isVacant) {
     let qs = "";
@@ -1079,7 +1196,7 @@ function geolocate() {
 var geocoder;
 var communitydata;
 
-function codeAddress(address, isVacant = false) {
+function codeAddress(address, isVacant = false,searchtype = '') {
 
     postalcode = -1;
     geocoder = new google.maps.Geocoder();
@@ -1118,7 +1235,10 @@ function codeAddress(address, isVacant = false) {
                 },
                 cache: false,
                 complete: function () {
-                    getlist(lat, lng, isVacant)
+                    if(isEmptyOrSpaces(searchtype))
+                        getlist(lat, lng, isVacant)
+                    else
+                        getTypelist(postalcode, searchtype)
 
                     fetch(buildUrl('/getHouseInventry', {lat: lat, lng: lng}), {
                         method: "get", // *GET, POST, PUT, DELETE, etc.

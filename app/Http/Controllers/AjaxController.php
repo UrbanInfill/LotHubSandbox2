@@ -573,11 +573,9 @@ class AjaxController extends Controller
     }
     public function getpropertiesByTypeList(Request $request)
     {
-        $lat = $request->input('lat');
-        $lng = $request->input('lng');
-        $page = $request->input('page');
-        $zip = $request->input('zip');
+        $zip = $request->input('postalcode');
         $type = $request->input('type');
+        $page = $request->input('page');
 
         $zip = urlencode($zip);
         $type = urlencode($type);
@@ -672,6 +670,25 @@ class AjaxController extends Controller
         } else {
             return response('Error');
         }
+
+
+    }
+    public function getTotalTypePages(Request $request)
+    {
+        $lat = $request->input('postalcode');
+        $lng = $request->input('type');
+
+
+        $pagesize = 1;
+        $page = 1;
+        $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
+        $result = $this->curlPOIAPI($url);
+        $total = $result['status']['total'];
+        $getCurrentUser->Historicsavedcount = $getCurrentUser->Historicsavedcount - 1;
+        $getCurrentUser->save();
+        $totalPages = $total / 1000;
+        return response(ceil($totalPages));
+
 
 
     }

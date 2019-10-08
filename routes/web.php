@@ -29,6 +29,7 @@ Route::get('geocode/{address}','AjaxController@geocode_public');
 Route::get('/test','AjaxController@test');
 Route::get("allpropertiesList",'AjaxController@allpropertiesList');
 Route::get("getTotalPages",'AjaxController@getTotalPages');
+Route::get("getTotalTypePages",'AjaxController@getTotalTypePages');
 Route::post('getzipdata', 'AjaxController@getzipResponse');
 Route::post('getPropertyResponse','AjaxController@getPropertyResponse');
 Route::get('/getHouseInventry','AjaxController@getHouseInventry');

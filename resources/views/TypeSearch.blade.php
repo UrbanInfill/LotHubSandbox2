@@ -11,7 +11,7 @@
             <div class="col">
                 <div class="form-group">
                     <div class="input-group  mb-3 search search-reduce" id="searchByPropForm">
-                        <input class="form-control" id="search" name="address" type="text" placeholder="By Property"  onFocus="geolocate()" required="true" value="" aria-describedby="searchByProperty"/>
+                        <input class="form-control" id="Typesearch" name="address" type="text" placeholder="By Property"  onFocus="geolocate()" required="true" value="" aria-describedby="searchByProperty"/>
                         <div class="input-group-append">
                             <select class="parameter " name="propertytype" id="typeSelect">
                                 <option selected="" value=""></option>
