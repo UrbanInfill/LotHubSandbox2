@@ -13,11 +13,51 @@
                     <div class="input-group  mb-3 search search-reduce" id="searchByPropForm">
                         <input class="form-control" id="search" name="address" type="text" placeholder="By Property"  onFocus="geolocate()" required="true" value="" aria-describedby="searchByProperty"/>
                         <div class="input-group-append">
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="parameter " name="propertytype" id="mpropertytype0.25184042477811386">
+                                <option selected="" value=""></option>
+                                <option value="AGRICULTURAL (NEC)"> AGRICULTURAL (NEC)  </option>
+                                <option value="APARTMENT"> APARTMENT  </option>
+                                <option value="CABIN"> CABIN  </option>
+                                <option value="CLUB"> CLUB  </option>
+                                <option value="COMMERCIAL (NEC)"> COMMERCIAL (NEC)  </option>
+                                <option value="COMMERCIAL BUILDING"> COMMERCIAL BUILDING  </option>
+                                <option value="COMMERCIAL CONDOMINIUM"> COMMERCIAL CONDOMINIUM  </option>
+                                <option value="COMMON AREA"> COMMON AREA  </option>
+                                <option value="CONDOMINIUM"> CONDOMINIUM  </option>
+                                <option value="CONVERTED RESIDENCE"> CONVERTED RESIDENCE  </option>
+                                <option value="COUNTY PROPERTY"> COUNTY PROPERTY  </option>
+                                <option value="DUPLEX"> DUPLEX  </option>
+                                <option value="FARMS"> FARMS  </option>
+                                <option value="FAST FOOD FRANCHISE"> FAST FOOD FRANCHISE  </option>
+                                <option value="FEDERAL PROPERTY"> FEDERAL PROPERTY  </option>
+                                <option value="FOREST"> FOREST  </option>
+                                <option value="GROUP QUARTERS"> GROUP QUARTERS  </option>
+                                <option value="INDUSTRIAL (NEC)"> INDUSTRIAL (NEC)  </option>
+                                <option value="INDUSTRIAL PLANT"> INDUSTRIAL PLANT  </option>
+                                <option value="MANUFACTURED HOME"> MANUFACTURED HOME  </option>
+                                <option value="MARINA FACILITY"> MARINA FACILITY  </option>
+                                <option value="MISCELLANEOUS"> MISCELLANEOUS  </option>
+                                <option value="MOBILE HOME"> MOBILE HOME  </option>
+                                <option value="MOBILE HOME LOT"> MOBILE HOME LOT  </option>
+                                <option value="MOBILE HOME PARK"> MOBILE HOME PARK  </option>
+                                <option value="MULTI FAMILY DWELLING"> MULTI FAMILY DWELLING  </option>
+                                <option value="NURSERY/HORTICULTURE"> NURSERY/HORTICULTURE  </option>
+                                <option value="OFFICE BUILDING"> OFFICE BUILDING  </option>
+                                <option value="PUBLIC (NEC)"> PUBLIC (NEC)  </option>
+                                <option value="RELIGIOUS"> RELIGIOUS  </option>
+                                <option value="RESIDENTIAL (NEC)"> RESIDENTIAL (NEC)  </option>
+                                <option value="RESIDENTIAL ACREAGE"> RESIDENTIAL ACREAGE  </option>
+                                <option value="RESIDENTIAL LOT"> RESIDENTIAL LOT  </option>
+                                <option value="RETAIL TRADE"> RETAIL TRADE  </option>
+                                <option value="SFR"> SFR  </option>
+                                <option value="STATE PROPERTY"> STATE PROPERTY  </option>
+                                <option value="STORES &amp; OFFICES"> STORES &amp; OFFICES  </option>
+                                <option value="STORES &amp; RESIDENTIAL"> STORES &amp; RESIDENTIAL  </option>
+                                <option value="TAX EXEMPT"> TAX EXEMPT  </option>
+                                <option value="TOWNHOUSE/ROWHOUSE"> TOWNHOUSE/ROWHOUSE  </option>
+                                <option value="TRIPLEX"> TRIPLEX  </option>
+                                <option value="UTILITIES"> UTILITIES  </option>
+                                <option value="VACANT LAND (NEC)"> VACANT LAND (NEC)  </option>
                             </select>
                             <input class="btn btn-primary" type="button" value="Search" id="searchByProperty">
                         </div>

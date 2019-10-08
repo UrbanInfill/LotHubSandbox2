@@ -487,6 +487,7 @@ class AjaxController extends Controller
         return $this->curlPOIAPI($url);
     }
 
+
     private function getOwnerInformation($lineOne, $state, $zip)
     {
         // Get Token
@@ -570,7 +571,23 @@ class AjaxController extends Controller
         $result = $this->curlPOIAPI($url);
         echo json_encode(($result));
     }
+    public function getpropertiesByTypeList(Request $request)
+    {
+        $lat = $request->input('lat');
+        $lng = $request->input('lng');
+        $page = $request->input('page');
+        $zip = $request->input('zip');
+        $type = $request->input('type');
 
+        $zip = urlencode($zip);
+        $type = urlencode($type);
+        $pagesize = 1000;
+        $url = 'https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/address?postalcode='.$zip.'&propertytype='.$type.'&page='.$page.'&pagesize='.$pagesize. '&debug=True';
+        //$url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize . '&debug=True';
+        //$url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?postalcode=' . $zip . '&page=' . $page . '&pagesize=' . $pagesize;
+        $result = $this->curlPOIAPI($url);
+        echo json_encode(($result));
+    }
     public function getHouseInventry(Request $request)
     {
         $lat = $request->input('lat');
