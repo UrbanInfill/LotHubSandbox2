@@ -528,7 +528,7 @@ function getTypelist(postalcode, type) {
     })
         .then(function (response) {
             if (response.status >= 200 && response.status < 300) {
-                return response.json()
+                return response.text()
             }
             throw new Error(response.statusText)
         })
