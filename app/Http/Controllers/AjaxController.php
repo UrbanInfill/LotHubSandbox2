@@ -684,7 +684,7 @@ class AjaxController extends Controller
 
         $url = 'https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/address?postalcode='.$zip.'&propertytype='.$type.'&page='.$page.'&pagesize='.$pagesize. '&debug=True';
         $result = $this->curlPOIAPI($url);
-        return $result;
+        return "result";
         $total = $result['status']['total'];
         $totalPages = $total / 1000;
         return response($result);
