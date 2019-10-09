@@ -551,6 +551,15 @@ function getTypelist(postalcode, type) {
                         page: i
                     }, ));
                 }
+                if(totalPages == 0 )
+                {
+                    $("#searchloading").fadeOut("slow", function () {
+
+                        $('#searchloading').css("display", "none");
+
+                        $("#issearchdone").css("display", "block");
+                    });
+                }
             }
         });
 }
