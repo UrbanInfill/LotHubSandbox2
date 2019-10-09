@@ -685,10 +685,9 @@ class AjaxController extends Controller
 
         $url = $this->obapiurl .'/propertyapi/v1.0.0/property/address?postalcode='.$zip.'&propertytype='.$type.'&page='.$page.'&pagesize='.$pagesize.'&debug=True';
         $result = $this->curlPOIAPI($url);
-        return $result;
         $total = $result['status']['total'];
         $totalPages = $total / 1000;
-        return response($result);
+        return response(ceil($totalPages));
 
 
 
