@@ -702,7 +702,7 @@ class AjaxController extends Controller
         $address = $this->geocode($address);
         $propertyInfo = $this->getPropertyDetail($address);
         $final_array = $this->getSchoolDemographicData($propertyInfo["property"][0]["location"]["latitude"], $propertyInfo["property"][0]["location"]["longitude"], $propertyInfo["property"][0]["address"]["line1"], $propertyInfo["property"][0]["address"]["line2"]);
-        return $final_array;
+        //return $final_array;
         //$context = array("legaladdress" => $propertyInfo["property"][0]["summary"]["legal1"], "view" => view('schoolPartialView')->with("$final_array",$final_array));
         $psArray = array();
         $psArray["legaladdress"] = $propertyInfo["property"][0]["summary"]["legal1"];
@@ -782,7 +782,7 @@ class AjaxController extends Controller
                 continue;
             }
             $schoolDetails = $this->getPublicSchoolAddressById($schoolVal['OBInstID']);
-            if (!isset($schoolDetails->status))
+            if (!isset($schoolDetails['status']))
                 continue;
             if ($schoolDetails['status']['code'] == 0) {
                 $final_array[$k]['school_address']['locationaddress'] = $schoolDetails['school'][0]['SchoolProfileAndDistrictInfo']['SchoolLocation']['locationaddress'];
