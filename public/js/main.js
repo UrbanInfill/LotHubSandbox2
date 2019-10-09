@@ -1170,6 +1170,9 @@ function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */(document.getElementById('searchAddress')),
         {types: ['geocode']});
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */(document.getElementById('Typesearch')),
+        {types: ['geocode']});
 
     //autocomplete.addListener('place_changed', fillInAddress);
 
