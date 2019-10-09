@@ -11,7 +11,7 @@
                 if(!empty($final_array)) {
                 $i=1;
                 foreach($final_array as $publicSchool){
-                if($publicSchool['InstitutionName'] !=''){ ?>
+                if(@$publicSchool['InstitutionName'] !=''){ ?>
                 <div class="swiper-slide">
 
                     <div data-school="<?php echo $publicSchool['OBInstID']; ?>" id="<?php echo $i; ?>" class="selectSchool box">
