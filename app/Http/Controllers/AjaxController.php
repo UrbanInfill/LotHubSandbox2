@@ -708,7 +708,7 @@ class AjaxController extends Controller
         $psArray["legaladdress"] = $propertyInfo["property"][0]["summary"]["legal1"];
         $psArray["line1"] = $propertyInfo["property"][0]["address"]["line1"];
         $psArray["line2"] = $propertyInfo["property"][0]["address"]["line2"];
-        //$psArray["view"] = (String)view('schoolPartialView')->with("final_array", $final_array);
+        $psArray["view"] = (String)view('schoolPartialView')->with("final_array", $final_array);
         $psArray["final_array"] = $final_array;
         $detailView = array();
         foreach ($final_array as $k => $schoolDetailData) {
