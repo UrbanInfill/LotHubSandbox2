@@ -341,8 +341,7 @@ $("#searchByTypeProperty").click(function (e) {
             slidesPerView: 5,
             direction: 'vertical',
             slideToClickedSlide: true,
-            preventClicks: true,
-            observer: true, observeParents: true,
+            preventClicks: true, observer: true, observeParents: true,
             on: {
                 click: function (swiper, e) {
                     // var clicked = $(e.target);
@@ -607,7 +606,7 @@ function postTypeData(url = ``, data = {}) {
                     $('#searchCount').text("Property count : " + searchCount);
                     $("#poiContent").show();
 
-                    var text = '<div class="swiper-slide" style="height: 100px;">' +
+                    var text = '<div class="swiper-slide" style="height: 180px;">' +
                         '<div class="box selectPOI">' +
                         '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" > Hot Property </span>' +
                         '<div class="float-right">' +
