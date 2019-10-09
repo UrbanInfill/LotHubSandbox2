@@ -783,7 +783,7 @@ class AjaxController extends Controller
             }
             $schoolDetails = $this->getPublicSchoolAddressById($schoolVal['OBInstID']);
             var_dump($schoolDetails);
-            if (!property_exists($schoolDetails,'status'))
+            if (!isset($schoolDetails['status']))
                 continue;
 
             if ($schoolDetails['status']['code'] == 0) {
