@@ -405,7 +405,7 @@ $('#searchByAddress').click(function (e) {
             detailViews = data["detailViews"];
             $('#LegalAddress').text(data["legaladdress"]);
 
-            $('#view').html(data["view"]);
+            //$('#view').html(data["view"]);
             const link = '/getOwnerDetail/' + encodeURI(data["line1"]) + '/' + encodeURI(data["line2"]);
             $('#detailviewBTN').show();
             $('#detailviewBTN').attr('href', link);
