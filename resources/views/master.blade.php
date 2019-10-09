@@ -43,6 +43,9 @@
             <li>
                 <a class="nav-link " id="menu2" href="/VacantProperties">Vacant Lots</a>
             </li>
+            <li>
+                <a class="nav-link " id="menu6" href="/typesearch"> Search by Type</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link " id="menu3" href="/location">Address Search </a>
             </li>
@@ -50,7 +53,7 @@
                 <a class="nav-link " id="menu4" href="/person">Person Search</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " id="menu4" href="/hpl2">hpl2</a>
+                <a class="nav-link " id="menu5" href="/hpl2">hpl2</a>
             </li>
             <li class="nav-item">
                 <a href="/savedproperties" target="_blank" id="menu5" class="nav-link">Saved Properties</a>

@@ -1,5 +1,5 @@
 @extends('master')
-@section('title','Historically Platted Lots')
+@section('title','Type Lots')
 @section('content')
     <div class="pt-3">
         <div class="row">
@@ -261,7 +261,7 @@
 
         */
         $('.nav-link').removeClass("active");
-        $("#menu1").addClass("active");
+        $("#menu6").addClass("active");
         $("input[type='checkbox']").click(function ()  {
             if($('input:checkbox:checked').length > 10)
             {
