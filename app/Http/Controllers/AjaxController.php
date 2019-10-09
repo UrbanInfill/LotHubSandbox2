@@ -678,7 +678,8 @@ class AjaxController extends Controller
         $zip = $request->input('postalcode');
         $type = $request->input('type');
 
-
+        $zip = urlencode($zip);
+        $type = urlencode($type);
         $pagesize = 1;
         $page = 1;
 
