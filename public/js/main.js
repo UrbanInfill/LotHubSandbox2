@@ -559,6 +559,8 @@ function getTypelist(postalcode, type) {
 
                         $("#issearchdone").css("display", "block");
                     });
+                    $('#searchCount').text("Property count: 0 (No result)" );
+                    $("#poiContent").show();
                 }
             }
         });
