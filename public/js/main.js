@@ -604,7 +604,7 @@ function postTypeData(url = ``, data = {}) {
 
                     searchCount++;
 
-                    //$('#searchCount').text("Property count : " + searchCount);
+                    $('#searchCount').text("Property count : " + searchCount);
                     $("#poiContent").show();
 
                     var text = '<div class="swiper-slide" style="height: 100px;">' +
