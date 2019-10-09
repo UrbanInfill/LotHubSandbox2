@@ -701,7 +701,6 @@ class AjaxController extends Controller
 
         $address = $this->geocode($address);
         $propertyInfo = $this->getPropertyDetail($address);
-        return $propertyInfo;
         $final_array = $this->getSchoolDemographicData($propertyInfo["property"][0]["location"]["latitude"], $propertyInfo["property"][0]["location"]["longitude"], $propertyInfo["property"][0]["address"]["line1"], $propertyInfo["property"][0]["address"]["line2"]);
         //return $final_array;
         //$context = array("legaladdress" => $propertyInfo["property"][0]["summary"]["legal1"], "view" => view('schoolPartialView')->with("$final_array",$final_array));
