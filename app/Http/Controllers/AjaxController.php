@@ -782,7 +782,8 @@ class AjaxController extends Controller
                 continue;
             }
             $schoolDetails = $this->getPublicSchoolAddressById($schoolVal['OBInstID']);
-            return $schoolDetails;
+            if (!property_exists($schoolDetails, 'status'))
+                continue
             if ($schoolDetails['status']['code'] == 0) {
                 $final_array[$k]['school_address']['locationaddress'] = $schoolDetails['school'][0]['SchoolProfileAndDistrictInfo']['SchoolLocation']['locationaddress'];
                 $final_array[$k]['school_address']['locationcity'] = $schoolDetails['school'][0]['SchoolProfileAndDistrictInfo']['SchoolLocation']['locationcity'];
