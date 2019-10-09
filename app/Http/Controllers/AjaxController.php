@@ -687,7 +687,7 @@ class AjaxController extends Controller
         $result = $this->curlPOIAPI($url);
         $total = $result['status']['total'];
         $totalPages = $total / 1000;
-        return response(ceil($totalPages));
+        return response($result);
 
 
 
