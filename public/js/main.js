@@ -540,7 +540,7 @@ function getTypelist(postalcode, type) {
 
                 return
             } else {
-                totalPages = data;
+                totalPages = Math.ceil(data);
                 console.log(data);
                 searchCount = 0;
                 $("#poiContent").hide();
