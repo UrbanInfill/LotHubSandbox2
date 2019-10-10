@@ -485,6 +485,17 @@ function getlist(postalcode,lat, lng, isVacant) {
                         zip: postalcode
                     }, isVacant));
                 }
+                if(totalPages == 0 )
+                {
+                    $("#searchloading").fadeOut("slow", function () {
+
+                        $('#searchloading').css("display", "none");
+
+                        $("#issearchdone").css("display", "block");
+                    });
+                    $('#searchCount').text("Property count: 0 (No result)" );
+                    $("#poiContent").show();
+                }
             }
         });
 

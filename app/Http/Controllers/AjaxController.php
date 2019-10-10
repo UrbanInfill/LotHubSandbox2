@@ -433,7 +433,7 @@ class AjaxController extends Controller
         if ($request->user()->authorizeRoles(['user'])) {
             $result = $this->getallevent(urlencode($line1), urlencode($line2));
             $AVMResult = $this->getdetailmortgageowner(urlencode($line1), urlencode($line2));
-            
+
             $information = [];//$this->getOwnerInformation($line1, $AVMResult["property"][0]["address"]["countrySubd"], $AVMResult["property"][0]["address"]["postal1"]);
             $psArray = array();
             foreach ($AVMResult["property"] as $key => $data) {
