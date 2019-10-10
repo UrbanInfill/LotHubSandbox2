@@ -442,10 +442,10 @@ let g_BoolFor_HistoricSearch = true;
 let g_BoolFor_VacantSearch = true;
 var totalPages = 10;
 
-function getlist(lat, lng, isVacant) {
+function getlist(postalcode,lat, lng, isVacant) {
 
 
-    fetch(buildUrl('/getTotalPages', {lat: lat, lng: lng, zip: postalcode, isVacant: isVacant}), {
+    fetch(buildUrl('/getTotalPages', { zip: postalcode, isVacant: isVacant}), {
         method: "get", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, cors, *same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -1249,7 +1249,7 @@ function codeAddress(address, isVacant = false,searchtype = '') {
                 cache: false,
                 complete: function () {
                     if(isEmptyOrSpaces(searchtype))
-                        getlist(lat, lng, isVacant)
+                        getlist(postalcode,lat, lng, isVacant)
                     else
                         getTypelist(postalcode, searchtype)
 

@@ -625,8 +625,7 @@ class AjaxController extends Controller
 
     public function getTotalPages(Request $request)
     {
-        $lat = $request->input('lat');
-        $lng = $request->input('lng');
+        $zip = $request->input('zip');
         $isVacant = $request->input('isVacant');
 
         $getCurrentUser = User::find($request->user()->id);
@@ -648,7 +647,7 @@ class AjaxController extends Controller
 
             $pagesize = 1;
             $page = 1;
-            $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
+            $url = 'https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/detail?postalcode=' . $zip . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount = $getCurrentUser->Historicsavedcount - 1;
@@ -660,7 +659,7 @@ class AjaxController extends Controller
 
             $pagesize = 1;
             $page = 1;
-            $url = $this->obapiurl . '/propertyapi/v1.0.0/property/detail?latitude=' . $lat . '&longitude=' . $lng . '&page=' . $page . '&pagesize=' . $pagesize;
+            $url = 'https://api.gateway.attomdata.com/propertyapi/v1.0.0/property/detail?postalcode=' . $zip . '&page=' . $page . '&pagesize=' . $pagesize;
             $result = $this->curlPOIAPI($url);
             $total = $result['status']['total'];
             $getCurrentUser->Historicsavedcount = $getCurrentUser->Historicsavedcount - 1;
