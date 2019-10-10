@@ -473,7 +473,7 @@ function getlist(postalcode,lat, lng, isVacant) {
 
                 return
             } else {
-                totalPages = data;
+                totalPages = Math.ceil(data);
                 console.log(data);
                 searchCount = 0;
                 $("#poiContent").hide();
@@ -541,7 +541,7 @@ function getTypelist(postalcode, type) {
                 return
             } else {
                 totalPages = Math.ceil(data);
-                console.log(data);
+                console.log(totalPages);
                 searchCount = 0;
                 $("#poiContent").hide();
                 for (let i = 1; i <= totalPages; i++) {
