@@ -471,7 +471,7 @@ class AjaxController extends Controller
                 $lati = isset($resp['results'][0]['geometry']['location']['lat']) ? $resp['results'][0]['geometry']['location']['lat'] : "";
                 $longi = isset($resp['results'][0]['geometry']['location']['lng']) ? $resp['results'][0]['geometry']['location']['lng'] : "";
             }
-            return view('DetailPage')->with('result', $result)->with("AVMResult", $AVMResult)->with("Assessment", $psArray)->with("OwnerInfo", $information)->with('fullname', $fullName)->with('fulladdress', $line1 . ' ' . $line2)->with('lat',$lati)->with ('longi',$longi);
+            return view('DetailPage')->with('result', $result)->with("AVMResult", $AVMResult)->with("Assessment", $psArray)->with("OwnerInfo", $information)->with('fullname', $fullName)->with('fulladdress', str_replace("#","",($line1 . ' ' . $line2)))->with('lat',$lati)->with ('longi',$longi);
         } else
             return redirect('/logout');
     }
