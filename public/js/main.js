@@ -100,11 +100,17 @@ $(document).ready(function () {
 
         //marker;
         //console.log(locations);
-
-        const marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat, long),
-            map: map,
-            animation: google.maps.Animation.DROP
+        geocoder.geocode( { 'address': oneline}, function(results, status) {
+            if (status == 'OK') {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    animation: google.maps.Animation.DROP
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
         });
 
         map.setOptions({styles: styles['hide']});
