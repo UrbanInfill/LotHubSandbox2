@@ -621,7 +621,7 @@ function postTypeData(url = ``, data = {}) {
                         continue;
                     let visited = '';
                     const address = encodeURI(property["address"]["line1"]) + encodeURI(property["address"]["line2"]);
-                    if (b_check_visited_links(address))
+                    if (b_check_visited_links(address.replace( '#', "")))
                         visited = 'parent';
 
                     searchCount++;
@@ -631,19 +631,19 @@ function postTypeData(url = ``, data = {}) {
 
                     var text = '<div class="swiper-slide" style="height: 180px;">' +
                         '<div class="box selectPOI">' +
-                        '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '"oneLine="' + (property["address"]["oneLine"]) + '" > Hot Property </span>' +
+                        '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]).replace( '#', "") + '" line2="' + encodeURI(property["address"]["line2"]).replace( '#', "") + '"oneLine="' + (property["address"]["oneLine"]).replace( '#', "") + '" > Hot Property </span>' +
                         '<div class="float-right">' +
                         '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                         //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
-                        '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
+                        '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]).replace( '#', "") + '" line2="' + encodeURI(property["address"]["line2"]).replace( '#', "") + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
                         '</div>' +
                         '<div class="float-left">' +
-                        '<img width="250px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location=' + property["address"]["oneLine"]  + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
+                        '<img width="250px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location=' + property["address"]["oneLine"].replace( '#', "")  + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
                         '</div></div></div>';
 
                     swiper.appendSlide(text);
 
-                    location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine']]);
+                    location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine'].replace( '#', "")]);
 
                 }
                 f(location);
@@ -717,7 +717,7 @@ function postData(url = ``, data = {}, isVacant) {
                         continue;
                     let visited = '';
                     const address = encodeURI(property["address"]["line1"]) + encodeURI(property["address"]["line2"]);
-                    if (b_check_visited_links(address))
+                    if (b_check_visited_links(address.replace( '#', "")))
                         visited = 'parent';
                     if (isVacant) {
 
@@ -728,17 +728,17 @@ function postData(url = ``, data = {}, isVacant) {
                                 $("#poiContent").show();
                                 var text = '<div class="swiper-slide" style="height: 100px;">' +
                                     '<div class="box selectPOI">' +
-                                    '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '"oneline="' + (property["address"]["oneLine"]) + '" > Hot Property </span>' +
+                                    '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]).replace( '#', "") + '" line2="' + encodeURI(property["address"]["line2"]).replace( '#', "") + '"oneline="' + (property["address"]["oneLine"]).replace( '#', "") + '" > Hot Property </span>' +
                                     '<div class="float-right">' +
                                     '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                                     //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
-                                    '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
+                                    '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]).replace( '#', "") + '" line2="' + encodeURI(property["address"]["line2"]).replace( '#', "") + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
                                     '</div>' +
                                     '<div class="float-left">' +
-                                    '<img width="250px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location=' + property["address"]["oneLine"] + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
+                                    '<img width="250px" src="https://maps.googleapis.com/maps/api/streetview?size=100x100&location=' + property["address"]["oneLine"].replace( '#', "") + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
                                     '</div></div></div>';
                                 swiper.appendSlide(text);
-                                location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine']]);
+                                location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine'].replace( '#', "")]);
                             }
                         }
 
@@ -806,19 +806,19 @@ function postData(url = ``, data = {}, isVacant) {
                                 $("#poiContent").show();
                                 var text = '<div class="swiper-slide" style="height: 100px;">' +
                                     '<div class="box selectPOI">' +
-                                    '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '"oneline="' + (property["address"]["oneLine"]) + '" > Hot Property </span>' +
+                                    '<span class="h3 hotlineLabel ' + visited + '" target="_blank" lat ="' + property["location"]["latitude"] + '" long = "' + property["location"]["longitude"] + '" line1 = "' + encodeURI(property["address"]["line1"]).replace( '#', "") + '" line2="' + encodeURI(property["address"]["line2"]).replace( '#', "") + '"oneline="' + (property["address"]["oneLine"]).replace( '#', "") + '" > Hot Property </span>' +
                                     '<div class="float-right">' +
                                     '<input type="checkbox" name="selectedItem" class="selectedProperty" aria-label="Checkbox for following text input">' +
                                     //'<a target="_blank" href="/getOwnerDetail/'+encodeURI(property["address"]["line1"])+'/' +encodeURI(property["address"]["line2"])+'"style="padding: 5px;"><i class="fas fa-home" style="color: black;"></i></a>'+
-                                    '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]) + '" line2="' + encodeURI(property["address"]["line2"]) + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
+                                    '<button type="button" class="saveBtn btn btn-link"  line1 = "' + encodeURI(property["address"]["line1"]).replace( '#', "") + '" line2="' + encodeURI(property["address"]["line2"]).replace( '#', "") + '" style="padding: 5px;"><i class="fas fa-save" style="color: black;"></i></button>' +
                                     '</div>' +
                                     '<div class="float-left">' +
-                                    '<img width="250px" src="https://maps.googleapis.com/maps/api/streetview?size=250x250&location=' + property["address"]["oneLine"]  + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
+                                    '<img width="250px" src="https://maps.googleapis.com/maps/api/streetview?size=250x250&location=' + property["address"]["oneLine"].replace( '#', "")  + '&pitch=-0.76&key=AIzaSyChy0iFCguYHXfzxP_G1L1knHzvImm8VcQ" alt="">' +
                                     '</div></div></div>';
                                 //$(".swiper-wrapper").append(text);
                                 swiper.appendSlide(text);
                                 validPropertyList.push(text);
-                                location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine']]);
+                                location.push([property["location"]['latitude'], property["location"]['longitude'], property['address']['oneLine'].replace( '#', "")]);
                             } /*else if (result2) {
                                 var text = '<div class="swiper-slide" ajaxlink= "/getOwnerDetail/'+property["address"]["line1"]+'/' +property["address"]["line2"]+'"\>' +
                                     '<div class="box selectPOI" id="5">' +
